@@ -1,0 +1,58 @@
+{
+  "config": {
+    "n_kaons": 1000000,
+    "m_N_GeV": 0.2,
+    "flavor": "Umu",
+    "d_esc_m": 1.5,
+    "ctau_kaon_m": 3.712,
+    "seed": 42,
+    "mean_transport_weight": 0.07955609176553352,
+    "median_displacement_m": 0.732921030306727,
+    "n_hit_ip": 4126,
+    "n_hit_displaced": 4086
+  },
+  "scan": [
+    {
+      "ctau_m": 0.3,
+      "yield_ip": 0.004498655643297501,
+      "yield_displaced": 0.005295011629241861,
+      "ratio_displaced_over_ip": 1.17702088114498
+    },
+    {
+      "ctau_m": 1.0,
+      "yield_ip": 0.36950999478665636,
+      "yield_displaced": 0.41176179526823947,
+      "ratio_displaced_over_ip": 1.1143454874772143
+    },
+    {
+      "ctau_m": 3.0,
+      "yield_ip": 5.188794026220532,
+      "yield_displaced": 5.592032551893411,
+      "ratio_displaced_over_ip": 1.0777133421822476
+    },
+    {
+      "ctau_m": 10.0,
+      "yield_ip": 22.054222897105426,
+      "yield_displaced": 22.74755763087984,
+      "ratio_displaced_over_ip": 1.0314377313138252
+    },
+    {
+      "ctau_m": 30.0,
+      "yield_ip": 26.019353645509845,
+      "yield_displaced": 26.113501197168894,
+      "ratio_displaced_over_ip": 1.003618366272342
+    },
+    {
+      "ctau_m": 100.0,
+      "yield_ip": 14.426231825520802,
+      "yield_displaced": 14.310743747996158,
+      "ratio_displaced_over_ip": 0.991994577730247
+    },
+    {
+      "ctau_m": 300.0,
+      "yield_ip": 5.981726994348602,
+      "yield_displaced": 5.910706393802437,
+      "ratio_displaced_over_ip": 0.9881270742357077
+    }
+  ]
+}

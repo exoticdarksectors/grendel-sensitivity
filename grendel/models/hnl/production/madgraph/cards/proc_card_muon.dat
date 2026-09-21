@@ -1,0 +1,29 @@
+####################################################
+# Process card for HNL production (muon coupling)
+# pp → W± → μ± N1 and pp → Z → νμ N1
+# LHC 14 TeV
+#
+# Decay-chain syntax with explicit W/Z decay
+# Ensures on-shell W/Z bosons appear in LHE
+####################################################
+
+# Import the HeavyN model
+import model SM_HeavyN_CKM_AllMasses_LO
+
+# Define the multiparticle sets
+define p = g u c d s b u~ c~ d~ s~ b~
+define j = g u c d s b u~ c~ d~ s~ b~
+
+# Generate EW HNL production processes
+# Explicit W/Z decay ensures intermediate bosons appear in LHE
+# Charged current: pp → W+ → μ+ N1
+generate p p > w+, w+ > mu+ n1
+
+# Charged current: pp → W- → μ- N1
+add process p p > w-, w- > mu- n1
+
+# Neutral current: pp → Z → νμ N1
+add process p p > z, z > vm n1
+
+# Neutral current: pp → Z → ν̄μ N1
+add process p p > z, z > vm~ n1
