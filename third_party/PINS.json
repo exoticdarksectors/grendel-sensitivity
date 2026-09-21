@@ -1,0 +1,76 @@
+{
+  "_comment": "Pinned revisions of the external software third_party/fetch.py checks out. Licences and modifications: THIRD_PARTY.md.",
+  "packages": {
+    "exHad": {
+      "what": "Hadronic decays of GeV-scale feebly interacting particles (Kryshtal, Ovchynnikov, arXiv:2609.16104)",
+      "kind": "git",
+      "url": "https://github.com/maksymovchynnikov/exHad",
+      "commit": "7bb2308d1a60090603cbf07298d15b039f750727",
+      "license": "BSD-3-Clause",
+      "next": "python -m venv .venv && .venv/bin/pip install -e . && .venv/bin/python tools/setup.py --pythia8-dir <pythia8317 prefix>; then GRENDEL_EXHAD_PYTHON=<...>/exHad/.venv/bin/python"
+    },
+    "HNLCalc": {
+      "what": "HNL production and decay rates (Feng, Hewitt, Kling, La Rocco, arXiv:2405.07330); fork with four fixes",
+      "kind": "git",
+      "url": "https://github.com/leoredi/HNLCalc",
+      "commit": "e292cef9c82964b493fda5d3b3be90a8fa44b235",
+      "license": "none published upstream (laroccod/HNLCalc)",
+      "upstream": "https://github.com/laroccod/HNLCalc @ 07f84728"
+    },
+    "FairShip": {
+      "what": "SHiP software HNL modules (python/ only): widths, decay-channel configuration, units",
+      "kind": "git",
+      "url": "https://github.com/ShipSoft/FairShip",
+      "sparse": [
+        "python"
+      ],
+      "commit": "0e8101bb8325a02e5c71cfe523f5e079e088bd4d",
+      "license": "LGPL-3.0-or-later",
+      "next": "a PyROOT + Pythia8 environment (ROOT.TPythia8) to run grendel.models.hnl.templates.fairship"
+    },
+    "SM_HeavyN_CKM_AllMasses_LO": {
+      "what": "HeavyN FeynRules/UFO model v2.2 (Ruiz; arXiv:1602.06957, arXiv:1812.08750)",
+      "kind": "archive",
+      "url": "https://feynrules.irmp.ucl.ac.be/attachment/wiki/HeavyN/SM_HeavyN_CKM_AllMasses_LO.tgz?format=raw",
+      "sha256": "05dab629d094a086ab9c841372cde375c4374f7fd8afdfd2085004ad7caf1ec0",
+      "archive_dir": "SM_HeavyN_CKM_AllMasses_LO",
+      "license": "FeynRules model database",
+      "next": "none; MadGraph converts the model to Python 3 on first import"
+    },
+    "fonll": {
+      "what": "FONLL 1.3.3 heavy-quark production (Cacciari, Frixione, Nason), the 1.3.3 import of the alisw mirror",
+      "kind": "git",
+      "url": "https://github.com/alisw/fonll",
+      "commit": "c7086e49141cf6705cf7a4bc5f7d0b3a38673203",
+      "license": "distributed by its authors",
+      "next": "python -m grendel.production.fonll_grids.install --build   (needs gfortran and lhapdf-config)"
+    },
+    "MG5_aMC_v3_6_6": {
+      "what": "MadGraph5_aMC@NLO 3.6.6 (arXiv:1405.0301)",
+      "kind": "git",
+      "url": "https://github.com/mg5amcnlo/mg5amcnlo",
+      "commit": "fb1c2f2d067f63cebe6799f582f81cb89157e291",
+      "ref": "v3.6.6",
+      "license": "UoI-NCSA",
+      "next": "bin/mg5_aMC completes its own setup on first run; set GRENDEL_MG5_EXE if installed elsewhere; needs LHAPDF 6 with NNPDF40_nlo_as_01180"
+    },
+    "pythia8315": {
+      "what": "Pythia 8.315 (arXiv:2203.11601); the tracked kaon spectrum reproduces only at this version",
+      "kind": "git",
+      "url": "https://gitlab.com/Pythia8/releases",
+      "commit": "076b8136c296d518ec9e577d3048e08d7af9154a",
+      "ref": "pythia8315",
+      "license": "GPL-2.0-or-later",
+      "next": "./configure && make   (GRENDEL_PYTHIA8_CONFIG=<...>/pythia8315/bin/pythia8-config)"
+    },
+    "pythia8317": {
+      "what": "Pythia 8.317 (arXiv:2203.11601); the version exHad requires",
+      "kind": "git",
+      "url": "https://gitlab.com/Pythia8/releases",
+      "commit": "83a5c9986f30746cfb390435a9b10ac55a758fca",
+      "ref": "pythia8317",
+      "license": "GPL-2.0-or-later",
+      "next": "./configure && make; then exHad's tools/setup.py --pythia8-dir <this directory>"
+    }
+  }
+}
