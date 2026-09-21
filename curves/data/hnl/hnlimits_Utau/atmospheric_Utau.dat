@@ -1,0 +1,9 @@
+# Atmospheric $\nu$ \\(Dentler et al)  (HNLimits id: atmospheric)
+# Source: mhostert/Heavy-Neutrino-Limits sheet Utau4
+# Flavor: Utau
+# Format: blank line separates "bottom" and "top" curves.
+# mass_GeV  U2
+
+# top
+1.00000e-08  1.30000e-01
+1.00000e-02  1.30000e-01

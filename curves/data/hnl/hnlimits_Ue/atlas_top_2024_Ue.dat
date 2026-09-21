@@ -1,0 +1,16 @@
+# ATLAS $t\bar t$\\(2024)  (HNLimits id: atlas_top_2024)
+# Source: mhostert/Heavy-Neutrino-Limits sheet Ue4
+# Flavor: Ue
+# Format: blank line separates "bottom" and "top" curves.
+# mass_GeV  U2
+# bottom
+1.48468e+01  5.05541e-04
+2.49018e+01  2.36012e-04
+3.45169e+01  2.04322e-04
+4.00786e+01  2.05796e-04
+4.50432e+01  3.14999e-04
+5.01021e+01  3.40259e-04
+5.53181e+01  4.80876e-04
+5.99057e+01  7.07440e-04
+7.00864e+01  4.71449e-03
+7.51139e+01  3.02689e-02

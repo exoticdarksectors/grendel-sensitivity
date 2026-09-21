@@ -1,0 +1,13 @@
+# Atmospheric $\nu$ \\(Dentler et al)  (HNLimits id: atmospheric)
+# Scenario: 001, single tau-flavor dominance
+# Nature: Majorana
+# Category: experimental
+# Source metadata: local_HNL_database.xlsx
+# Source metadata SHA256: aa9346350fd2354af29b71c3a4c6d2da1c5454abd6cef3b780dd1dd858f56783
+# Source URL: https://raw.githubusercontent.com/mhostert/Heavy-Neutrino-Limits/main/src/HNLimits/include/local_HNL_database.xlsx
+# Transformations: HNLimits unit, CL, and Dirac/Majorana rules
+# mass_GeV  U2
+
+# top
+1.00000000e-08  1.30000000e-01
+1.00000000e-02  1.30000000e-01

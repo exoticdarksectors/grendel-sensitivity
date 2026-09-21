@@ -1,0 +1,44 @@
+# CODEX-b projected HNL sensitivity, |U_{\tau N}|^2 single-flavour dominance
+# Source: arXiv:1911.00481v2 (CODEX-b Expression of Interest), fig:tau_combined
+# Source figure PDF: sources/arXiv-1911.00481/HNL_Tau.pdf
+# Method: vector extraction from Mathematica PDF path operators;
+#   log-axis calibration from TICK GEOMETRY (not tick-label text bboxes).
+#   x 150.3947 pt/decade, y 32.1590 pt/decade;
+#   frame spans m = 0.2 .. 49.99 GeV.
+# Curve colour: RGB(1.00,0.55,0.00), confirmed against the legend swatch.
+# Nature: the EoI quotes DIRAC HNLs. Column 2 applies the Majorana
+#   conversion HNLimits uses for production x decay limits,
+#   dirac_to_majorana_dic['BD'] = 1/sqrt(2) = 0.707107.
+#   Column 3 is the unconverted value as drawn in the source figure.
+# Contour is open: it exits the frame at the left edge (low mass) and
+#   through the top edge (short lifetime); the region is closed by the
+#   plot border in the original, so no closure chord is stored here.
+# Best reach (Dirac, as drawn): U^2 = 8.3813e-07 at m_N = 1.2 GeV
+# Extracted: 2026-08-28
+# mass_GeV  U2_majorana  U2_dirac_raw
+2.00014718e-01  5.84298110e-05  8.26322311e-05
+4.99968387e-01  5.26301665e-06  7.44302952e-06
+7.99959812e-01  1.55726105e-06  2.20229970e-06
+9.99874985e-01  8.23362163e-07  1.16440994e-06
+1.10004790e+00  7.66897644e-07  1.08455705e-06
+1.19979515e+00  5.92644708e-07  8.38126184e-07
+1.50028705e+00  1.15089941e-06  1.62761755e-06
+1.80026218e+00  1.83180214e-06  2.59055942e-06
+1.99962593e+00  1.37313954e-06  1.94191256e-06
+2.10014027e+00  1.20831502e-06  1.70881548e-06
+2.19995986e+00  1.08731867e-06  1.53770080e-06
+2.50043760e+00  8.82179844e-07  1.24759070e-06
+2.80033372e+00  1.05041386e-06  1.48550953e-06
+3.00038869e+00  1.83924805e-06  2.60108953e-06
+3.09965165e+00  2.09863323e-06  2.96791558e-06
+3.19944381e+00  2.46861952e-06  3.49115521e-06
+3.19944381e+00  5.42569828e-06  7.67309610e-06
+3.09965165e+00  1.02618617e-05  1.45124640e-05
+3.00038869e+00  1.24441336e-05  1.75986625e-05
+2.80033372e+00  3.76911298e-05  5.33033069e-05
+2.50043760e+00  8.85794277e-05  1.25270228e-04
+2.19995986e+00  5.04345220e-04  7.13251850e-04
+2.10014027e+00  5.86083300e-04  8.28846952e-04
+1.99962593e+00  9.32824762e-04  1.31921343e-03
+1.80026218e+00  1.84864143e-03  2.61437379e-03
+1.62711948e+00  7.07106781e-03  1.00000000e-02

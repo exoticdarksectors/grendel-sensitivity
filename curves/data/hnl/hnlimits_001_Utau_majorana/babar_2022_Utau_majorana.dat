@@ -1,0 +1,23 @@
+# BaBar  (HNLimits id: babar_2022)
+# Scenario: 001, single tau-flavor dominance
+# Nature: Majorana
+# Category: experimental
+# Source metadata: local_HNL_database.xlsx
+# Source metadata SHA256: aa9346350fd2354af29b71c3a4c6d2da1c5454abd6cef3b780dd1dd858f56783
+# Source URL: https://raw.githubusercontent.com/mhostert/Heavy-Neutrino-Limits/main/src/HNLimits/include/local_HNL_database.xlsx
+# Transformations: HNLimits unit, CL, and Dirac/Majorana rules
+# mass_GeV  U2
+# bottom
+1.00000000e-01  1.94057760e-02
+2.00000000e-01  1.63814992e-02
+3.00000000e-01  8.12354344e-03
+4.00000000e-01  1.79776453e-03
+5.00000000e-01  4.91444976e-04
+6.00000000e-01  5.22527820e-04
+7.00000000e-01  4.07437287e-04
+8.00000000e-01  3.23429599e-04
+9.00000000e-01  4.51961362e-05
+1.00000000e+00  7.65310039e-05
+1.10000000e+00  4.01556749e-05
+1.20000000e+00  4.23398748e-06
+1.30000000e+00  3.43591444e-05

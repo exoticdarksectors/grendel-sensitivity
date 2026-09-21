@@ -1,0 +1,22 @@
+# K+ -> pi+ X upper wedge -- existing exclusion
+# Extracted from arXiv:2305.01715 (FIPs 2022 report), ALPs_fermions_fips2022_text_logo.pdf
+# Date: 2026-07-12
+# NOTE: pre-GKOZ phenomenology (see module docstring).
+# Source y axis g_Y = 2 v_h/f; stored as 1/f (BNT) = g_Y/246.
+# Format: chains separated by blank line; each row "mass_GeV  invf_GeV^-1"
+# chain: 15 vertices
+1.059988e-02  4.065312e-03
+1.071990e-02  1.329179e-04
+1.884989e-02  1.198100e-04
+4.343987e-02  1.136036e-04
+8.175971e-02  1.262559e-04
+1.002902e-01  1.823621e-04
+1.230604e-01  3.081626e-04
+1.263472e-01  4.065312e-03
+1.419289e-01  4.065312e-03
+1.417999e-01  2.945444e-03
+1.446806e-01  1.206606e-03
+1.690688e-01  5.489425e-04
+2.427012e-01  6.096395e-04
+2.914612e-01  1.488580e-03
+2.922806e-01  4.065312e-03

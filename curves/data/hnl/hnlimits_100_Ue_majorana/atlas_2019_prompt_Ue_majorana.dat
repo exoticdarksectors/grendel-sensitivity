@@ -1,0 +1,15 @@
+# ATLAS \\(2019)  (HNLimits id: atlas_2019_prompt)
+# Scenario: 100, single electron-flavor dominance
+# Nature: Majorana
+# Category: experimental
+# Source metadata: local_HNL_database.xlsx
+# Source metadata SHA256: aa9346350fd2354af29b71c3a4c6d2da1c5454abd6cef3b780dd1dd858f56783
+# Source URL: https://raw.githubusercontent.com/mhostert/Heavy-Neutrino-Limits/main/src/HNLimits/include/local_HNL_database.xlsx
+# Transformations: HNLimits unit, CL, and Dirac/Majorana rules
+# mass_GeV  U2
+# bottom
+5.00000000e+00  1.55420944e-04
+1.00000000e+01  3.44100531e-05
+2.00000000e+01  1.20283048e-05
+3.00000000e+01  1.28709859e-05
+5.00000000e+01  3.19029277e-05
