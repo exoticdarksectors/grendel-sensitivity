@@ -1,0 +1,30 @@
+{
+  "fonll": {
+    "version": "1.3.3",
+    "upstream": "http://www.lpthe.jussieu.fr/~cacciari/fonll/fonllinput.html",
+    "mirror": "https://github.com/alisw/fonll",
+    "mirror_commit": "c7086e49141cf6705cf7a4bc5f7d0b3a38673203"
+  },
+  "files": {
+    "main/Makefile": {
+      "diff": "main_Makefile.diff",
+      "sha256_pristine": "19b6fda676b0235328aa406806e9046db6822996b670bfa4b3ac3303b92af1a9",
+      "sha256_patched": "573f6d62459f87d99c18d9076bea6a33928c2bee7ca1b94e646e99b7a1d44398"
+    },
+    "misc1/Makefile": {
+      "diff": "misc1_Makefile.diff",
+      "sha256_pristine": "105232b525fea39cdc2bcf75208794667c04ec83044917cb8ec3c38665cf0ed6",
+      "sha256_patched": "69be32d8b33a69bf3d912f51b5c57d57905d462e4c39673170ce3e44ace4a0f6"
+    },
+    "misc1/fonllgrid.f": {
+      "diff": "misc1_fonllgrid.f.diff",
+      "sha256_pristine": "4d9807f315334f43a3736c4e6f6aa1419231f56e701ce7e49a680440f93f3d81",
+      "sha256_patched": "935a7071643583abd8f7952b5b65fc7eb7ee855d7e560b129e1217095fd29117"
+    },
+    "misc1/fragmfonll.f": {
+      "diff": "misc1_fragmfonll.f.diff",
+      "sha256_pristine": "b043c1c27d27cfdcfff6fa723e576e2f0c1224eed39133bbe412dd423db81275",
+      "sha256_patched": "28f10a32135be9d9c286d76b636778bcea0330d803aa4debd1f4d9898474e74e"
+    }
+  }
+}

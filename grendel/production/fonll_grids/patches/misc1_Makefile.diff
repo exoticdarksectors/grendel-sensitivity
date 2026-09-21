@@ -1,0 +1,57 @@
+diff --git a/misc1/Makefile b/misc1/Makefile
+index c2eeae3..055933d 100644
+--- a/misc1/Makefile
++++ b/misc1/Makefile
+@@ -14,7 +14,7 @@ DEBUG=-ggdb
+ SYSOBJ=trapfpe.o
+ endif
+ ifeq ($(shell uname),Darwin)
+-F77= g77 -Wall -fno-automatic -ffortran-bounds-check
++F77= gfortran -Wall -fno-automatic -fallow-argument-mismatch
+ OPT=-O
+ #SYSOBJ=trapfpe.o
+ endif
+@@ -27,13 +27,15 @@ FF=$(F77) $(OPT) $(DEBUG) $(AUTODBL)
+ 
+ 
+ INTPACK = fakenag.o vegas_p.o
+-STRF =  fonstru_mlm.o fonllpdf.o
++STRF =  fonstru_mlm.o fonllpdf.o eks98.o eps09.o
+ STRFMLM = hvqpdfpho.o dummies.o elpdf_user.o
+ STRFPDL = jetpdflib.o elpdf_user.o dummies.o
++STRFLHA = lhapdfif.o
+ #LIBSPDL = /afs/cern.ch/asis/i386_redhat72/cern/pro/lib/libpdflib804.a \
+ #          /afs/cern.ch/asis/i386_redhat72/cern/pro/lib/libmathlib.a \
+ #          /afs/cern.ch/asis/i386_redhat72/cern/pro/lib/libkernlib.a
+ LIBSPDL = -L/cern/pro/lib -lpdflib -lpacklib -lmathlib -lkernlib
++LIBSLHA = $(STATIC) -L$(shell lhapdf-config --prefix)/lib -Wl,-rpath,$(shell lhapdf-config --prefix)/lib -lLHAPDF
+ COMMON= cernlib.o dfint.o gauleg.o fww_ww.o mlmident.o locatd.o dcspln.o\
+           strf.o getstr.o spmat1.o fonfra_p.o istrl.o toend.o
+ #LIBS    = -L/cern/pro/lib -lpacklib -lmathlib -lkernlib
+@@ -56,7 +58,7 @@ DRIVER3=fonllgrid.o
+ 
+ HDM=hdms.o hvqcrf.o rozlimqa.o rozlimgg.o rozlimqg.o
+ 
+-HDR=main_p.o input.o matrix_p.o stru.o fbm.o
++HDR=main_p.o input.o matrix_p.o stru.o fbm.o struv_plus_avgo.o
+ 
+ PHM=phms.o phocrs.o rozlimpg.o rozlimpc.o  rozlimpn.o  rozlimpa.o
+ 
+@@ -74,6 +76,10 @@ fonllgrid: $(DRIVER3) pttoz.o $(DRIVER) $(HDM) $(HDR) $(PHM) $(PHR) $(STRF) \
+         $(STRFMLM) $(COMMON) $(INTPACK) $(SYSOBJ)
+ 	$(FF) $^ $(LIBS) -o $@
+ 
++fonllgridlha: $(DRIVER3) pttoz.o $(DRIVER) $(HDM) $(HDR) $(PHM) $(PHR) $(STRF) \
++        $(STRFLHA) $(COMMON) $(INTPACK) $(SYSOBJ)
++	$(FF) $^ $(LIBSLHA) -o $@
++
+ fonllpdl : $(DRIVER1) $(DRIVER) $(HDM) $(HDR) $(PHM) $(PHR) $(STRF) \
+         $(STRFPDL) $(COMMON) $(INTPACK) $(SYSOBJ)
+ 	$(FF) $^ $(LIBSPDL) -o $@
+@@ -94,6 +100,3 @@ tgz:
+          --exclude "*.o" --exclude "*~" --exclude "*#" --exclude "*xsectmlm" --
+ clean:
+ 	-rm core *.o *~
+-
+-
+-
