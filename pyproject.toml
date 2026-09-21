@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "grendel-sensitivity"
-version = "0.1.0"
+version = "1.0.0"
 description = "Sensitivity of the GRENDEL long-lived-particle detector to the PBC benchmark models"
 readme = "README.md"
 license = { text = "BSD-3-Clause" }
