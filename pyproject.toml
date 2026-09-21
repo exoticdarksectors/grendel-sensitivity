@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grendel-sensitivity"
+version = "0.1.0"
+description = "Sensitivity of the GRENDEL long-lived-particle detector to the PBC benchmark models"
+readme = "README.md"
+license = { text = "BSD-3-Clause" }
+requires-python = ">=3.11"
+authors = [
+  { name = "Matthew Citron" },
+  { name = "Federico Leo Redi" },
+  { name = "Ryan Schmitz" },
+]
+dependencies = [
+  "numpy>=2.4",
+  "pandas>=3.0",
+  "scipy>=1.13",
+  # pinned: the manuscript figures are reproduced byte for byte with this release
+  "matplotlib==3.10.9",
+  "trimesh>=4.4",
+  "rtree",
+  "networkx",
+  "particle>=0.24",
+  "tqdm",
+]
+
+[project.optional-dependencies]
+# comparison curves and the figure renderer
+curves = ["HNLimits==1.2.0"]
+# digitising published limits from their PDFs
+digitize = ["PyMuPDF", "Pillow"]
+# HNL production inputs (HNLCalc, fetched by third_party/fetch.py)
+production = ["sympy", "mpmath", "numba"]
+# deterministic accelerated ray backend used by the uncertainty campaigns
+raycast = ["embreex==4.4.0"]
+test = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["grendel*", "curves*"]
+
+[tool.setuptools.package-data]
+grendel = ["**/data/**/*", "**/*.conf", "**/*.dat", "**/*.csv", "**/*.gz", "**/*.json", "**/*.npz", "**/*.diff", "**/*.sh", "**/*.md"]
+curves = ["data/**/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--import-mode=importlib"
+markers = [
+  "external: needs data, builds or grids that are not in the repository",
+]

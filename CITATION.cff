@@ -1,0 +1,244 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, please cite the paper it accompanies
+  (preferred-citation) and the tools it is built on where they enter your
+  result: the references below name each one. THIRD_PARTY.md records their
+  pinned revisions, licences and every local modification.
+type: software
+title: "grendel-sensitivity: sensitivity of the GRENDEL detector to the PBC benchmark models"
+authors:
+  - family-names: Citron
+    given-names: Matthew
+  - family-names: Redi
+    given-names: Federico Leo
+    affiliation: "Università degli Studi di Bergamo"
+    email: federicoleo.redi@unibg.it
+  - family-names: Schmitz
+    given-names: Ryan
+repository-code: "https://github.com/exoticdarksectors/grendel-sensitivity"
+license: BSD-3-Clause
+keywords:
+  - long-lived particles
+  - heavy neutral leptons
+  - dark scalar
+  - axion-like particles
+  - HL-LHC
+  - Physics Beyond Colliders
+preferred-citation:
+  type: article
+  title: "Proposing GRENDEL: GalleRy ExperimeNt for Decays of Exotic LLPs at the LHC"
+  authors:
+    - family-names: Citron
+      given-names: Matthew
+    - family-names: Redi
+      given-names: Federico Leo
+    - family-names: Schmitz
+      given-names: Ryan
+  year: 2026
+  identifiers:
+    - type: other
+      value: "arXiv:2609.00152"
+  url: "https://arxiv.org/abs/2609.00152"
+references:
+  - type: article
+    title: "Simulating Heavy Neutral Leptons with General Couplings at Collider and Fixed Target Experiments"
+    notes: "HNLCalc: every HNL production branching ratio and three-body rate used here"
+    authors:
+      - family-names: Feng
+        given-names: Jonathan L.
+      - family-names: Hewitt
+        given-names: Alec
+      - family-names: Kling
+        given-names: Felix
+      - family-names: La Rocco
+        given-names: Daniel
+    year: 2024
+    identifiers:
+      - type: other
+        value: "arXiv:2405.07330"
+    repository-code: "https://github.com/laroccod/HNLCalc"
+  - type: article
+    title: "Rethinking search signatures: Hadronic decays of GeV-scale feebly coupled particles"
+    notes: "exHad: the hadronic decay model of the HNL, BC4 and BC10 templates"
+    authors:
+      - family-names: Kryshtal
+        given-names: Volodymyr
+      - family-names: Ovchynnikov
+        given-names: Maksym
+    year: 2026
+    identifiers:
+      - type: other
+        value: "arXiv:2609.16104"
+    repository-code: "https://github.com/maksymovchynnikov/exHad"
+  - type: software
+    title: "FairShip"
+    notes: "the SHiP Collaboration's HNL width and decay-channel modules behind the first-curve templates and the width-uncertainty table"
+    authors:
+      - name: "The SHiP Collaboration"
+    repository-code: "https://github.com/ShipSoft/FairShip"
+  - type: article
+    title: "The p_T spectrum in heavy-flavour hadroproduction"
+    notes: "FONLL"
+    authors:
+      - family-names: Cacciari
+        given-names: Matteo
+      - family-names: Greco
+        given-names: Mario
+      - family-names: Nason
+        given-names: Paolo
+    year: 1998
+    identifiers:
+      - type: other
+        value: "arXiv:hep-ph/9803400"
+  - type: article
+    title: "The p_T spectrum in heavy-flavour photoproduction"
+    notes: "FONLL"
+    authors:
+      - family-names: Cacciari
+        given-names: Matteo
+      - family-names: Frixione
+        given-names: Stefano
+      - family-names: Nason
+        given-names: Paolo
+    year: 2001
+    identifiers:
+      - type: other
+        value: "arXiv:hep-ph/0102134"
+  - type: article
+    title: "The path to proton structure at 1% accuracy"
+    notes: "NNPDF4.0 parton distributions used in the FONLL grids"
+    authors:
+      - name: "The NNPDF Collaboration"
+    year: 2022
+    identifiers:
+      - type: other
+        value: "arXiv:2109.02653"
+  - type: article
+    title: "The automated computation of tree-level and next-to-leading order differential cross sections, and their matching to parton shower simulations"
+    notes: "MadGraph5_aMC@NLO: W/Z and prompt-tau production of HNLs"
+    authors:
+      - family-names: Alwall
+        given-names: Johan
+      - name: "et al."
+    year: 2014
+    identifiers:
+      - type: other
+        value: "arXiv:1405.0301"
+  - type: article
+    title: "Heavy Majorana neutrinos from W_gamma fusion at hadron colliders"
+    notes: "the HeavyN model (SM_HeavyN_CKM_AllMasses_LO)"
+    authors:
+      - family-names: Alva
+        given-names: Daniel
+      - family-names: Han
+        given-names: Tao
+      - family-names: Ruiz
+        given-names: Richard
+    year: 2015
+    identifiers:
+      - type: other
+        value: "arXiv:1411.7305"
+  - type: article
+    title: "Fully-Automated Precision Predictions for Heavy Neutrino Production Mechanisms at Hadron Colliders"
+    notes: "the HeavyN model"
+    authors:
+      - family-names: Degrande
+        given-names: Céline
+      - family-names: Mattelaer
+        given-names: Olivier
+      - family-names: Ruiz
+        given-names: Richard
+      - family-names: Turner
+        given-names: Jessica
+    year: 2016
+    identifiers:
+      - type: other
+        value: "arXiv:1602.06957"
+  - type: article
+    title: "Heavy neutrinos with dynamic jet vetoes: multilepton searches at sqrt(s) = 14, 27, and 100 TeV"
+    notes: "the HeavyN model"
+    authors:
+      - family-names: Pascoli
+        given-names: Silvia
+      - family-names: Ruiz
+        given-names: Richard
+      - family-names: Weiland
+        given-names: Cedric
+    year: 2019
+    identifiers:
+      - type: other
+        value: "arXiv:1812.08750"
+  - type: article
+    title: "A comprehensive guide to the physics and usage of PYTHIA 8.3"
+    notes: "Pythia 8: the kaon spectrum and the event generation inside exHad and FairShip"
+    authors:
+      - family-names: Bierlich
+        given-names: Christian
+      - name: "et al."
+    year: 2022
+    identifiers:
+      - type: other
+        value: "arXiv:2203.11601"
+  - type: article
+    title: "Sensitivities to feebly interacting particles: public and unified calculations"
+    notes: "SensCalc: the BC10 widths and branching ratios"
+    authors:
+      - family-names: Ovchynnikov
+        given-names: Maksym
+      - family-names: Tastet
+        given-names: Jean-Loup
+      - family-names: Mikulenko
+        given-names: Oleksii
+      - family-names: Bondarenko
+        given-names: Kyrylo
+    year: 2023
+    identifiers:
+      - type: other
+        value: "arXiv:2305.13383"
+  - type: article
+    title: "ALPINIST: Axion-Like Particles In Numerous Interactions Simulated and Tabulated"
+    notes: "the NA62 bound and the digitised GKOZ widths"
+    authors:
+      - family-names: Jerhot
+        given-names: Jan
+      - family-names: Döbrich
+        given-names: Babette
+      - family-names: Ertas
+        given-names: Fatih
+      - family-names: Kahlhoefer
+        given-names: Felix
+      - family-names: Spadaro
+        given-names: Tommaso
+    year: 2022
+    identifiers:
+      - type: other
+        value: "arXiv:2201.05170"
+  - type: article
+    title: "Effective portals to heavy neutral leptons"
+    notes: "HNLimits: the experimental and cosmological bounds on the HNL panels"
+    authors:
+      - family-names: Fernández-Martínez
+        given-names: Enrique
+      - family-names: González-López
+        given-names: Manuel
+      - family-names: Hernández-García
+        given-names: Josu
+      - family-names: Hostert
+        given-names: Matheus
+      - family-names: López-Pavón
+        given-names: Jacobo
+    year: 2023
+    identifiers:
+      - type: other
+        value: "arXiv:2304.06772"
+    repository-code: "https://github.com/mhostert/Heavy-Neutrino-Limits"
+  - type: article
+    title: "Decay and detection of a light scalar boson mixing with the Higgs boson"
+    notes: "the dark-scalar hadronic widths"
+    authors:
+      - family-names: Winkler
+        given-names: Martin Wolfgang
+    year: 2019
+    identifiers:
+      - type: other
+        value: "arXiv:1809.01876"
