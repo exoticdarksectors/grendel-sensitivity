@@ -1,0 +1,387 @@
+{
+	"column_ids":[
+		"mass_GeV",
+		"width_coefficient_001",
+		"width_coefficient_002",
+		"width_coefficient_003",
+		"width_coefficient_004",
+		"width_coefficient_005",
+		"width_coefficient_006",
+		"width_coefficient_007",
+		"width_coefficient_008",
+		"width_coefficient_009",
+		"width_coefficient_010",
+		"width_coefficient_011",
+		"width_coefficient_012",
+		"width_coefficient_013",
+		"width_coefficient_014",
+		"width_coefficient_015",
+		"width_coefficient_016",
+		"width_coefficient_017",
+		"width_coefficient_018",
+		"width_coefficient_019",
+		"width_coefficient_020",
+		"width_coefficient_021",
+		"width_coefficient_022",
+		"width_coefficient_023",
+		"width_coefficient_024",
+		"width_coefficient_025",
+		"width_coefficient_026",
+		"width_coefficient_027",
+		"width_coefficient_028",
+		"width_coefficient_029",
+		"width_coefficient_030",
+		"width_coefficient_031",
+		"width_coefficient_032",
+		"width_coefficient_033",
+		"width_coefficient_034",
+		"width_coefficient_035",
+		"width_coefficient_036",
+		"width_coefficient_037",
+		"width_coefficient_038",
+		"width_coefficient_039",
+		"width_coefficient_040"
+	],
+	"source_headers":[
+		"SubscriptBox[m, a], GeV",
+		"2e",
+		"2γ",
+		"2μ",
+		"2τ",
+		"2b",
+		"2c",
+		"2d",
+		"2G",
+		"2s",
+		"2t",
+		"2u",
+		"2SubscriptBox[K, L]SuperscriptBox[π, 0]",
+		"2SubscriptBox[K, S]SuperscriptBox[π, 0]",
+		"2SuperscriptBox[ηπ, 0]",
+		"2SuperscriptBox[π, +]2SuperscriptBox[π, -]",
+		"2SuperscriptBox[ρ, 0]",
+		"2ϕ",
+		"2ω",
+		"3SuperscriptBox[π, 0]",
+		"3η",
+		"SubscriptBox[K, L]SubscriptBox[K, S]SuperscriptBox[π, 0]",
+		"SuperscriptBox[K, *0]SuperscriptBox[OverscriptBox[K, _], *0]",
+		"SuperscriptBox[K, -]SubscriptBox[K, L]SuperscriptBox[π, +]",
+		"SuperscriptBox[K, +]SubscriptBox[K, L]SuperscriptBox[π, -]",
+		"SuperscriptBox[K, -]SubscriptBox[K, S]SuperscriptBox[π, +]",
+		"SuperscriptBox[K, +]SubscriptBox[K, S]SuperscriptBox[π, -]",
+		"SuperscriptBox[K, *+]SuperscriptBox[K, *-]",
+		"SuperscriptBox[K, +]SuperscriptBox[K, -]SuperscriptBox[π, 0]",
+		"SuperscriptBox[γπ, +]SuperscriptBox[π, -]",
+		"SuperscriptBox[η2π, 0]",
+		"SuperscriptBox[ηπ, +]SuperscriptBox[π, -]",
+		"SuperscriptBox[π, +]SuperscriptBox[π, -]2SuperscriptBox[π, 0]",
+		"SuperscriptBox[π, +]SuperscriptBox[π, -]SuperscriptBox[π, 0]",
+		"SuperscriptBox[ρ, +]SuperscriptBox[ρ, -]",
+		"SuperscriptBox[ωπ, +]SuperscriptBox[π, -]",
+		"η'2SuperscriptBox[π, 0]",
+		"η'SuperscriptBox[π, +]SuperscriptBox[π, -]",
+		"Non-hadronic, total",
+		"Hadronic, total",
+		"Total"
+	],
+	"source_headers_input_form":[
+		"\"\\!\\(\\*SubscriptBox[\\(m\\), \\(a\\)]\\), GeV\"",
+		"\"2e\"",
+		"\"2γ\"",
+		"\"2μ\"",
+		"\"2τ\"",
+		"\"2b\"",
+		"\"2c\"",
+		"\"2d\"",
+		"\"2G\"",
+		"\"2s\"",
+		"\"2t\"",
+		"\"2u\"",
+		"\"2\\!\\(\\*SubscriptBox[\\(K\\), \\(L\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(0\\)]\\)\"",
+		"\"2\\!\\(\\*SubscriptBox[\\(K\\), \\(S\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(0\\)]\\)\"",
+		"\"2\\!\\(\\*SuperscriptBox[\\(ηπ\\), \\(0\\)]\\)\"",
+		"\"2\\!\\(\\*SuperscriptBox[\\(π\\), \\(+\\)]\\)2\\!\\(\\*SuperscriptBox[\\(π\\), \\(-\\)]\\)\"",
+		"\"2\\!\\(\\*SuperscriptBox[\\(ρ\\), \\(0\\)]\\)\"",
+		"\"2ϕ\"",
+		"\"2ω\"",
+		"\"3\\!\\(\\*SuperscriptBox[\\(π\\), \\(0\\)]\\)\"",
+		"\"3η\"",
+		"\"\\!\\(\\*SubscriptBox[\\(K\\), \\(L\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(S\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(0\\)]\\)\"",
+		"\"\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\)\\!\\(\\*SuperscriptBox[OverscriptBox[\\(K\\), \\(_\\)], \\(*\\(0\\)\\)]\\)\"",
+		"\"\\!\\(\\*SuperscriptBox[\\(K\\), \\(-\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(L\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(+\\)]\\)\"",
+		"\"\\!\\(\\*SuperscriptBox[\\(K\\), \\(+\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(L\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(-\\)]\\)\"",
+		"\"\\!\\(\\*SuperscriptBox[\\(K\\), \\(-\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(S\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(+\\)]\\)\"",
+		"\"\\!\\(\\*SuperscriptBox[\\(K\\), \\(+\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(S\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(-\\)]\\)\"",
+		"\"\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(+\\)\\)]\\)\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(-\\)\\)]\\)\"",
+		"\"\\!\\(\\*SuperscriptBox[\\(K\\), \\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(K\\), \\(-\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(0\\)]\\)\"",
+		"\"\\!\\(\\*SuperscriptBox[\\(γπ\\), \\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(-\\)]\\)\"",
+		"\"\\!\\(\\*SuperscriptBox[\\(η2π\\), \\(0\\)]\\)\"",
+		"\"\\!\\(\\*SuperscriptBox[\\(ηπ\\), \\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(-\\)]\\)\"",
+		"\"\\!\\(\\*SuperscriptBox[\\(π\\), \\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(-\\)]\\)2\\!\\(\\*SuperscriptBox[\\(π\\), \\(0\\)]\\)\"",
+		"\"\\!\\(\\*SuperscriptBox[\\(π\\), \\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(-\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(0\\)]\\)\"",
+		"\"\\!\\(\\*SuperscriptBox[\\(ρ\\), \\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(ρ\\), \\(-\\)]\\)\"",
+		"\"\\!\\(\\*SuperscriptBox[\\(ωπ\\), \\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(-\\)]\\)\"",
+		"\"η'2\\!\\(\\*SuperscriptBox[\\(π\\), \\(0\\)]\\)\"",
+		"\"η'\\!\\(\\*SuperscriptBox[\\(π\\), \\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(-\\)]\\)\"",
+		"\"Non-hadronic, total\"",
+		"\"Hadronic, total\"",
+		"\"Total\""
+	],
+	"columns":[
+		{
+			"source_index":1,
+			"id":"mass_GeV",
+			"source_header":"SubscriptBox[m, a], GeV",
+			"canonical_name":null
+		},
+		{
+			"source_index":2,
+			"id":"width_coefficient_001",
+			"source_header":"2e",
+			"canonical_name":"ee"
+		},
+		{
+			"source_index":3,
+			"id":"width_coefficient_002",
+			"source_header":"2γ",
+			"canonical_name":"gammagamma"
+		},
+		{
+			"source_index":4,
+			"id":"width_coefficient_003",
+			"source_header":"2μ",
+			"canonical_name":"mumu"
+		},
+		{
+			"source_index":5,
+			"id":"width_coefficient_004",
+			"source_header":"2τ",
+			"canonical_name":"tautau"
+		},
+		{
+			"source_index":6,
+			"id":"width_coefficient_005",
+			"source_header":"2b",
+			"canonical_name":null
+		},
+		{
+			"source_index":7,
+			"id":"width_coefficient_006",
+			"source_header":"2c",
+			"canonical_name":null
+		},
+		{
+			"source_index":8,
+			"id":"width_coefficient_007",
+			"source_header":"2d",
+			"canonical_name":null
+		},
+		{
+			"source_index":9,
+			"id":"width_coefficient_008",
+			"source_header":"2G",
+			"canonical_name":null
+		},
+		{
+			"source_index":10,
+			"id":"width_coefficient_009",
+			"source_header":"2s",
+			"canonical_name":null
+		},
+		{
+			"source_index":11,
+			"id":"width_coefficient_010",
+			"source_header":"2t",
+			"canonical_name":null
+		},
+		{
+			"source_index":12,
+			"id":"width_coefficient_011",
+			"source_header":"2u",
+			"canonical_name":null
+		},
+		{
+			"source_index":13,
+			"id":"width_coefficient_012",
+			"source_header":"2SubscriptBox[K, L]SuperscriptBox[π, 0]",
+			"canonical_name":null
+		},
+		{
+			"source_index":14,
+			"id":"width_coefficient_013",
+			"source_header":"2SubscriptBox[K, S]SuperscriptBox[π, 0]",
+			"canonical_name":null
+		},
+		{
+			"source_index":15,
+			"id":"width_coefficient_014",
+			"source_header":"2SuperscriptBox[ηπ, 0]",
+			"canonical_name":null
+		},
+		{
+			"source_index":16,
+			"id":"width_coefficient_015",
+			"source_header":"2SuperscriptBox[π, +]2SuperscriptBox[π, -]",
+			"canonical_name":null
+		},
+		{
+			"source_index":17,
+			"id":"width_coefficient_016",
+			"source_header":"2SuperscriptBox[ρ, 0]",
+			"canonical_name":null
+		},
+		{
+			"source_index":18,
+			"id":"width_coefficient_017",
+			"source_header":"2ϕ",
+			"canonical_name":null
+		},
+		{
+			"source_index":19,
+			"id":"width_coefficient_018",
+			"source_header":"2ω",
+			"canonical_name":null
+		},
+		{
+			"source_index":20,
+			"id":"width_coefficient_019",
+			"source_header":"3SuperscriptBox[π, 0]",
+			"canonical_name":null
+		},
+		{
+			"source_index":21,
+			"id":"width_coefficient_020",
+			"source_header":"3η",
+			"canonical_name":null
+		},
+		{
+			"source_index":22,
+			"id":"width_coefficient_021",
+			"source_header":"SubscriptBox[K, L]SubscriptBox[K, S]SuperscriptBox[π, 0]",
+			"canonical_name":null
+		},
+		{
+			"source_index":23,
+			"id":"width_coefficient_022",
+			"source_header":"SuperscriptBox[K, *0]SuperscriptBox[OverscriptBox[K, _], *0]",
+			"canonical_name":null
+		},
+		{
+			"source_index":24,
+			"id":"width_coefficient_023",
+			"source_header":"SuperscriptBox[K, -]SubscriptBox[K, L]SuperscriptBox[π, +]",
+			"canonical_name":null
+		},
+		{
+			"source_index":25,
+			"id":"width_coefficient_024",
+			"source_header":"SuperscriptBox[K, +]SubscriptBox[K, L]SuperscriptBox[π, -]",
+			"canonical_name":null
+		},
+		{
+			"source_index":26,
+			"id":"width_coefficient_025",
+			"source_header":"SuperscriptBox[K, -]SubscriptBox[K, S]SuperscriptBox[π, +]",
+			"canonical_name":null
+		},
+		{
+			"source_index":27,
+			"id":"width_coefficient_026",
+			"source_header":"SuperscriptBox[K, +]SubscriptBox[K, S]SuperscriptBox[π, -]",
+			"canonical_name":null
+		},
+		{
+			"source_index":28,
+			"id":"width_coefficient_027",
+			"source_header":"SuperscriptBox[K, *+]SuperscriptBox[K, *-]",
+			"canonical_name":null
+		},
+		{
+			"source_index":29,
+			"id":"width_coefficient_028",
+			"source_header":"SuperscriptBox[K, +]SuperscriptBox[K, -]SuperscriptBox[π, 0]",
+			"canonical_name":null
+		},
+		{
+			"source_index":30,
+			"id":"width_coefficient_029",
+			"source_header":"SuperscriptBox[γπ, +]SuperscriptBox[π, -]",
+			"canonical_name":null
+		},
+		{
+			"source_index":31,
+			"id":"width_coefficient_030",
+			"source_header":"SuperscriptBox[η2π, 0]",
+			"canonical_name":null
+		},
+		{
+			"source_index":32,
+			"id":"width_coefficient_031",
+			"source_header":"SuperscriptBox[ηπ, +]SuperscriptBox[π, -]",
+			"canonical_name":null
+		},
+		{
+			"source_index":33,
+			"id":"width_coefficient_032",
+			"source_header":"SuperscriptBox[π, +]SuperscriptBox[π, -]2SuperscriptBox[π, 0]",
+			"canonical_name":null
+		},
+		{
+			"source_index":34,
+			"id":"width_coefficient_033",
+			"source_header":"SuperscriptBox[π, +]SuperscriptBox[π, -]SuperscriptBox[π, 0]",
+			"canonical_name":null
+		},
+		{
+			"source_index":35,
+			"id":"width_coefficient_034",
+			"source_header":"SuperscriptBox[ρ, +]SuperscriptBox[ρ, -]",
+			"canonical_name":null
+		},
+		{
+			"source_index":36,
+			"id":"width_coefficient_035",
+			"source_header":"SuperscriptBox[ωπ, +]SuperscriptBox[π, -]",
+			"canonical_name":null
+		},
+		{
+			"source_index":37,
+			"id":"width_coefficient_036",
+			"source_header":"η'2SuperscriptBox[π, 0]",
+			"canonical_name":null
+		},
+		{
+			"source_index":38,
+			"id":"width_coefficient_037",
+			"source_header":"η'SuperscriptBox[π, +]SuperscriptBox[π, -]",
+			"canonical_name":null
+		},
+		{
+			"source_index":39,
+			"id":"width_coefficient_038",
+			"source_header":"Non-hadronic, total",
+			"canonical_name":"nonhadronic_total"
+		},
+		{
+			"source_index":40,
+			"id":"width_coefficient_039",
+			"source_header":"Hadronic, total",
+			"canonical_name":"hadronic_total"
+		},
+		{
+			"source_index":41,
+			"id":"width_coefficient_040",
+			"source_header":"Total",
+			"canonical_name":"total"
+		}
+	],
+	"source_metadata_rows_input_form":[
+		"{\"\\!\\(\\*SubscriptBox[\\(m\\), \\(a\\)]\\), GeV\", \"2e\", \"2γ\", \"2μ\", \"2τ\", \"2b\", \"2c\", \"2d\", \"2G\", \"2s\", \"2t\", \"2u\", \"2\\!\\(\\*SubscriptBox[\\(K\\), \\(L\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(0\\)]\\)\", \"2\\!\\(\\*SubscriptBox[\\(K\\), \\(S\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(0\\)]\\)\", \"2\\!\\(\\*SuperscriptBox[\\(ηπ\\), \\(0\\)]\\)\", \"2\\!\\(\\*SuperscriptBox[\\(π\\), \\(+\\)]\\)2\\!\\(\\*SuperscriptBox[\\(π\\), \\(-\\)]\\)\", \"2\\!\\(\\*SuperscriptBox[\\(ρ\\), \\(0\\)]\\)\", \"2ϕ\", \"2ω\", \"3\\!\\(\\*SuperscriptBox[\\(π\\), \\(0\\)]\\)\", \"3η\", \"\\!\\(\\*SubscriptBox[\\(K\\), \\(L\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(S\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(0\\)]\\)\", \"\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\)\\!\\(\\*SuperscriptBox[OverscriptBox[\\(K\\), \\(_\\)], \\(*\\(0\\)\\)]\\)\", \"\\!\\(\\*SuperscriptBox[\\(K\\), \\(-\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(L\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(+\\)]\\)\", \"\\!\\(\\*SuperscriptBox[\\(K\\), \\(+\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(L\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(-\\)]\\)\", \"\\!\\(\\*SuperscriptBox[\\(K\\), \\(-\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(S\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(+\\)]\\)\", \"\\!\\(\\*SuperscriptBox[\\(K\\), \\(+\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(S\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(-\\)]\\)\", \"\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(+\\)\\)]\\)\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(-\\)\\)]\\)\", \"\\!\\(\\*SuperscriptBox[\\(K\\), \\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(K\\), \\(-\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(0\\)]\\)\", \"\\!\\(\\*SuperscriptBox[\\(γπ\\), \\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(-\\)]\\)\", \"\\!\\(\\*SuperscriptBox[\\(η2π\\), \\(0\\)]\\)\", \"\\!\\(\\*SuperscriptBox[\\(ηπ\\), \\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(-\\)]\\)\", \"\\!\\(\\*SuperscriptBox[\\(π\\), \\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(-\\)]\\)2\\!\\(\\*SuperscriptBox[\\(π\\), \\(0\\)]\\)\", \"\\!\\(\\*SuperscriptBox[\\(π\\), \\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(-\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(0\\)]\\)\", \"\\!\\(\\*SuperscriptBox[\\(ρ\\), \\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(ρ\\), \\(-\\)]\\)\", \"\\!\\(\\*SuperscriptBox[\\(ωπ\\), \\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(-\\)]\\)\", \"η'2\\!\\(\\*SuperscriptBox[\\(π\\), \\(0\\)]\\)\", \"η'\\!\\(\\*SuperscriptBox[\\(π\\), \\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(-\\)]\\)\", \"Non-hadronic, total\", \"Hadronic, total\", \"Total\"}",
+		"{\"\\!\\(\\*SubscriptBox[\\(m\\), \\(a\\)]\\), GeV\", \"Leptonic\", \"2γ\", \"Leptonic\", \"Leptonic\", \"QCD jets\", \"QCD jets\", \"QCD jets\", \"QCD jets\", \"QCD jets\", \"QCD jets\", \"QCD jets\", \"KKπ\", \"KKπ\", \"2ηπ\", \"4π\", \"2V\", \"2V\", \"2V\", \"3π\", \"3η\", \"KKπ\", \"2V\", \"KKπ\", \"KKπ\", \"KKπ\", \"KKπ\", \"2V\", \"KKπ\", \"γππ\", \"η2π\", \"η2π\", \"4π\", \"3π\", \"2V\", \"ωππ\", \"η'2π\", \"η'2π\", \"Non-hadronic, total\", \"Hadronic, total\", \"Total\"}",
+		"{\"\\!\\(\\*SubscriptBox[\\(m\\), \\(a\\)]\\), GeV\", \"Non-hadronic\", \"Non-hadronic\", \"Non-hadronic\", \"Non-hadronic\", \"Hadronic, perturbative\", \"Hadronic, perturbative\", \"Hadronic, perturbative\", \"Hadronic, perturbative\", \"Hadronic, perturbative\", \"Hadronic, perturbative\", \"Hadronic, perturbative\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Hadronic, ChPT\", \"Non-hadronic, total\", \"Hadronic, total\", \"Total\"}"
+	],
+	"raw_coefficient_definition":"Gamma = (gY\/(2 vH))^2 * coefficient",
+	"bnt_coefficient_definition":"Gamma = (1\/f_BNT)^2 * coefficient",
+	"conversion_raw_to_bnt":0.25
+}
