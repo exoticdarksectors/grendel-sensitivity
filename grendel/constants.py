@@ -6,8 +6,7 @@ L_INT_PB = L_INT_FB * 1e3   # pb-1
 
 # Exclusion threshold on the expected signal yield. N_signal >= 3 is the
 # zero-background 95% CL Poisson upper limit for an observed zero
-# (e^-3 ~ 0.05). The median-expected zero-background limit is ~2.44; 3.0 is
-# the slightly conservative observed-zero number. The selection cuts are not
+# (e^-3 ~ 0.05). The selection cuts are not
 # here: they live in ``grendel.reco.acceptance``, single-sourced with the
 # detector reconstruction.
 N_THRESHOLD = 3.0
