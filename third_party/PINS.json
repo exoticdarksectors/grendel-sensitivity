@@ -1,6 +1,14 @@
 {
   "_comment": "Pinned revisions of the external software third_party/fetch.py checks out. Licences and modifications: THIRD_PARTY.md.",
   "packages": {
+    "exHad": {
+      "what": "Hadronic decays of GeV-scale feebly interacting particles (Kryshtal, Ovchynnikov, arXiv:2609.16104)",
+      "kind": "git",
+      "url": "https://github.com/maksymovchynnikov/exHad",
+      "commit": "7bb2308d1a60090603cbf07298d15b039f750727",
+      "license": "BSD-3-Clause",
+      "next": "python -m venv .venv && .venv/bin/pip install -e . && .venv/bin/python tools/setup.py --pythia8-dir <pythia8317 prefix>; then GRENDEL_EXHAD_PYTHON=<...>/exHad/.venv/bin/python"
+    },
     "HNLCalc": {
       "what": "HNL production and decay rates (Feng, Hewitt, Kling, La Rocco, arXiv:2405.07330); fork with four fixes",
       "kind": "git",
@@ -54,6 +62,15 @@
       "ref": "pythia8315",
       "license": "GPL-2.0-or-later",
       "next": "./configure && make   (GRENDEL_PYTHIA8_CONFIG=<...>/pythia8315/bin/pythia8-config)"
+    },
+    "pythia8317": {
+      "what": "Pythia 8.317 (arXiv:2203.11601); the version exHad requires",
+      "kind": "git",
+      "url": "https://gitlab.com/Pythia8/releases",
+      "commit": "83a5c9986f30746cfb390435a9b10ac55a758fca",
+      "ref": "pythia8317",
+      "license": "GPL-2.0-or-later",
+      "next": "./configure && make; then exHad's tools/setup.py --pythia8-dir <this directory>"
     }
   }
 }

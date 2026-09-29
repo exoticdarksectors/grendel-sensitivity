@@ -1,1 +1,1 @@
-"""Rest-frame decay templates for the HNL (FairShip)."""
+"""Rest-frame decay templates for the HNL (FairShip and exHad)."""

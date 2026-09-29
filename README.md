@@ -19,7 +19,8 @@ lists them and `--all` fetches them at the revisions in
 `grendel/production/data/fonll/central/` (BC5 also the Higgs histogram in
 `grendel/models/scalar/data/`); the HNL production needs HNLCalc
 (`pip install -e ".[production]"`), MadGraph and LHAPDF; the HNL and BC10
-decay templates need PyROOT with Pythia 8, and FairShip for the HNL.
+decay templates need PyROOT with Pythia 8, and FairShip for the HNL; the
+exHad templates run in exHad's own virtual environment (with Pythia 8.317).
 
 ## Reproduce the curves
 
@@ -35,6 +36,11 @@ python -m grendel.models.hnl.production.run_all
 # decay templates (BC4 uses analytic two-body decays)
 python -m grendel.models.alp.templates_pythia
 python -m grendel.models.hnl.templates.fairship
+
+# exHad decay templates (the BC4 scan reads them with --templates-dir)
+python -m grendel.models.hnl.templates.exhad --flavor Ue Umu Utau
+python -m grendel.models.scalar.templates_exhad
+python -m grendel.models.alp.templates_exhad
 
 # scans
 python -m grendel.models.scalar.scan --thresholds 3 10 --out RESULTS/bc4

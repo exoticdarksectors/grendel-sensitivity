@@ -244,3 +244,16 @@ references:
     identifiers:
       - type: other
         value: "arXiv:1610.07922"
+  - type: article
+    title: "Rethinking search signatures: Hadronic decays of GeV-scale feebly coupled particles"
+    notes: "exHad: the hadronic decay model of the HNL, BC4 and BC10 templates"
+    authors:
+      - family-names: Kryshtal
+        given-names: Viktor
+      - family-names: Ovchynnikov
+        given-names: Maksym
+    year: 2026
+    identifiers:
+      - type: other
+        value: "arXiv:2609.16104"
+    repository-code: "https://github.com/maksymovchynnikov/exHad"

@@ -5,12 +5,13 @@ External programs are fetched by `third_party/fetch.py` at the revisions in
 
 | Package | Licence | Used for | Changes |
 |---|---|---|---|
+| exHad — Kryshtal, Ovchynnikov, arXiv:2609.16104 | BSD-3-Clause | exclusive hadronic decay templates (HNL, BC4, BC10) | none |
 | HNLCalc — Feng, Hewitt, Kling, La Rocco, arXiv:2405.07330 | none published | HNL production rates | fork `leoredi/HNLCalc`: an unused import dropped; a dead duplicate D_s → K⁰ form factor removed; the τ → P N Källén factor and the b-baryon three-body mixing power corrected |
 | FairShip — SHiP Collaboration, doi:10.5281/zenodo.18020628 | LGPL-3.0-or-later | HNL widths and decay tables | none |
 | FONLL 1.3.3 — Cacciari, Frixione, Nason; cite JHEP 05 (1998) 007 and JHEP 03 (2001) 006 | its authors' terms | heavy-flavour grids | `grendel/production/fonll_grids/patches` |
 | MadGraph5_aMC@NLO 3.6.6 — arXiv:1405.0301 | MadGraph licence | W/Z → ℓN and prompt-τ samples | none |
 | HeavyN UFO `SM_HeavyN_CKM_AllMasses_LO` — arXiv:1411.7305, 1602.06957, 1812.08750 | FeynRules model database | the MadGraph HNL model | none |
-| Pythia 8.315 — arXiv:2203.11601 | GPL-2.0-or-later | the charged-kaon spectrum | none |
+| Pythia 8.315 and 8.317 — arXiv:2203.11601 | GPL-2.0-or-later | the charged-kaon spectrum (8.315); exHad (8.317) | none |
 
 `grendel/models/hnl/templates/fairship_decay.py` and
 `grendel/models/hnl/data/fairship_decay_selection.conf` follow FairShip
