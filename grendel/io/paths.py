@@ -5,7 +5,7 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-MODELS = ("hnl", "bc4", "bc10")
+MODELS = ("hnl", "bc4", "bc5", "bc10")
 
 
 def work_dir() -> Path:

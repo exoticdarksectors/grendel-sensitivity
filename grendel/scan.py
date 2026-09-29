@@ -106,6 +106,7 @@ class ScanArrays:
     beta_gamma: np.ndarray
     ctau_ref: float
     sample_w: np.ndarray | None = None
+    coupling_power: np.ndarray | None = None
     extras: dict[str, np.ndarray] = field(default_factory=dict)
     n_hits_eval: int = 0
     hit_estimator: str = "exact"
@@ -116,13 +117,15 @@ class ScanArrays:
     def evaluate(self, u2: float) -> float:
         _, signal = scan_u2(self.d, self.passed, self.path, self.weights,
                             self.beta_gamma, self.ctau_ref, L_INT_PB,
-                            np.asarray([u2]), sample_w=self.sample_w)
+                            np.asarray([u2]), sample_w=self.sample_w,
+                            coupling_power=self.coupling_power)
         return signal[0]
 
     def diagnostics(self, u2: float) -> dict:
         return signal_contribution_diagnostics(
             self.d, self.passed, self.path, self.weights, self.beta_gamma,
-            self.ctau_ref, u2, sample_w=self.sample_w)
+            self.ctau_ref, u2, sample_w=self.sample_w,
+            coupling_power=self.coupling_power)
 
 
 @dataclass
@@ -232,6 +235,8 @@ def run_point(spec: ModelSpec, pt: MassPoint, cfg: ScanConfig, mesh, *,
     if len(idx) == 0:
         return PointResult(spec.empty_row(pt, n_events, n_hits, cfg, evaluated=True))
     scan_weights = spec.event_weights(pt, backend, scan_weights)
+    power = data["coupling_power"][idx]
+    coupling_power = None if np.all(power == 1.0) else power
 
     entry_sel = entry_d[idx]
     exit_sel = exit_d[idx]
@@ -257,15 +262,18 @@ def run_point(spec: ModelSpec, pt: MassPoint, cfg: ScanConfig, mesh, *,
         index_parts.append(tmpl_idx)
         mc_parts.append(mc)
         if spec.scan_mode == "accumulate":
+            power_sl = None if coupling_power is None else coupling_power[sl]
             sw = backend.sample_weights(tmpl_idx) if tmpl_idx is not None else None
             _, N_part = scan_u2(d, passed, path[sl], scan_weights[sl], beta_gamma[sl],
-                                backend.ctau_ref, L_INT_PB, grid, sample_w=sw)
+                                backend.ctau_ref, L_INT_PB, grid, sample_w=sw,
+                                coupling_power=power_sl)
             N_grid += N_part
             for extra in extra_scans:
                 ew = extra.sample_weight(tmpl_idx)
                 _, N_part = scan_u2(d, passed, path[sl], scan_weights[sl], beta_gamma[sl],
                                     backend.ctau_ref / extra.ctau_scale, L_INT_PB, grid,
-                                    sample_w=ew if sw is None else sw * ew)
+                                    sample_w=ew if sw is None else sw * ew,
+                                    coupling_power=power_sl)
                 extras[extra.tag] += N_part
 
     d = np.concatenate(d_parts, axis=0)
@@ -275,7 +283,8 @@ def run_point(spec: ModelSpec, pt: MassPoint, cfg: ScanConfig, mesh, *,
     sample_w = backend.sample_weights(template_index) if template_index is not None else None
     if spec.scan_mode != "accumulate":
         _, N_grid = scan_u2(d, passed, path, scan_weights, beta_gamma,
-                            backend.ctau_ref, L_INT_PB, grid, sample_w=sample_w)
+                            backend.ctau_ref, L_INT_PB, grid, sample_w=sample_w,
+                            coupling_power=coupling_power)
 
     mc = None
     if return_mc and all(m is not None for m in mc_parts):
@@ -283,7 +292,8 @@ def run_point(spec: ModelSpec, pt: MassPoint, cfg: ScanConfig, mesh, *,
 
     arrays = ScanArrays(grid=grid, N=N_grid, d=d, passed=passed, path=path,
                         weights=scan_weights, beta_gamma=beta_gamma,
-                        ctau_ref=backend.ctau_ref, sample_w=sample_w, extras=extras,
+                        ctau_ref=backend.ctau_ref, sample_w=sample_w,
+                        coupling_power=coupling_power, extras=extras,
                         n_hits_eval=len(idx), hit_estimator=hit_estimator,
                         n_samples=cfg.decay_samples, template_index=template_index, mc=mc)
     row = spec.finish(pt, spec.base_row(pt, n_events, n_hits), backend, arrays, cfg)

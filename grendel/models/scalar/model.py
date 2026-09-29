@@ -1,4 +1,4 @@
-"""Scalar-portal model layer (PBC benchmark BC4)."""
+"""Scalar-portal model layer (PBC benchmarks BC4 and BC5)."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -113,6 +113,52 @@ def _load_winkler(path=_WINKLER_CSV):
 
 _WINKLER = _load_winkler()
 
+WINKLER_M_MAX = 7.5
+_EVENTCALC_DIR = Path(__file__).resolve().parent / "data" / "eventcalc_1809"
+_EVENTCALC_CHANNELS = {"ePeM": "ee", "muPmuM": "mumu", "tauPtauM": "tautau",
+                       "Jets-ss": "ss", "Jets-cc": "cc", "Jets-GG": "gg",
+                       "Jets-bb": "bb"}
+
+
+def _load_eventcalc(directory=_EVENTCALC_DIR):
+    import gzip
+    import json
+    with gzip.open(directory / "ctau.json.gz", "rt") as fh:
+        ctau = np.array(json.load(fh), float)
+    with gzip.open(directory / "branching_ratios.json.gz", "rt") as fh:
+        channels = json.load(fh)
+    br = {}
+    for entry in channels:
+        pts = np.array(entry[2], float)
+        br[entry[0]] = (pts[:, 0], pts[:, 1])
+    return (np.log(ctau[:, 0]), np.log(ctau[:, 1])), br
+
+
+_EVENTCALC = None
+
+
+def _eventcalc():
+    global _EVENTCALC
+    if _EVENTCALC is None:
+        _EVENTCALC = _load_eventcalc()
+    return _EVENTCALC
+
+
+def eventcalc_ctau_sin2theta1(m_S):
+    """EventCalc c*tau (m) at sin^2 theta = 1, log-log interpolated (0.01-63 GeV; inf outside)."""
+    lm, lc = _eventcalc()[0]
+    x = np.log(float(m_S))
+    if x < lm[0] or x > lm[-1]:
+        return np.inf
+    return float(np.exp(np.interp(x, lm, lc)))
+
+
+def eventcalc_branching_ratios(m_S):
+    """EventCalc branching ratios {channel: BR} at ``m_S`` (their 16 channels)."""
+    m_S = float(m_S)
+    return {name: float(np.interp(m_S, m, b, left=0.0, right=0.0))
+            for name, (m, b) in _eventcalc()[1].items()}
+
 
 def _winkler_width(curve, m_S):
     """Winkler Fig."""
@@ -225,6 +271,19 @@ def partial_widths(m_S, scheme="winkler"):
             w["ss"] = float(width_qq(m_S, M_S_QUARK, M_KPLUS))
             w["cc"] = float(width_qq(m_S, M_C_QUARK, M_D0))
             w["gg"] = float(width_gg(m_S))
+        w["bb"] = float(width_qq(m_S, M_B_QUARK, M_BPLUS)) if m_S >= M_SPECTATOR else 0.0
+        return w
+
+    if m_S > WINKLER_M_MAX:
+        total = HBAR_C / eventcalc_ctau_sin2theta1(m_S)
+        br = eventcalc_branching_ratios(m_S)
+        mapped = sum(br[name] for name in _EVENTCALC_CHANNELS)
+        if not np.isfinite(total) or mapped < 0.98:
+            raise ValueError(f"EventCalc tables do not cover m_S = {m_S} GeV "
+                             f"(mapped BR {mapped:.3f})")
+        w = {k: 0.0 for k in ("ee", "mumu", "tautau", "pipi", "KK", "4pi", "ss", "cc", "gg", "bb")}
+        for name, key in _EVENTCALC_CHANNELS.items():
+            w[key] = total * br[name] / mapped
         return w
 
     if m_S < M_SPECTATOR:
@@ -237,6 +296,7 @@ def partial_widths(m_S, scheme="winkler"):
         w["ss"] = _winkler_width("ss", m_S)
         w["cc"] = _winkler_width("cc", m_S)
         w["gg"] = _winkler_width("gg", m_S)
+    w["bb"] = 0.0
     return w
 
 
@@ -341,3 +401,100 @@ def br_K_to_pi_S(m_S, sin2theta=1.0):
     gamma = np.where(m_S < M_KPLUS - M_PIPLUS,
                      g2 * matrix2 * lam_half / (16.0 * np.pi * M_KPLUS), 0.0)
     return gamma * TAU_KPLUS / HBAR
+
+
+M_HIGGS = 125.20
+GAMMA_HIGGS_SM = 4.07e-3
+XI_SB = 3.6e-4
+BR_HSS_BC5 = 0.01
+M_S_MAX_HSS = M_HIGGS / 2.0
+
+_SENSCALC_DIR = Path(__file__).resolve().parent / "data" / "senscalc_quartic"
+_SENSCALC_TABLES: dict = {}
+
+
+def br_h_to_SS(m_S, alpha):
+    """BR(h -> S S) for the quartic coupling ``alpha`` (GeV), Boiarska eq."""
+    m_S = np.asarray(m_S, float)
+    p_S = 0.5 * M_HIGGS * _beta(M_HIGGS, m_S)
+    return alpha ** 2 * p_S / (16.0 * np.pi * M_HIGGS ** 2 * GAMMA_HIGGS_SM)
+
+
+def alpha_quartic(m_S, br_hss=BR_HSS_BC5):
+    """The quartic coupling ``alpha`` (GeV) that gives BR(h -> SS) = ``br_hss`` at ``m_S`` (inverse of
+    :func:`br_h_to_SS`); 0 above m_h / 2."""
+    p_S = 0.5 * M_HIGGS * float(_beta(M_HIGGS, float(m_S)))
+    if p_S <= 0.0 or br_hss <= 0.0:
+        return 0.0
+    return float(np.sqrt(br_hss * 16.0 * np.pi * M_HIGGS ** 2 * GAMMA_HIGGS_SM / p_S))
+
+
+def dgamma_dq2_B_to_K_SS(q2, m_S, alpha=1.0, m_B=M_BPLUS, m_recoil=M_KPLUS):
+    """d Gamma / d q^2 (GeV^-1) of B -> K S S through the off-shell Higgs, Boiarska eq."""
+    q2 = np.asarray(q2, float)
+    q = np.sqrt(np.clip(q2, 0.0, None))
+    with np.errstate(divide="ignore", invalid="ignore"):
+        E2 = 0.5 * q
+        E3 = (m_B ** 2 - q2 - m_recoil ** 2) / (2.0 * q)
+        matrix = _f_K(q2) * (m_B ** 2 - M_KPLUS ** 2) / (M_B_QUARK - M_S_QUARK)
+        phase = np.sqrt(np.clip(E2 ** 2 - m_S ** 2, 0.0, None)) * \
+            np.sqrt(np.clip(E3 ** 2 - m_recoil ** 2, 0.0, None))
+    pref = XI_SB ** 2 * M_B_QUARK ** 2 * alpha ** 2 / (512.0 * np.pi ** 3 * m_B ** 3 * V_HIGGS ** 2 * M_HIGGS ** 4)
+    out = pref * matrix ** 2 * phase
+    inside = (q2 > 4.0 * m_S ** 2) & (q2 < (m_B - m_recoil) ** 2)
+    return np.where(inside, np.nan_to_num(out), 0.0)
+
+
+def _q2_grid(m_S, m_B, m_recoil, n=400):
+    lo, hi = 4.0 * m_S ** 2, (m_B - m_recoil) ** 2
+    return np.linspace(lo, hi, n) if hi > lo else np.empty(0)
+
+
+def br_B_to_K_SS(m_S, alpha=1.0, parent="B+"):
+    """BR(B -> K S S) at the quartic coupling ``alpha`` (GeV): eq."""
+    m_B, tau_B, m_K = {"B+": (M_BPLUS, TAU_BPLUS, M_KPLUS),
+                       "B0": (M_B0, TAU_B0, M_K0)}[parent]
+    q2 = _q2_grid(float(m_S), m_B, m_K)
+    if len(q2) == 0:
+        return 0.0
+    gamma = float(np.trapezoid(dgamma_dq2_B_to_K_SS(q2, float(m_S), alpha, m_B, m_K), q2))
+    return gamma * tau_B / HBAR
+
+
+def sample_q2_B_to_K_SS(n, m_S, rng, m_B=M_BPLUS, m_recoil=M_KPLUS):
+    """``n`` values of the S S invariant mass squared of B -> X_s S S drawn from eq."""
+    q2 = _q2_grid(float(m_S), m_B, m_recoil)
+    if len(q2) == 0:
+        return np.empty(0)
+    density = dgamma_dq2_B_to_K_SS(q2, float(m_S), 1.0, m_B, m_recoil)
+    cdf = np.concatenate([[0.0], np.cumsum(0.5 * (density[1:] + density[:-1]) * np.diff(q2))])
+    if cdf[-1] <= 0.0:
+        return np.empty(0)
+    return np.interp(rng.random(n) * cdf[-1], cdf, q2)
+
+
+def _senscalc_table(name):
+    if name not in _SENSCALC_TABLES:
+        data = np.loadtxt(_SENSCALC_DIR / f"{name}.dat")
+        _SENSCALC_TABLES[name] = (data[:, 0], data[:, 1])
+    return _SENSCALC_TABLES[name]
+
+
+def _senscalc_br(name, m_S, alpha):
+    m, br = _senscalc_table(name)
+    m_S = np.asarray(m_S, float)
+    return np.interp(m_S, m, br, left=br[0], right=0.0) * alpha ** 2
+
+
+def br_b_to_Xs_SS(m_S, parent="B+", alpha=1.0):
+    """Inclusive BR(b-hadron -> X_s S S) at the quartic coupling ``alpha`` (GeV): the SensCalc ``B+ ->
+    X_s S S`` total, scaled by alpha^2 and, for the other b-hadrons, by the lifetime ratio -- b ->
+    s S S is a b-quark process, so the parent enters only through its lifetime (and its recoil
+    kinematics in the production driver), exactly as ``br_B_to_Xs_S``."""
+    tau = {"B+": TAU_BPLUS, "B0": TAU_B0, "Bs": TAU_BS, "Lambda_b": TAU_LAMBDA_B}[parent]
+    return _senscalc_br("BplustoXsSStotal", m_S, alpha) * tau / TAU_BPLUS
+
+
+def br_Bs_to_SS(m_S, alpha=1.0):
+    """BR(B_s -> S S) at the quartic coupling ``alpha`` (GeV), SensCalc table (Boiarska eq."""
+    return _senscalc_br("BstoSS", m_S, alpha)

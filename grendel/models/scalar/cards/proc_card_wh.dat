@@ -1,0 +1,9 @@
+####################################################
+# W h associated production at leading order, the W undecayed
+# (only the Higgs four-vector is used). LHC 14 TeV.
+####################################################
+import model sm
+define p = g u c d s b u~ c~ d~ s~ b~
+define j = g u c d s b u~ c~ d~ s~ b~
+generate p p > w+ h
+add process p p > w- h

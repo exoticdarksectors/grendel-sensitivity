@@ -47,8 +47,11 @@ def write_csv_matrix(path, data) -> None:
         np.savetxt(path, data, delimiter=",", fmt=CSV_FMT)
 
 
-def write_llp_csv(path, weights, E, px, py, pz) -> None:
-    write_csv_matrix(path, np.column_stack([weights, E, px, py, pz]))
+def write_llp_csv(path, weights, E, px, py, pz, coupling_power=None) -> None:
+    columns = [weights, E, px, py, pz]
+    if coupling_power is not None:
+        columns.append(np.asarray(coupling_power, float))
+    write_csv_matrix(path, np.column_stack(columns))
 
 
 def write_empty_csv(path) -> None:
@@ -79,6 +82,7 @@ def load_combined_csv(csv_path, mass):
     px = data[:, 2]
     py = data[:, 3]
     pz = data[:, 4]
+    coupling_power = data[:, 5] if data.shape[1] > 5 else np.ones_like(weight)
 
     p = np.sqrt(px**2 + py**2 + pz**2)
     pt = np.sqrt(px**2 + py**2)
@@ -100,11 +104,12 @@ def load_combined_csv(csv_path, mass):
         "p": p, "pt": pt, "eta": eta, "phi": phi,
         "gamma": gamma, "beta": beta, "beta_gamma": beta_gamma,
         "mass": np.full_like(p, mass),
+        "coupling_power": coupling_power,
     }
 
 
 def _empty_dict():
     empty = np.empty(0, dtype=np.float64)
     keys = ["weight", "E", "px", "py", "pz", "p", "pt", "eta", "phi",
-            "gamma", "beta", "beta_gamma", "mass"]
+            "gamma", "beta", "beta_gamma", "mass", "coupling_power"]
     return {k: empty for k in keys}

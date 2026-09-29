@@ -1,0 +1,9 @@
+####################################################
+# Vector-boson fusion at leading order: the t-channel W/Z
+# exchange only ($$ excludes the s-channel V -> j j, which
+# belongs to the W h / Z h samples). LHC 14 TeV.
+####################################################
+import model sm
+define p = g u c d s b u~ c~ d~ s~ b~
+define j = g u c d s b u~ c~ d~ s~ b~
+generate p p > h j j $$ w+ w- z QCD=0

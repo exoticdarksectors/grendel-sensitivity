@@ -215,3 +215,32 @@ references:
     identifiers:
       - type: other
         value: "arXiv:1809.01876"
+  - type: article
+    title: "Phenomenology of GeV-scale scalar portal"
+    notes: "the quartic-coupling production of BC5 (h -> SS, B -> X_s SS, B_s -> SS), through the SensCalc tables"
+    authors:
+      - family-names: Boiarska
+        given-names: Iryna
+      - family-names: Bondarenko
+        given-names: Kyrylo
+      - family-names: Boyarsky
+        given-names: Alexey
+      - family-names: Gorkavenko
+        given-names: Volodymyr
+      - family-names: Ovchynnikov
+        given-names: Maksym
+      - family-names: Sokolenko
+        given-names: Anastasia
+    year: 2019
+    identifiers:
+      - type: other
+        value: "arXiv:1904.10447"
+  - type: report
+    title: "Handbook of LHC Higgs Cross Sections: 4. Deciphering the Nature of the Higgs Sector"
+    notes: "the 14 TeV Higgs production cross sections normalising the BC5 h -> SS channel"
+    authors:
+      - name: "LHC Higgs Cross Section Working Group"
+    year: 2016
+    identifiers:
+      - type: other
+        value: "arXiv:1610.07922"

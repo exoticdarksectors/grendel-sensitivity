@@ -1,0 +1,10 @@
+####################################################
+# Gluon fusion (and b bbar -> h) at leading order in the
+# heavy-top effective theory: the pT of the Higgs comes from
+# the Pythia 8 parton shower (grendel.models.scalar.higgs_shower).
+# LHC 14 TeV; normalised afterwards to the YR4 N3LO cross section.
+####################################################
+import model heft
+define p = g u c d s b u~ c~ d~ s~ b~
+define j = g u c d s b u~ c~ d~ s~ b~
+generate p p > h

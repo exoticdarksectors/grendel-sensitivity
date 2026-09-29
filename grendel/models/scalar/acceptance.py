@@ -21,6 +21,7 @@ _MODE_DAUGHTER = {
     "ss":     (model.M_PIPLUS,   1.0),
     "cc":     (model.M_PIPLUS,   1.0),
     "gg":     (model.M_PIPLUS,   1.0),
+    "bb":     (model.M_PIPLUS,   1.0),
 }
 
 EVENT_RECO_CHUNK = 25_000

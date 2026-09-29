@@ -1,4 +1,4 @@
-"""The whole chain at tiny statistics for BC4, BC10 and the HNL."""
+"""The whole chain at tiny statistics for BC4, BC5, BC10 and the HNL."""
 import json
 import os
 import subprocess
@@ -77,6 +77,10 @@ def results(tmp_path_factory):
     _run(["grendel.models.scalar.scan", *common, "--n-pool", "3000",
           "--vectors-dir", str(work / "bc4" / "vectors"), "--out", str(out / "bc4")], env, repo)
 
+    _run(["grendel.models.scalar.scan_bc5", "--mass", "1.0", "20.0", "--decay-samples", "5",
+          "--thresholds", "3", "10", "--n-pool", "3000", "--n-higgs", "3000",
+          "--vectors-dir", str(work / "bc5" / "vectors"), "--out", str(out / "bc5")], env, repo)
+
     _run(["grendel.models.alp.production", "--mass", *MASSES, "--n-pool", "3000",
           "--out-dir", str(work / "bc10" / "vectors")], env, repo)
     _synthetic_alp_templates(work / "bc10" / "templates", MASSES)
@@ -88,12 +92,12 @@ def results(tmp_path_factory):
           "--thresholds", "3", "10", "--vectors-dir", str(work / "hnl" / "vectors"),
           "--templates-dir", str(work / "hnl" / "templates"), "--out", str(out / "hnl")], env, repo)
 
-    for model in ("hnl", "bc4", "bc10"):
+    for model in ("hnl", "bc4", "bc5", "bc10"):
         _run(["grendel.io.thresholds", str(out / model / "sensitivity.csv"), "--threshold", "10"], env, repo)
     return out, env, repo, work
 
 
-@pytest.mark.parametrize("model,prefix", [("bc4", "u2"), ("bc10", "invf"), ("hnl", "u2")])
+@pytest.mark.parametrize("model,prefix", [("bc4", "u2"), ("bc5", "u2"), ("bc10", "invf"), ("hnl", "u2")])
 def test_scan_writes_the_documented_layout(results, model, prefix):
     out, _, _, _ = results
     root = out / model

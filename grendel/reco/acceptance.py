@@ -318,7 +318,7 @@ def classify_template_modes(templates):
 
 
 def scan_u2(d, passed, path_len, weight, beta_gamma, ctau_u2_1,
-            L_int_pb, u2_grid, sample_w=None):
+            L_int_pb, u2_grid, sample_w=None, coupling_power=None):
     """N_signal(U^2) by reweighting the once-built MC."""
     n_ev, n_samples = d.shape
     pw = passed.astype(float)
@@ -326,6 +326,7 @@ def scan_u2(d, passed, path_len, weight, beta_gamma, ctau_u2_1,
         pw = pw * np.asarray(sample_w, float)
     weight = np.asarray(weight, float)
     bg = np.asarray(beta_gamma, float)
+    power = None if coupling_power is None else np.asarray(coupling_power, float)
     per_sample = (np.asarray(path_len, float) / n_samples)[:, None]
     N_grid = np.zeros(len(u2_grid))
     for iu, u2 in enumerate(u2_grid):
@@ -333,7 +334,10 @@ def scan_u2(d, passed, path_len, weight, beta_gamma, ctau_u2_1,
         inv = (1.0 / lam)[:, None]
         density = inv * np.exp(-d * inv)
         P_ev = (per_sample * density * pw).sum(axis=1)
-        N_grid[iu] = L_int_pb * u2 * float(weight @ P_ev)
+        if power is None:
+            N_grid[iu] = L_int_pb * u2 * float(weight @ P_ev)
+        else:
+            N_grid[iu] = L_int_pb * float((weight * u2 ** power) @ P_ev)
     return u2_grid, N_grid
 
 
@@ -346,6 +350,7 @@ def signal_contribution_diagnostics(
     ctau_u2_1,
     u2,
     sample_w=None,
+    coupling_power=None,
 ):
     """Effective statistics of the weighted signal estimator at one coupling."""
     d = np.asarray(d, dtype=float)
@@ -360,6 +365,8 @@ def signal_contribution_diagnostics(
         raise ValueError("event arrays must match the first dimension of d")
     if not np.isfinite(u2) or u2 <= 0.0:
         raise ValueError("u2 must be finite and positive")
+    if coupling_power is not None:
+        weight = weight * u2 ** np.asarray(coupling_power, dtype=float)
 
     lifetime = beta_gamma * ctau_u2_1 / u2
     contribution = (

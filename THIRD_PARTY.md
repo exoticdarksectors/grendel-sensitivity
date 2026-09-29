@@ -26,6 +26,15 @@ sources and are LGPL-3.0-or-later (SPDX headers; licence text in
   arXiv:2501.04525.
 - `grendel/models/scalar/data/winkler_widths.csv` — dark-scalar widths from
   M. W. Winkler, arXiv:1809.01876, Fig. 4.
+- `grendel/models/scalar/data/senscalc_quartic/` — B → K S S, b → X_s S S and
+  B_s → S S rates from SensCalc (BSD-3-Clause, `LICENSE`), in the conventions
+  of Boiarska et al., arXiv:1904.10447.
+- `grendel/models/scalar/data/eventcalc_1809/` — dark-scalar branching ratios
+  and lifetimes above 7.5 GeV from EventCalc (BSD-3-Clause,
+  `LICENSE-EventCalc`).
+- `grendel/models/scalar/data/higgs_pt_y_14TeV.csv.gz` — Higgs (pT, y) at
+  14 TeV from MadGraph and Pythia 8 over all production modes, normalised to
+  the LHC Higgs Cross Section Working Group, arXiv:1610.07922.
 - `grendel/models/hnl/production/data/kaon_softqcd_spectrum.npz` — Pythia
   8.315 SoftQCD charged-kaon spectrum.
 - The BC10 b → s coupling and B → K⁽ⁱ⁾ form factors follow GKOZ
