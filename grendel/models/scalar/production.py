@@ -99,7 +99,7 @@ def main(argv=None):
     import argparse
 
     p = argparse.ArgumentParser(
-        description="Generate inclusive BC4 b -> X_s S events with a K-recoil proxy"
+        description="Generate inclusive BC4 b -> X_s S events with a K/Lambda-recoil proxy"
     )
     p.add_argument("--out-dir", default=None,
                    help="four-vector directory (default: $GRENDEL_BC4_VECTORS_DIR)")

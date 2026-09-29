@@ -20,7 +20,7 @@ M_DSSTAR = Particle.from_pdgid(433).mass * 1e-3
 M_LAMBDA_B = Particle.from_pdgid(5122).mass * 1e-3
 M_LAMBDA_C = Particle.from_pdgid(4122).mass * 1e-3
 
-SIGMA_BC_PB = 0.9e6
+SIGMA_BC_PB = 1.64e6
 SIGMA_BC_REL_UNCERT = 0.40
 
 K_FACTOR_EW = 1.3

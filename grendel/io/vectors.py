@@ -15,7 +15,7 @@ def format_mass_for_filename(mass) -> str:
 
 def parse_mass_from_filename(label: str) -> float:
     """Inverse of ``format_mass_for_filename``; accepts a bare label (``'1p025'``) or a stem with a
-    one-letter prefix (``'mN_1p025'``)."""
+    prefix (``'mN_1p025'``)."""
     stem = label.split("_", 1)[1] if "_" in label else label
     return float(stem.replace("p", "."))
 

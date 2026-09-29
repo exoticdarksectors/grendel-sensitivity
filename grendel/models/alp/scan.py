@@ -4,7 +4,7 @@ from __future__ import annotations
 import argparse
 import sys
 
-from ...scan import ScanConfig, run_scan
+from ...scan import NoResultsError, ScanConfig, run_scan
 from ..hnl.scan import add_common_options, resolve_paths
 from .mass_grid import ALP_MASS_GRID
 from .spec import ALPSpec
@@ -26,8 +26,12 @@ def main(argv=None) -> int:
     cfg = ScanConfig(decay_samples=args.decay_samples, thresholds=tuple(args.thresholds),
                      seed_offset=args.reco_seed_offset, force_geometry=args.force_geometry)
     print(paths.describe())
-    run_scan(spec, spec.points(masses), cfg, paths.analysis,
-             workers=args.workers, resume=args.resume)
+    try:
+        run_scan(spec, spec.points(masses), cfg, paths.analysis,
+                 workers=args.workers, resume=args.resume)
+    except NoResultsError as err:
+        print(f"error: {err}", file=sys.stderr)
+        return 1
     return 0
 
 

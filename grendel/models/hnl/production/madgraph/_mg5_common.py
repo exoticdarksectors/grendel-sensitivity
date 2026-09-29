@@ -27,7 +27,7 @@ MG5_EXE = _resolve_mg5_exe()
 
 
 def _resolve_lhapdf_config():
-    """Resolve lhapdf-config from $GRENDEL_LHAPDF_CONFIG or the active conda env."""
+    """Resolve lhapdf-config from $GRENDEL_LHAPDF_CONFIG, the active conda env, or PATH."""
     env_path = os.environ.get("GRENDEL_LHAPDF_CONFIG")
     if env_path:
         return Path(env_path)

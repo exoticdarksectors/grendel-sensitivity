@@ -44,6 +44,12 @@ class ScalarSpec(ModelSpec):
     def geometry_cache_path(self, pt: MassPoint, vectors_path: Path) -> Path:
         return self.paths.geometry / f"geom_mS_{pt.label}.npz"
 
+    def input_files(self, pt: MassPoint) -> list[Path]:
+        files = [self.vectors_path(pt)]
+        if self.templates_dir is not None:
+            files.append(self.templates_dir / f"templates_{pt.label}.npz")
+        return files
+
     def decay_backend(self, pt: MassPoint, vectors_path: Path):
         if self.templates_dir is None:
             return AnalyticBackend(pt.mass, self.width_scheme)
@@ -88,10 +94,6 @@ class ScalarSpec(ModelSpec):
             for field in ("sample_ess", "event_ess", "max_event_fraction"):
                 result[f"{label}_{field}"] = diagnostics[field]
         return result
-
-    def plot(self, csv_path, out_dir):
-        from .plot_exclusion import plot_island
-        plot_island(csv_path, out_dir)
 
     def skip_reason(self, pt):
         csv = self.vectors_path(pt)

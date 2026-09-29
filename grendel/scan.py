@@ -1,6 +1,8 @@
 """The per-mass sensitivity scan every benchmark model runs through."""
 from __future__ import annotations
 
+import functools
+import hashlib
 import json
 import time
 from concurrent.futures import ProcessPoolExecutor, as_completed
@@ -13,7 +15,7 @@ import numpy as np
 import pandas as pd
 
 from .constants import L_INT_PB
-from .geometry.raycast import directions_from_eta_phi, get_mesh, load_or_compute_geometry
+from .geometry.raycast import directions_from_eta_phi, get_mesh, load_or_compute_geometry, path_length
 from .io.atomic import atomic_csv, atomic_json
 from .io.vectors import format_mass_for_filename, load_combined_csv
 from .reco.acceptance import P_CUT, scan_u2, signal_contribution_diagnostics
@@ -70,16 +72,17 @@ class CouplingGrid:
 
 @dataclass(frozen=True)
 class ExtraScan:
-    """A co-varied yield curve accumulated alongside the nominal one: the lifetime scaled by
-    ``ctau_scale`` and each sample reweighted by ``sample_weight(template_index)``."""
+    """A co-varied yield curve accumulated alongside the nominal one (``scan_mode = "accumulate"``
+    only): the lifetime divided by ``ctau_scale`` (a width scale) and each sample reweighted by
+    ``sample_weight(template_index)``."""
     tag: str
     ctau_scale: float
     sample_weight: Callable[[np.ndarray], np.ndarray]
 
 
 class DecayBackend(Protocol):
-    """One mass point's decay model: how daughters are drawn, and the lifetime at unit coupling the
-    scan reweights from."""
+    """One mass point's decay model: how daughters are drawn, and the lifetime at the reference
+    coupling (|U|^2 = 1, sin^2 theta = 1, 1/f = 1/f_ref) the scan reweights from."""
     name: str
     ctau_ref: float
 
@@ -149,6 +152,11 @@ class ModelSpec:
     def vectors_path(self, pt: MassPoint) -> Path:
         raise NotImplementedError
 
+    def input_files(self, pt: MassPoint) -> list[Path]:
+        """The files the point's row is computed from; ``resume`` keeps a row only while they hash to
+        what they did."""
+        return [self.vectors_path(pt)]
+
     def geometry_cache_path(self, pt: MassPoint, vectors_path: Path) -> Path:
         raise NotImplementedError
 
@@ -209,7 +217,7 @@ def run_point(spec: ModelSpec, pt: MassPoint, cfg: ScanConfig, mesh, *,
         spec.geometry_cache_path(pt, csv_path), data["eta"], data["phi"], mesh,
         force=cfg.force_geometry, source_mtime=csv_path.stat().st_mtime,
         batch_label=f"[{pt.tag}]")
-    idx = np.where(hits & np.isfinite(entry_d) & np.isfinite(exit_d))[0]
+    idx = np.where(hits & np.isfinite(entry_d[:, 0]) & np.isfinite(exit_d[:, 0]))[0]
     n_hits = int(hits.sum())
     if n_hits == 0:
         return PointResult(spec.empty_row(pt, n_events, 0, cfg))
@@ -227,7 +235,7 @@ def run_point(spec: ModelSpec, pt: MassPoint, cfg: ScanConfig, mesh, *,
 
     entry_sel = entry_d[idx]
     exit_sel = exit_d[idx]
-    path = exit_sel - entry_sel
+    path = path_length(entry_sel, exit_sel)
     beta_gamma = data["beta_gamma"][idx]
     direction = directions_from_eta_phi(data["eta"][idx], data["phi"][idx])
     p_mag = beta_gamma * pt.mass
@@ -249,13 +257,15 @@ def run_point(spec: ModelSpec, pt: MassPoint, cfg: ScanConfig, mesh, *,
         index_parts.append(tmpl_idx)
         mc_parts.append(mc)
         if spec.scan_mode == "accumulate":
+            sw = backend.sample_weights(tmpl_idx) if tmpl_idx is not None else None
             _, N_part = scan_u2(d, passed, path[sl], scan_weights[sl], beta_gamma[sl],
-                                backend.ctau_ref, L_INT_PB, grid)
+                                backend.ctau_ref, L_INT_PB, grid, sample_w=sw)
             N_grid += N_part
             for extra in extra_scans:
+                ew = extra.sample_weight(tmpl_idx)
                 _, N_part = scan_u2(d, passed, path[sl], scan_weights[sl], beta_gamma[sl],
                                     backend.ctau_ref / extra.ctau_scale, L_INT_PB, grid,
-                                    sample_w=extra.sample_weight(tmpl_idx))
+                                    sample_w=ew if sw is None else sw * ew)
                 extras[extra.tag] += N_part
 
     d = np.concatenate(d_parts, axis=0)
@@ -291,8 +301,113 @@ def _worker_init(spec, cfg):
 
 def _worker_point(pt):
     t0 = time.time()
+    digest = inputs_digest(_WORKER["spec"], pt)
     result = run_point(_WORKER["spec"], pt, _WORKER["cfg"], _WORKER["mesh"])
-    return pt, result, time.time() - t0
+    return pt, result, digest, time.time() - t0
+
+
+_CONFIG_FIELDS = ("decay_samples", "thresholds", "max_hit_events", "event_chunk",
+                  "seed_salt", "seed_offset")
+_PACKAGE = Path(__file__).resolve().parent
+
+
+@functools.lru_cache(maxsize=1)
+def code_digest() -> str:
+    """SHA-256 over the package a scan runs: every file under ``grendel/`` (sources and package data)
+    except ``band/``, which only post-processes scans."""
+    h = hashlib.sha256()
+    for path in sorted(_PACKAGE.rglob("*")):
+        rel = path.relative_to(_PACKAGE)
+        if (not path.is_file() or rel.parts[0] == "band" or path.suffix == ".pyc"
+                or any(part.startswith(".") or part == "__pycache__" for part in rel.parts)):
+            continue
+        h.update(rel.as_posix().encode() + b"\0" + hashlib.sha256(path.read_bytes()).digest())
+    return h.hexdigest()
+
+
+def _file_sha256(path) -> str:
+    h = hashlib.sha256()
+    try:
+        with open(path, "rb") as fh:
+            for block in iter(lambda: fh.read(1 << 22), b""):
+                h.update(block)
+    except FileNotFoundError:
+        return "missing"
+    return h.hexdigest()
+
+
+def inputs_digest(spec, pt: MassPoint) -> str:
+    """SHA-256 over the contents of the files ``pt``'s row is computed from."""
+    h = hashlib.sha256()
+    for path in spec.input_files(pt):
+        h.update(f"{Path(path).name}:{_file_sha256(path)}\n".encode())
+    return h.hexdigest()
+
+
+def _row_key(key: tuple) -> str:
+    flavor, mass = key
+    return f"{flavor or '-'}/{float(mass)!r}"
+
+
+def _config_fingerprint(spec, cfg) -> dict:
+    """What every row of a scan depends on besides its input files, for ``resume`` to compare: the
+    model (name, grid, input directories, backend options), the ScanConfig and the package code."""
+    model = {"name": spec.name, "grid": [spec.grid.log10_min, spec.grid.log10_max, spec.grid.n]}
+    for key, value in sorted(vars(spec).items()):
+        if key == "paths":
+            model["vectors"], model["templates"] = str(value.vectors), str(value.templates)
+        elif isinstance(value, Path):
+            model[key] = str(value)
+        elif value is None or isinstance(value, (str, int, float, bool)):
+            model[key] = value
+        else:
+            model[key] = type(value).__name__
+    scan = {k: getattr(cfg, k) for k in _CONFIG_FIELDS}
+    scan["thresholds"] = [float(t) for t in scan["thresholds"]]
+    return {"model": model, "scan": scan, "code": code_digest()}
+
+
+def _resumable_rows(spec, config, out_csv, meta_path, partial_csv, status_path, verbose):
+    """Rows of a finished (``sensitivity.csv``) and an interrupted (``sensitivity.partial.csv``) run
+    that ``resume`` may keep, with their input digests: rows recorded under this configuration
+    whose input files still hash to what they were computed from."""
+    def recorded(path):
+        try:
+            return json.loads(Path(path).read_text())
+        except (OSError, ValueError):
+            return {}
+
+    by_key: dict = {}
+    digests: dict = {}
+    for csv, meta_file in ((out_csv, meta_path), (partial_csv, status_path)):
+        if not csv.exists():
+            continue
+        meta = recorded(meta_file)
+        inputs = meta.get("inputs")
+        if not isinstance(inputs, dict) or "config" not in meta:
+            if verbose:
+                print(f"  resume: {csv.name} records no input digests; its rows are recomputed")
+            continue
+        if meta["config"] != config:
+            raise ValueError(f"resume: {csv} was produced with another configuration "
+                             f"(recorded {meta['config']}, now {config}); rerun without --resume or "
+                             "write to another --out")
+        stale = 0
+        for r in pd.read_csv(csv).to_dict("records"):
+            pt = MassPoint(float(r["mass_GeV"]), r.get("flavor") if spec.flavors else None)
+            k = _row_key(pt.key)
+            if inputs.get(k) != inputs_digest(spec, pt):
+                stale += 1
+                continue
+            by_key[pt.key] = r
+            digests[k] = inputs[k]
+        if stale and verbose:
+            print(f"  resume: {stale} row(s) of {csv.name} came from other input files; recomputed")
+    return list(by_key.values()), digests
+
+
+class NoResultsError(RuntimeError):
+    """A scan in which every requested point was skipped."""
 
 
 def run_scan(spec: ModelSpec, points: list[MassPoint], cfg: ScanConfig, out_dir,
@@ -304,11 +419,13 @@ def run_scan(spec: ModelSpec, points: list[MassPoint], cfg: ScanConfig, out_dir,
     partial_csv = out_dir / "sensitivity.partial.csv"
     status_path = out_dir / "scan_status.json"
 
+    config = _config_fingerprint(spec, cfg)
     rows: list[dict] = []
+    digests: dict = {}
     done: set = set()
-    if resume and out_csv.exists():
-        previous = pd.read_csv(out_csv)
-        rows = previous.to_dict("records")
+    if resume:
+        rows, digests = _resumable_rows(spec, config, out_csv, out_dir / "run_metadata.json",
+                                        partial_csv, status_path, verbose)
         for r in rows:
             done.add((r.get("flavor") if spec.flavors else None, float(r["mass_GeV"])))
     todo = [pt for pt in points if pt.key not in done]
@@ -331,6 +448,8 @@ def run_scan(spec: ModelSpec, points: list[MassPoint], cfg: ScanConfig, out_dir,
             "ts": datetime.now().isoformat(), "done": n_done, "total": n_total,
             "n_sensitive": n_sens, "elapsed_s": round(elapsed, 1),
             "eta_s": round((elapsed / max(n_done, 1)) * (n_total - n_done), 1) if n_done else 0,
+            "config": config,
+            "inputs": digests,
         }, sort_keys=False)
 
     def report(pt, result, elapsed, n_done):
@@ -350,9 +469,11 @@ def run_scan(spec: ModelSpec, points: list[MassPoint], cfg: ScanConfig, out_dir,
         mesh = get_mesh()
         for i, pt in enumerate(todo, 1):
             t0 = time.time()
+            digest = inputs_digest(spec, pt)
             result = run_point(spec, pt, cfg, mesh)
             if result is not None:
                 rows.append(result.row)
+                digests[_row_key(pt.key)] = digest
             checkpoint(i)
             report(pt, result, time.time() - t0, i)
     else:
@@ -360,9 +481,10 @@ def run_scan(spec: ModelSpec, points: list[MassPoint], cfg: ScanConfig, out_dir,
                                  initargs=(spec, cfg)) as pool:
             futures = [pool.submit(_worker_point, pt) for pt in todo]
             for i, future in enumerate(as_completed(futures), 1):
-                pt, result, elapsed = future.result()
+                pt, result, digest, elapsed = future.result()
                 if result is not None:
                     rows.append(result.row)
+                    digests[_row_key(pt.key)] = digest
                 checkpoint(i)
                 report(pt, result, elapsed, i)
 
@@ -389,19 +511,28 @@ def run_scan(spec: ModelSpec, points: list[MassPoint], cfg: ScanConfig, out_dir,
         "track_momentum_cut_GeV": P_CUT,
         "n_sensitive": sum(1 for r in rows if r.get("has_sensitivity")),
         "total_time_s": round(total_time, 1),
+        "config": config,
+        "inputs": digests,
     }
+    by_reason: dict[str, int] = {}
+    for s in skipped:
+        by_reason[s["reason"]] = by_reason.get(s["reason"], 0) + 1
     if skipped and verbose:
-        by_reason: dict[str, int] = {}
-        for s in skipped:
-            by_reason[s["reason"]] = by_reason.get(s["reason"], 0) + 1
         print(f"\nWARNING: {len(skipped)}/{len(points)} requested points skipped:")
         for reason, n in sorted(by_reason.items()):
             print(f"    {n:4d}  {reason}")
     atomic_json(out_dir / "run_metadata.json", meta, sort_keys=False)
     if not rows:
-        if verbose:
-            print("\nNo results produced -- every requested point was skipped.")
-        return out_csv
+        moved = []
+        for stale in (out_csv, partial_csv):
+            if stale.exists():
+                stale.replace(stale.with_name(stale.name + ".stale"))
+                moved.append(stale.name)
+        reasons = ", ".join(f"{n} {r}" for r, n in sorted(by_reason.items())) or "no points requested"
+        raise NoResultsError(
+            f"{spec.name}: no results -- every requested point was skipped ({reasons}); "
+            f"see {out_dir / 'run_metadata.json'}"
+            + (f"; the earlier {' and '.join(moved)} moved aside to *.stale" if moved else ""))
     atomic_csv(pd.DataFrame(sorted(rows, key=sort_key)), out_csv)
     if partial_csv.exists():
         partial_csv.unlink()

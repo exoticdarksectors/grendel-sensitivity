@@ -28,7 +28,7 @@ def llp_csv_path(flavor, channel, mass, *, base=None, mkdir=True) -> Path:
 
 
 def existing_tau_pool_csv() -> Path:
-    """The prompt-tau pool, if one has been generated."""
+    """The prompt-tau pool path (it may not exist yet)."""
     return TAU_POOL_CSV
 
 

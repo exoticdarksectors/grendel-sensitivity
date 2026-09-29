@@ -1,6 +1,6 @@
 # grendel-sensitivity
 
-The code that produced the GRENDEL sensitivity curves of arXiv:2609.00152v1
+The code that produces the GRENDEL sensitivity curves of arXiv:2609.00152
 for the PBC benchmarks BC4 (dark scalar), BC6–BC8 (heavy neutral leptons)
 and BC10 (fermiophilic ALP).
 

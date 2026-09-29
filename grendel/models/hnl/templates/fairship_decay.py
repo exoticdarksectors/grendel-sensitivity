@@ -339,7 +339,7 @@ class FairShipDecayBackend:
             self._engine.readString("Random:setSeed = on")
             self._engine.readString(f"Random:seed = {self.random_seed}")
 
-        # FairShip ``python/pythia8_conf.py::configure`` (Copyright CERN for
+        # FairShip ``python/pythia8_conf.py::add_hnl`` (Copyright CERN for
         ctau_mm = self.ctau_m * 1.0e3
         self._adapter.SetParameters(
             f"{HNL_PDG}:new = N2 N2 2 0 0 {self.mass_GeV:.12} 0.0 0.0 0.0 {ctau_mm:.12} 0 1 0 1 0"

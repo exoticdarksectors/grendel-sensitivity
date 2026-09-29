@@ -1,7 +1,7 @@
 {
   "fonll": {
     "version": "1.3.3",
-    "upstream": "http://www.lpthe.jussieu.fr/~cacciari/fonll/fonllinput.html",
+    "upstream": "https://www.lpthe.jussieu.fr/~cacciari/fonll/",
     "mirror": "https://github.com/alisw/fonll",
     "mirror_commit": "c7086e49141cf6705cf7a4bc5f7d0b3a38673203"
   },

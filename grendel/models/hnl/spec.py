@@ -99,6 +99,9 @@ class HNLSpec(ModelSpec):
     def templates_path(self, pt: MassPoint) -> Path:
         return self.paths.templates / pt.flavor / f"templates_{pt.label}.npz"
 
+    def input_files(self, pt: MassPoint) -> list[Path]:
+        return [self.vectors_path(pt), self.templates_path(pt)]
+
     def decay_backend(self, pt: MassPoint, vectors_path: Path):
         templates = load_template_bundle(self.templates_path(pt))
         if templates is None:
@@ -177,10 +180,6 @@ class HNLSpec(ModelSpec):
         result["event_chunk"] = cfg.event_chunk
         result["seed_salt"] = cfg.seed_salt
         return result
-
-    def plot(self, csv_path, out_dir):
-        from .plot_exclusion import plot_exclusion
-        plot_exclusion(csv_path, out_dir)
 
     def skip_reason(self, pt):
         csv = self.vectors_path(pt)

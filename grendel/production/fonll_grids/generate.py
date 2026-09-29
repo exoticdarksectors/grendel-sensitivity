@@ -115,6 +115,7 @@ class Variation:
     mass: float
 
 
+
 def central_variation(quark: str) -> Variation:
     return Variation("central", "central", 1.0, 1.0, 0, float(QUARKS[quark]["mass"]))
 
@@ -217,6 +218,14 @@ def build_quark_grid(ws: Workspace, run_dir: Path, grid_file: Path, prefix: str,
     if len(combined_lines) != expected_lines:
         raise RuntimeError(f"merged raw grid has {len(combined_lines)} lines, expected {expected_lines}")
     grid_file.write_text("\n".join(combined_lines) + "\n")
+
+
+def raw_grid_complete(grid_file: Path) -> bool:
+    """Whether a raw quark grid holds its header and every (y, pT) row."""
+    if not grid_file.exists():
+        return False
+    text = grid_file.read_text()
+    return text.endswith("\n") and len(text.splitlines()) == 1 + len(Y_VALUES) * FONLL_GRID_NPT
 
 
 def observed_points() -> list[tuple[float, float]]:
@@ -369,7 +378,7 @@ def combine_charm_d0_feeddown(direct_values, vector_values, vector_to_direct_wei
 
 
 def fit_charm_d0_feeddown_weight(ws: Workspace) -> dict[str, object]:
-    """Golden-section fit of the D* -> D0 weight to the public CTEQ6.6 D0 points."""
+    """Ternary-search fit of the D* -> D0 weight to the public CTEQ6.6 D0 points."""
     grid_file = ensure_charm_calibration_grid(ws)
     run_dir = grid_file.parent
     reference_points = [(pt, 0.0) for pt in sorted(PUBLIC_CHARM_D0_CTEQ66_Y0)]
@@ -449,9 +458,13 @@ def generate(ws: Workspace, pdf_key: str, quark: str, variation: Variation, reus
             path.unlink()
 
     label = f"[{pdf_key} {quark} {variation.tag}]"
-    if reuse_existing_grids and grid_file.exists():
+    reused = reuse_existing_grids and raw_grid_complete(grid_file)
+    if reused:
         print(f"{label} reusing existing quark grid {grid_file}")
     else:
+        if grid_file.exists():
+            print(f"{label} existing quark grid is incomplete; rebuilding it")
+            grid_file.unlink()
         print(f"{label} building quark grid")
         build_quark_grid(ws, run_dir, grid_file, prefix, lhaid, mass, pdf_key, quark, grid_workers,
                          ffact=ffact, fren=fren, log_label=variation.tag)
@@ -493,12 +506,13 @@ def generate(ws: Workspace, pdf_key: str, quark: str, variation: Variation, reus
     summary.update({"pdf_key": pdf_key, "quark": quark, "variation_kind": variation.kind,
                     "variation_tag": variation.tag, "muR": variation.muR, "muF": variation.muF, "lhapdf_id": lhaid,
                     "lhapdf_member": variation.pdf_member, "heavy_quark_mass_GeV": mass,
-                    "raw_grid_reused": reuse_existing_grids})
+                    "raw_grid_reused": reused})
     if weight is not None:
         summary["charm_feeddown_vector_to_direct_weight"] = weight
-    if not reuse_existing_grids:
+    if not reused:
         summary["raw_grid_workers"] = grid_workers
     return summary
+
 
 
 def add_workspace_options(ap: argparse.ArgumentParser) -> None:
@@ -523,9 +537,11 @@ def main(argv=None) -> int:
     ap.add_argument("--quark", action="append", choices=sorted(QUARKS),
                     help="quark flavour; may be repeated (default: bottom and charm)")
     ap.add_argument("--reuse-existing-grids", action="store_true",
-                    help="skip fonllgridlha when the raw quark grid already exists")
+                    help="skip fonllgridlha when a complete raw quark grid already exists")
     ap.add_argument("--grid-workers", type=int, default=1, help="parallel rapidity chunks per quark grid")
     ap.add_argument("--compress-logs", action="store_true", help="gzip each per-command log on success")
+    ap.add_argument("--calibrate-only", action="store_true",
+                    help="fit and cache the charm D* feeddown weight (charm_feeddown_calibration.json), then exit")
     args = ap.parse_args(argv)
     if args.grid_workers < 1:
         ap.error("--grid-workers must be at least 1")
@@ -534,6 +550,9 @@ def main(argv=None) -> int:
 
     ws = workspace_from(args)
     ws.out.mkdir(parents=True, exist_ok=True)
+    if args.calibrate_only:
+        load_or_fit_charm_feeddown_weight(ws)
+        return 0
     requested = list(dict.fromkeys((args.pdf or ["nlo"]) + (["nnlo"] if args.include_nnlo else [])))
     quarks = args.quark or ["bottom", "charm"]
 

@@ -10,6 +10,7 @@ from ..geometry.grendel_geometry import (
     mesh_fiducial, points_on_tracker, DETECTOR_THICKNESS,
 )
 from ..geometry import reco_common as _rc
+from ..geometry.raycast import sample_decay_distances
 from ..geometry.reco_common import SIGMA_T_DEFAULT, CHI2_TIMING_MAX
 
 P_CUT = float(os.environ.get("GRENDEL_TRACK_P_CUT", "0.100"))
@@ -26,11 +27,17 @@ POINT_GLOBAL = 0.8
 HIT_RESOLUTION = 0.003
 
 
-def _first_forward_hit(mesh, origins, dirs):
-    """Nearest forward mesh intersection per ray, NaN on miss (from main)."""
+def _first_forward_hit(mesh, origins, dirs, chunk=25000):
+    """Nearest forward mesh intersection per ray, NaN on miss."""
     out = np.full((len(origins), 3), np.nan)
-    locs, ray_idx, _ = mesh.ray.intersects_location(
-        ray_origins=origins, ray_directions=dirs)
+    loc_parts, idx_parts = [], []
+    for s in range(0, len(origins), chunk):
+        loc_c, idx_c, _ = mesh.ray.intersects_location(
+            ray_origins=origins[s:s + chunk], ray_directions=dirs[s:s + chunk])
+        loc_parts.append(loc_c)
+        idx_parts.append(idx_c + s)
+    locs = np.concatenate(loc_parts) if loc_parts else np.empty((0, 3))
+    ray_idx = np.concatenate(idx_parts) if idx_parts else np.empty(0, dtype=int)
     if len(locs) == 0:
         return out
     signed = np.einsum('ij,ij->i', locs - origins[ray_idx], dirs[ray_idx])
@@ -252,7 +259,7 @@ def build_cutflow_mc(mc, weights, p_cut=P_CUT, sep_min=SEP_MIN,
 def build_event_mc(p4, direction, entry_d, exit_d, templates, n_samples, rng,
                    sigma_hit=HIT_RESOLUTION, sigma_t=SIGMA_T_DEFAULT,
                    origin=CMS_ORIGIN, return_mc=False):
-    """Sample decay vertices and reconstruct, for a batch of HNL four-vectors."""
+    """Sample decay vertices and reconstruct, for a batch of LLP four-vectors."""
     origin = np.asarray(origin, float)
     p4 = np.asarray(p4, float)
     direction = np.asarray(direction, float)
@@ -265,8 +272,7 @@ def build_event_mc(p4, direction, entry_d, exit_d, templates, n_samples, rng,
     t_charge = np.asarray(templates['charge'])
     t_stable = np.asarray(templates['stable'])
 
-    d = rng.uniform(np.asarray(entry_d)[:, None], np.asarray(exit_d)[:, None],
-                    size=(n_ev, n_samples))
+    d = sample_decay_distances(entry_d, exit_d, n_samples, rng)
     M = n_ev * n_samples
     vtx = origin[None, :] + d.reshape(M, 1) * np.repeat(direction, n_samples, axis=0)
 

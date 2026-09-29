@@ -32,12 +32,20 @@ from .mass_grid import ALP_MASS_GRID
 ALP_PDG = 9900015
 RESONANCE_WINDOWS = ((0.125, 0.140), (0.538, 0.555), (0.940, 0.974))
 GLUON_CHANNEL_ID = "channel_018"
+PARTONIC_MODES = {"shower": 91, "minimal": 0}
+_PARTONS = set(range(1, 7)) | {21}
 
 _PRODUCTS_TO_CHANNEL = {
     tuple(products): channel_id
     for channel_id, products in DECAY_PRODUCTS_PDG.items()
     if channel_id not in {"channel_024", "channel_029"}
 }
+
+
+def _me_mode(products, partonic_mode: str) -> int:
+    """Pythia meMode for a primary channel: q qbar / g g primaries shower and hadronise (91) unless
+    the first-release ``minimal`` conversion (0) is asked."""
+    return PARTONIC_MODES[partonic_mode] if any(abs(code) in _PARTONS for code in products) else 0
 
 
 def _excluded_resonance(mass_gev: float) -> bool:
@@ -67,6 +75,7 @@ def _validate_resumed_template(
     n_templates: int,
     gluon_surrogate: str,
     decay_model: str,
+    partonic_mode: str = "shower",
 ) -> None:
     """Refuse to reuse a template generated for a different model/config."""
     with np.load(path) as bundle:
@@ -77,8 +86,10 @@ def _validate_resumed_template(
         )
         observed_count = int(bundle["n_templates"])
         observed_surrogate = str(bundle["gluon_surrogate"])
-    expected = (decay_model, int(n_templates), gluon_surrogate)
-    observed = (observed_model, observed_count, observed_surrogate)
+        observed_mode = (str(bundle["partonic_mode"]) if "partonic_mode" in bundle.files
+                         else "minimal")
+    expected = (decay_model, int(n_templates), gluon_surrogate, partonic_mode)
+    observed = (observed_model, observed_count, observed_surrogate, observed_mode)
     if observed != expected:
         raise RuntimeError(
             f"resume template {path} has model/count/surrogate {observed}; "
@@ -93,12 +104,19 @@ class AlpPythiaBackend:
         self,
         mass_gev: float,
         seed: int,
-        gluon_surrogate: str = "uds",
+        gluon_surrogate: str = "gg",
         decay_model: str = DEFAULT_DECAY_MODEL,
+        partonic_mode: str = "shower",
     ):
         self.mass_gev = float(mass_gev)
-        if gluon_surrogate not in {"uds", "u", "d", "s"}:
+        if partonic_mode not in PARTONIC_MODES:
+            raise ValueError(f"unknown partonic mode {partonic_mode!r}")
+        if gluon_surrogate not in {"gg", "uds", "u", "d", "s"}:
             raise ValueError(f"unknown gluon surrogate {gluon_surrogate!r}")
+        if gluon_surrogate == "gg" and partonic_mode == "minimal":
+            raise ValueError("meMode 0 cannot hadronise a bare g g pair; "
+                             "use --gluon-surrogate uds|u|d|s with --partonic-mode minimal")
+        self.partonic_mode = partonic_mode
         self.gluon_surrogate = gluon_surrogate
         self.decay_model = validate_decay_model(decay_model)
         self.root = _require_root()
@@ -137,7 +155,7 @@ class AlpPythiaBackend:
         self.adapter.SetParameters(f"{ALP_PDG}:isResonance = false")
         self.adapter.SetParameters(f"{ALP_PDG}:onMode = off")
         for channel_id, branching in self.weights.items():
-            if channel_id == GLUON_CHANNEL_ID:
+            if channel_id == GLUON_CHANNEL_ID and self.gluon_surrogate != "gg":
                 flavors = {
                     "uds": (1, 2, 3),
                     "u": (2,),
@@ -157,7 +175,8 @@ class AlpPythiaBackend:
             for mode_branching, products in modes:
                 codes = " ".join(str(code) for code in products)
                 self.adapter.SetParameters(
-                    f"{ALP_PDG}:addChannel = 1 {mode_branching:.16g} 0 {codes}"
+                    f"{ALP_PDG}:addChannel = 1 {mode_branching:.16g} "
+                    f"{_me_mode(products, self.partonic_mode)} {codes}"
                 )
         self.adapter.SetParameters(f"{ALP_PDG}:mayDecay = on")
         if hasattr(self.engine, "init") and not self.engine.init():
@@ -241,9 +260,10 @@ def generate_one(
     n_templates: int,
     out_dir: Path,
     seed: int,
-    gluon_surrogate: str = "uds",
+    gluon_surrogate: str = "gg",
     decay_model: str = DEFAULT_DECAY_MODEL,
     resume: bool = False,
+    partonic_mode: str = "shower",
 ) -> Path | None:
     if _excluded_resonance(mass_gev):
         print(f"  m_a={mass_gev:.3f}: skip unsupported light-meson resonance")
@@ -251,12 +271,12 @@ def generate_one(
     destination = out_dir / f"templates_{_mass_label(mass_gev)}.npz"
     if resume and destination.exists():
         _validate_resumed_template(
-            destination, n_templates, gluon_surrogate, decay_model
+            destination, n_templates, gluon_surrogate, decay_model, partonic_mode
         )
         print(f"  m_a={mass_gev:.3f}: already checkpointed -> {destination.name}")
         return destination
     backend = AlpPythiaBackend(
-        mass_gev, seed, gluon_surrogate, decay_model
+        mass_gev, seed, gluon_surrogate, decay_model, partonic_mode
     )
     samples = [backend.sample() for _ in range(n_templates)]
     bundle = _flatten(samples)
@@ -302,10 +322,11 @@ def generate_one(
             matrix_element_weight=matrix_element_weight,
             decay_backend=np.array(
                 f"Pythia8-{decay_model}-weighted-three-body-"
-                f"gg-to-{gluon_surrogate}"
+                f"gg-to-{gluon_surrogate}-partonic-{partonic_mode}"
             ),
             decay_model=np.array(decay_model),
             gluon_surrogate=np.array(gluon_surrogate),
+            partonic_mode=np.array(partonic_mode),
         )
     temporary.replace(destination)
     print(
@@ -337,10 +358,18 @@ def main(argv=None) -> int:
         help="pinned decay model used for widths, BRs, and matrix elements",
     )
     parser.add_argument(
+        "--partonic-mode",
+        choices=tuple(PARTONIC_MODES),
+        default="shower",
+        help="shower: q qbar / g g primaries shower and hadronise (meMode 91); "
+             "minimal: meMode 0, as in the first published templates",
+    )
+    parser.add_argument(
         "--gluon-surrogate",
-        choices=("uds", "u", "d", "s"),
-        default="uds",
-        help="partonic proxy used for a -> gg (default: equal u/d/s mixture)",
+        choices=("gg", "uds", "u", "d", "s"),
+        default=None,
+        help="a -> gg as gluons (default with --partonic-mode shower) or as "
+             "light-quark jets (uds is the default, and the only option, with minimal)",
     )
     parser.add_argument(
         "--resume", action="store_true",
@@ -356,15 +385,18 @@ def main(argv=None) -> int:
             masses = ALP_MASS_GRID
     except (OSError, ValueError) as exc:
         parser.error(str(exc))
+    surrogate = args.gluon_surrogate or ("gg" if args.partonic_mode == "shower" else "uds")
+    out = args.out or ModelPaths.resolve("bc10").templates
     for mass in masses:
         generate_one(
             mass,
             args.n_templates,
-            args.out,
+            out,
             args.seed + int(round(mass * 1000)),
-            args.gluon_surrogate,
+            surrogate,
             args.decay_model,
             args.resume,
+            args.partonic_mode,
         )
     return 0
 

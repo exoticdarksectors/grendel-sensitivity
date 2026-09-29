@@ -79,6 +79,9 @@ class ALPSpec(ModelSpec):
     def templates_path(self, pt: MassPoint) -> Path:
         return self.paths.templates / f"templates_{pt.label}.npz"
 
+    def input_files(self, pt: MassPoint) -> list[Path]:
+        return [self.vectors_path(pt), self.templates_path(pt)]
+
     def decay_backend(self, pt: MassPoint, vectors_path: Path):
         templates = load_template_bundle(self.templates_path(pt))
         if templates is None:
@@ -138,10 +141,6 @@ class ALPSpec(ModelSpec):
             for field in ("sample_ess", "event_ess", "max_event_fraction"):
                 res[f"{label}_{field}"] = diagnostics[field]
         return res
-
-    def plot(self, csv_path, out_dir):
-        from .plot import plot_island
-        plot_island(csv_path, out_dir)
 
     def skip_reason(self, pt):
         csv = self.vectors_path(pt)

@@ -37,14 +37,18 @@ def gate_quark(ws: gen.Workspace, quark: str, reference_dir: Path, rtol: float, 
     feeddown = gen.load_or_fit_charm_feeddown_weight(ws) if quark == "charm" else None
     summary = gen.generate(ws, "nlo", quark, gen.central_variation(quark), reuse_existing_grids=False,
                            grid_workers=grid_workers, feeddown_calibration=feeddown)
-    _, _, fresh = data_columns(Path(summary["path"]))
-    _, _, ref = data_columns(reference_dir / gen.grid_filename("nlo", "central", quark))
+    fresh_pt, fresh_y, fresh = data_columns(Path(summary["path"]))
+    ref_pt, ref_y, ref = data_columns(reference_dir / gen.grid_filename("nlo", "central", quark))
     if fresh.shape != ref.shape:
         print(f"[{quark}] FAIL: shape {fresh.shape} vs reference {ref.shape}")
+        return False
+    if not (np.array_equal(fresh_pt, ref_pt) and np.array_equal(fresh_y, ref_y)):
+        print(f"[{quark}] FAIL: the (pT, y) nodes differ from the reference")
         return False
     nz = ref != 0
     rel = np.zeros_like(ref)
     rel[nz] = np.abs(fresh[nz] - ref[nz]) / np.abs(ref[nz])
+    rel[~nz] = np.where(fresh[~nz] == 0, 0.0, np.inf)
     max_rel = float(rel.max())
     cov = coverage_tail_bound(fresh)
     print(f"[{quark}] {'PASS' if max_rel <= rtol else 'FAIL'}: max relative diff vs tracked central = "
@@ -54,25 +58,15 @@ def gate_quark(ws: gen.Workspace, quark: str, reference_dir: Path, rtol: float, 
     return max_rel <= rtol
 
 
-def find_point(path: Path, pt: float, y: float) -> float:
-    for line in path.read_text().splitlines():
-        if not line.strip() or line.startswith("#"):
-            continue
-        cols = line.split()
-        if len(cols) < 3:
-            continue
-        if (math.isclose(float(cols[0].replace("D", "E")), pt, abs_tol=1e-12)
-                and math.isclose(float(cols[1].replace("D", "E")), y, abs_tol=1e-12)):
-            return float(cols[2].replace("D", "E"))
-    raise ValueError(f"point pT={pt}, y={y} not found in {path}")
-
-
 def public_points(ws: gen.Workspace, tolerance: float) -> bool:
     ok = True
-    path = ws.out / gen.grid_filename("cteq66", "central", "bottom")
-    if not path.exists():
-        raise FileNotFoundError(f"{path} not found; run generate --pdf cteq66 --quark bottom first")
-    local = find_point(path, 5.0, 0.0)
+    grid_file = ws.run / "cteq66_bottom_central" / "ct_b_.out"
+    if not grid_file.exists():
+        raise FileNotFoundError(f"{grid_file} not found; run generate --pdf cteq66 --quark bottom first")
+    bottom = gen.QUARKS["bottom"]
+    values, _ = gen.run_fragmentation(ws, "cteq66", "bottom", grid_file.parent, grid_file, int(bottom["frag_mode"]),
+                                      float(bottom["frag_param"]), [(5.0, 0.0)], "public_point_pt5_y0")
+    local = values[gen.point_key(5.0, 0.0)]
     rel = (local - PUBLIC_BOTTOM_PT5_Y0) / PUBLIC_BOTTOM_PT5_Y0
     status = "OK" if abs(rel) <= tolerance else "FAIL"
     print(f"{status} bottom: local={local:.6e} public={PUBLIC_BOTTOM_PT5_Y0:.6e} rel_diff={rel:+.3%}")

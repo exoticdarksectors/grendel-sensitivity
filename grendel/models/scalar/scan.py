@@ -8,7 +8,7 @@ import numpy as np
 
 from ...production.fonll.fonll_parser import get_sigma_total
 from ...production.fonll.meson_sampler import sample_meson_4vectors
-from ...scan import ScanConfig, run_scan
+from ...scan import NoResultsError, ScanConfig, run_scan
 from ..hnl.scan import add_common_options, resolve_paths
 from . import production
 from .spec import ScalarSpec
@@ -44,7 +44,8 @@ def produce_missing(masses, vectors_dir, n_pool, seed, *, force=False,
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
-    add_common_options(parser, "bc4", ScalarSpec.decay_samples_default)
+    add_common_options(parser, "bc4", ScalarSpec.decay_samples_default,
+                       templates_help="decay templates (default: none, the analytic decay engine)")
     parser.add_argument("--n-pool", type=int, default=production.N_POOL_DEFAULT,
                         help="parent b-hadron pool size when producing four-vectors")
     parser.add_argument("--seed", type=int, default=42, help="production seed")
@@ -72,8 +73,12 @@ def main(argv=None) -> int:
     cfg = ScanConfig(decay_samples=args.decay_samples, thresholds=tuple(args.thresholds),
                      seed_offset=args.seed_offset, force_geometry=args.force_geometry)
     print(paths.describe())
-    run_scan(spec, spec.points(masses), cfg, paths.analysis,
-             workers=args.workers, resume=args.resume)
+    try:
+        run_scan(spec, spec.points(masses), cfg, paths.analysis,
+                 workers=args.workers, resume=args.resume)
+    except NoResultsError as err:
+        print(f"error: {err}", file=sys.stderr)
+        return 1
     return 0
 
 

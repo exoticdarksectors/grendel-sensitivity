@@ -199,7 +199,7 @@ def alp_total_width(m_a, inv_f, c_f=1.0, decay_model=DEFAULT_DECAY_MODEL):
 
 
 def alp_ctau(m_a, inv_f, c_f=1.0, decay_model=DEFAULT_DECAY_MODEL):
-    """Lab-frame c*tau [m] of the ALP at rest-frame width Gamma_tot."""
+    """Proper decay length c*tau = hbar c / Gamma_tot [m] of the ALP."""
     gamma = alp_total_width(m_a, inv_f, c_f, decay_model)
     if gamma <= 0.0:
         return np.inf
@@ -252,8 +252,8 @@ def visible_channel_weights(
 def visible_fraction(
     m_a, inv_f=INV_F_REF, c_f=1.0, decay_model=DEFAULT_DECAY_MODEL
 ):
-    """Total BR into channels with >= 2 prompt charged tracks (multiplies the production yield in the
-    sensitivity scan; coupling independent)."""
+    """Total BR of SensCalc's no-ECAL visible selection (multiplies the production yield only for
+    template bundles without the full branching, i.e."""
     return float(
         sum(visible_channel_weights(m_a, inv_f, c_f, decay_model).values())
     )

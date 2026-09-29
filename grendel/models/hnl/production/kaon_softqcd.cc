@@ -1,6 +1,6 @@
 // Pythia8 SoftQCD charged-kaon spectrum for the GRENDEL HNL kaon gate.
-// pp @ 14 TeV, inelastic. Records final-state K+- (pT, y); prints the
-// inelastic cross section and <n_K+->/event, then a (pT,y) list to stdout.
+// pp @ 14 TeV, inelastic. Streams final-state K+- (pT, y) to stdout, then
+// prints the inelastic cross section and <n_K+->/event to stderr.
 #include "Pythia8/Pythia.h"
 #include <cstdio>
 using namespace Pythia8;
@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
   if (!pythia.init()) { fprintf(stderr, "pythia init failed\n"); return 1; }
 
   long nKaon = 0;
-  // stream K+- (pT, y) to stdout after a header; cap |y|<8, pT<10 (soft window)
+  // stream K+- (pT, y) to stdout; cap |y|<8, pT<10 (soft window)
   for (long iEv = 0; iEv < nEvents; ++iEv) {
     if (!pythia.next()) continue;
     for (int i = 0; i < pythia.event.size(); ++i) {

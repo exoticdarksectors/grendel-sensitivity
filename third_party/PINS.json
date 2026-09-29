@@ -21,7 +21,7 @@
       "next": "a PyROOT + Pythia8 environment (ROOT.TPythia8) to run grendel.models.hnl.templates.fairship"
     },
     "SM_HeavyN_CKM_AllMasses_LO": {
-      "what": "HeavyN FeynRules/UFO model v2.2 (Ruiz; arXiv:1602.06957, arXiv:1812.08750)",
+      "what": "HeavyN FeynRules/UFO model v2.2 (Ruiz et al.; arXiv:1411.7305, arXiv:1602.06957, arXiv:1812.08750)",
       "kind": "archive",
       "url": "https://feynrules.irmp.ucl.ac.be/attachment/wiki/HeavyN/SM_HeavyN_CKM_AllMasses_LO.tgz?format=raw",
       "sha256": "05dab629d094a086ab9c841372cde375c4374f7fd8afdfd2085004ad7caf1ec0",

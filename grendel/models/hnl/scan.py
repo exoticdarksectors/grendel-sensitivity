@@ -7,12 +7,13 @@ from pathlib import Path
 
 from ...constants import FLAVORS
 from ...io.paths import ModelPaths
-from ...scan import ScanConfig, run_scan
+from ...scan import NoResultsError, ScanConfig, run_scan
 from .mass_grid import ANALYSIS_MASS_MAX, MASS_GRID
 from .spec import HNLSpec
 
 
-def add_common_options(parser: argparse.ArgumentParser, model: str, decay_samples: int) -> None:
+def add_common_options(parser: argparse.ArgumentParser, model: str, decay_samples: int,
+                       templates_help: str | None = None) -> None:
     key = model.upper()
     parser.add_argument("--mass", nargs="+", type=float, default=None,
                         help="masses in GeV (default: the model's grid)")
@@ -26,11 +27,13 @@ def add_common_options(parser: argparse.ArgumentParser, model: str, decay_sample
     parser.add_argument("--force-geometry", action="store_true",
                         help="recompute the ray-cast cache")
     parser.add_argument("--resume", action="store_true",
-                        help="keep rows already in <out>/sensitivity.csv and skip their points")
+                        help="keep rows already in <out>/sensitivity.csv (or its checkpoint) that were "
+                             "computed with these settings, this code and unchanged input files, and "
+                             "skip their points")
     parser.add_argument("--vectors-dir", type=Path, default=None,
                         help=f"four-vector CSVs (default: $GRENDEL_{key}_VECTORS_DIR)")
     parser.add_argument("--templates-dir", type=Path, default=None,
-                        help=f"decay templates (default: $GRENDEL_{key}_TEMPLATES_DIR)")
+                        help=templates_help or f"decay templates (default: $GRENDEL_{key}_TEMPLATES_DIR)")
     parser.add_argument("--out", type=Path, default=None,
                         help=f"analysis directory (default: $GRENDEL_{key}_ANALYSIS_DIR)")
     parser.add_argument("--geometry-dir", type=Path, default=None,
@@ -71,8 +74,12 @@ def main(argv=None) -> int:
                      max_hit_events=args.max_hit_events, event_chunk=args.event_chunk,
                      seed_salt=args.seed_salt, force_geometry=args.force_geometry)
     print(paths.describe())
-    run_scan(spec, spec.points(masses, flavors), cfg, paths.analysis,
-             workers=args.workers, resume=args.resume)
+    try:
+        run_scan(spec, spec.points(masses, flavors), cfg, paths.analysis,
+                 workers=args.workers, resume=args.resume)
+    except NoResultsError as err:
+        print(f"error: {err}", file=sys.stderr)
+        return 1
     return 0
 
 

@@ -49,7 +49,45 @@ M_S_MAX_BTOK = M_BPLUS - M_KPLUS
 M_SPECTATOR = 2.0
 C_4PI = 5.1e-9
 
-ALPHA_S = 0.30
+ALPHA_S_MZ = 0.1180
+M_Z = 91.1876
+_ZETA3 = 1.2020569031595942
+
+
+def _qcd_beta(a, nf):
+    """-da/dln(mu^2) for a = alpha_s/pi, four loops (MSbar)."""
+    b0 = (11.0 - 2.0 / 3.0 * nf) / 4.0
+    b1 = (102.0 - 38.0 / 3.0 * nf) / 16.0
+    b2 = (2857.0 / 2.0 - 5033.0 / 18.0 * nf + 325.0 / 54.0 * nf ** 2) / 64.0
+    b3 = ((149753.0 / 6.0 + 3564.0 * _ZETA3) - (1078361.0 / 162.0 + 6508.0 / 27.0 * _ZETA3) * nf
+          + (50065.0 / 162.0 + 6472.0 / 81.0 * _ZETA3) * nf ** 2 + 1093.0 / 729.0 * nf ** 3) / 256.0
+    return a * a * (b0 + a * (b1 + a * (b2 + a * b3)))
+
+
+def _run(a, mu_from, mu_to, nf, steps=200):
+    """RK4 in ln(mu^2) from mu_from to mu_to at fixed nf."""
+    h = 2.0 * np.log(mu_to / mu_from) / steps
+    for _ in range(steps):
+        k1 = -_qcd_beta(a, nf)
+        k2 = -_qcd_beta(a + 0.5 * h * k1, nf)
+        k3 = -_qcd_beta(a + 0.5 * h * k2, nf)
+        k4 = -_qcd_beta(a + h * k3, nf)
+        a = a + h * (k1 + 2.0 * k2 + 2.0 * k3 + k4) / 6.0
+    return a
+
+
+def alpha_s(mu):
+    """alpha_s(mu) for scalar or array ``mu`` (GeV), run down from M_Z."""
+    mu = np.asarray(mu, float)
+    out = np.empty(mu.shape)
+    for i, m in np.ndenumerate(mu):
+        a = _run(ALPHA_S_MZ / np.pi, M_Z, max(m, M_B_QUARK), 5)
+        if m < M_B_QUARK:
+            a = _run(a, M_B_QUARK, max(m, M_C_QUARK), 4)
+        if m < M_C_QUARK:
+            a = _run(a, M_C_QUARK, m, 3)
+        out[i] = np.pi * a
+    return out if out.ndim else float(out)
 
 
 _WINKLER_CSV = Path(__file__).resolve().parent / "data" / "winkler_widths.csv"
@@ -159,7 +197,7 @@ def width_gg(m_S):
     for m_q in (M_C_QUARK, M_B_QUARK, M_TOP):
         x = m_S ** 2 / (4.0 * m_q ** 2)
         amp = amp + (x + (x - 1.0) * f(x)) / x ** 2
-    return (ALPHA_S ** 2 * m_S ** 3) / (32.0 * np.pi ** 3 * V_HIGGS ** 2) * np.abs(amp) ** 2
+    return (alpha_s(m_S) ** 2 * m_S ** 3) / (32.0 * np.pi ** 3 * V_HIGGS ** 2) * np.abs(amp) ** 2
 
 
 _LEPTONS = {"ee": M_ELECTRON, "mumu": M_MUON, "tautau": M_TAU}
@@ -259,7 +297,8 @@ def width_B_to_K_S(m_S, m_B, sin2theta=1.0):
 
 
 def br_B_to_K_S(m_S, parent="B+", sin2theta=1.0):
-    """BR(B -> K S) for parent ``B+``/``B0``."""
+    """BR(B -> K S) for parent ``B+``/``B0``: the exclusive reference; production uses
+    ``br_B_to_Xs_S`` (~11x larger at 0.5 GeV)."""
     if parent == "B+":
         m_B, tau_B = M_BPLUS, TAU_BPLUS
     elif parent == "B0":

@@ -4,6 +4,7 @@ from __future__ import annotations
 import numpy as np
 
 from ...constants import CMS_ORIGIN
+from ...geometry.raycast import sample_decay_distances
 from ...geometry.reco_common import SIGMA_T_DEFAULT
 from ...production.decay_engine.kinematics import _boost_to_lab
 from ...reco.acceptance import (HIT_RESOLUTION, P_CUT, reconstruct_decays,
@@ -46,8 +47,7 @@ def build_event_mc(p4, direction, entry_d, exit_d, m_S, n_samples, rng,
     direction = np.asarray(direction, float)
     n_ev = len(entry_d)
 
-    d = rng.uniform(np.asarray(entry_d)[:, None], np.asarray(exit_d)[:, None],
-                    size=(n_ev, n_samples))
+    d = sample_decay_distances(entry_d, exit_d, n_samples, rng)
     M = n_ev * n_samples
     vtx = origin[None, :] + d.reshape(M, 1) * np.repeat(direction, n_samples, axis=0)
     parent = np.repeat(p4, n_samples, axis=0)

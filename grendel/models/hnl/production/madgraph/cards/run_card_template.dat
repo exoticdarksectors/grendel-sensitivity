@@ -28,7 +28,7 @@
 #*********************************************************************
 # PDF choice: this automatically fixes also alpha_s and its evol.   *
 #*********************************************************************
-     lhapdf    = pdlabel     ! NNPDF4.0 NLO via LHAPDF (matches the FONLL meson side; see hnl/vendored/PROVENANCE.md)
+     lhapdf    = pdlabel     ! NNPDF4.0 NLO via LHAPDF (matches the FONLL meson grids)
      331700    = lhaid       ! NNPDF40_nlo_as_01180 central member
 
 #*********************************************************************

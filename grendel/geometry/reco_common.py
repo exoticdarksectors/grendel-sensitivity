@@ -14,8 +14,9 @@ so the pointing bisector is the sum of the two outgoing unit directions.
 """
 import numpy as np
 from .grendel_geometry import (classify_points_with_basis, DETECTOR_THICKNESS,
-                              points_in_fiducial, points_on_tracker,
+                              points_on_tracker,
                               SPEED_OF_LIGHT)
+from .fiducial import points_in_fiducial
 
 IP = np.array([0.0, 0.0, 0.0])
 

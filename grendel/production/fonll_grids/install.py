@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import platform
 import subprocess
 import sys
 from pathlib import Path
@@ -16,6 +17,8 @@ PINS = json.loads((PATCHES / "PINS.json").read_text())
 EXECUTABLES = ("fonllgridlha", "fragmfonll")
 MAKE = ["make", "-f", "../misc1/Makefile",
         "VPATH=../misc1:../main:../hdmassive:../hdresummed:../phmassive:../phresummed:../common"]
+if platform.system() == "Linux":
+    MAKE += ["F77=gfortran -Wall -fno-automatic -fallow-argument-mismatch", "SYSOBJ="]
 
 
 def sha256(path: Path) -> str:
