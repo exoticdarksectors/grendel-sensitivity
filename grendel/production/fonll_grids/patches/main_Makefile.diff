@@ -1,0 +1,18 @@
+diff --git a/main/Makefile b/main/Makefile
+index 93aa88e..59ec7b7 100644
+--- a/main/Makefile
++++ b/main/Makefile
+@@ -28,7 +28,7 @@ STRFLHA = lhapdfif.o
+ 
+ LIBSPDL = -L/cern/pro/lib -lpdflib -lpacklib -lmathlib -lkernlib
+ # the following line needs lhapdf-config to be correctly in PATH
+-LIBSLHA = $(STATIC) -L$(shell lhapdf-config --prefix)/lib -lLHAPDF
++LIBSLHA = $(STATIC) -L$(shell lhapdf-config --prefix)/lib -Wl,-rpath,$(shell lhapdf-config --prefix)/lib -lLHAPDF
+ COMMON= cernlib.o dfint.o gauleg.o fww_ww.o mlmident.o \
+           strf.o getstr.o spmat1.o fonfra_p.o istrl.o toend.o dcspln.o locatd.o
+ INCLUDE = xsect.h
+@@ -86,4 +86,3 @@ clean:
+ 	-rm core *.o *~
+ 
+ 
+-

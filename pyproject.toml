@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grendel-sensitivity"
+version = "1.0.0"
+description = "Sensitivity of the GRENDEL long-lived-particle detector to the PBC benchmark models"
+readme = "README.md"
+license = { text = "BSD-3-Clause AND LGPL-3.0-or-later" }
+requires-python = ">=3.11"
+authors = [
+  { name = "Matthew Citron" },
+  { name = "Federico Leo Redi" },
+  { name = "Ryan Schmitz" },
+]
+dependencies = [
+  "numpy>=2.4",
+  "pandas>=3.0",
+  "scipy>=1.13",
+  "matplotlib>=3.8",
+  "trimesh>=4.4",
+  "rtree",
+  "networkx",
+  "particle==1.0.1",
+  "tqdm",
+]
+
+[project.optional-dependencies]
+production = ["sympy", "mpmath", "numba"]
+test = ["pytest"]
+
+[tool.setuptools]
+license-files = ["LICENSE", "LICENSES/*.txt"]
+
+[tool.setuptools.packages.find]
+include = ["grendel*"]
+
+[tool.setuptools.package-data]
+grendel = ["**/data/**/*", "**/*.conf", "**/*.dat", "**/*.csv", "**/*.gz", "**/*.json", "**/*.npz", "**/*.diff",
+           "**/*.sh", "**/*.cc"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--import-mode=importlib"

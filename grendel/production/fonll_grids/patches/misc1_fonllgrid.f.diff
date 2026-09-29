@@ -1,0 +1,32 @@
+diff --git a/misc1/fonllgrid.f b/misc1/fonllgrid.f
+index 065131b..63f8dc9 100644
+--- a/misc1/fonllgrid.f
++++ b/misc1/fonllgrid.f
+@@ -51,7 +51,7 @@ c Driving program for FONLL calculations
+       implicit none
+ c parameters
+       integer nymax,nptmax
+-      parameter (nymax=100,nptmax=100)
++      parameter (nymax=120,nptmax=100)
+ c common
+ c ww
+       integer itypeww
+@@ -214,15 +214,12 @@ c pt loop
+      #           hdmassive,hdmassless,phmassive,phmassless,
+      #           hdresummed,hdreserr,phresummed,phreserr,sigmafonll)
+ c write output
+-            open(unit=12,file=prefix(1:jprefix)//'.out')
+-            call toend(12)
+-            write(12,'(10(d12.6,1x),i3)')
++            open(unit=12,file=prefix(1:jprefix)//'.out',access='append')
++            write(12,'(10(es18.10,1x))')
+      #           pt,ylab,hdmassive,hdmassless,hdresummed,hdreserr,
+      #           phmassive,phmassless,phresummed,phreserr
+             close(12)
+-            open(11,file=prefix(1:jprefix)//'.outlog')
+-c wind file to end
+-            call toend(11)
++            open(11,file=prefix(1:jprefix)//'.outlog',access='append')
+             write(11,111)ibeam1,ener1, nptype1, ngroup1, nset1,
+      #           ibeam2,ener2, nptype2, ngroup2, nset2,
+      #           xmq,xlam,ffact,fren,pt,ylab,sigmafonll,
