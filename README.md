@@ -28,27 +28,33 @@ Inputs and outputs go under `GRENDEL_WORK_DIR` (default `./grendel_work`)
 unless the directories are given on the command line; every command has
 `--help`.
 
+The commands below give the v2 curves (tag `v2`); the v1 curves of
+arXiv:2609.00152v1 come from tag `v1`.
+
 ```
 # production (BC4 and BC5 sample their four-vectors inside the scan)
 python -m grendel.models.alp.production
 python -m grendel.models.hnl.production.run_all
 
-# decay templates (BC4 uses analytic two-body decays)
-python -m grendel.models.alp.templates_pythia
-python -m grendel.models.hnl.templates.fairship
-
-# exHad decay templates (the BC4 scan reads them with --templates-dir)
-python -m grendel.models.hnl.templates.exhad --flavor Ue Umu Utau
-python -m grendel.models.scalar.templates_exhad
-python -m grendel.models.alp.templates_exhad
+# exHad decay templates: exHad's venv Python, this package on PYTHONPATH
+T=grendel_work/exhad
+python -m grendel.models.hnl.templates.exhad --flavor Ue Umu Utau --out $T/hnl
+python -m grendel.models.scalar.templates_exhad --out $T/scalar \
+    --mass $(python -c "from grendel.models.scalar.production_bc5 import MASS_GRID_BC5 as G; print(*G)")
+python -m grendel.models.alp.templates_exhad --out $T/bc10 \
+    --mass $(python -c "from grendel.models.alp.mass_grid import ALP_MASS_GRID as G; print(*[m for m in G if m < 1.345])")
+python -m grendel.models.alp.templates_exhad --out $T/bc10 --sub-request 250 --max-retries 10 --skip-existing
 
 # scans
-python -m grendel.models.scalar.scan --thresholds 3 10 --out RESULTS/bc4
-python -m grendel.models.scalar.scan_bc5 --thresholds 3 10 --out RESULTS/bc5
-python -m grendel.models.alp.scan    --thresholds 3 10 --out RESULTS/bc10
-python -m grendel.models.hnl.scan    --flavor Ue Umu Utau --thresholds 3 10 --out RESULTS/hnl
+python -m grendel.models.scalar.scan --n-pool 400000 --high-pt-tilt-scale 5 --templates-dir $T/scalar --thresholds 3 10 --out RESULTS/bc4
+python -m grendel.models.scalar.scan_bc5 --templates-dir $T/scalar --thresholds 3 10 --out RESULTS/bc5
+python -m grendel.models.alp.scan    --templates-dir $T/bc10 --thresholds 3 10 --out RESULTS/bc10
+python -m grendel.models.hnl.scan    --flavor Ue Umu Utau --templates-dir $T/hnl --thresholds 3 10 --out RESULTS/hnl
 python -m grendel.io.thresholds RESULTS/<model>/sensitivity.csv --threshold 10
 ```
+
+The published BC4 pool was produced with `particle` 0.26.2; with the pinned
+1.0.1 (PDG 2025 b-hadron lifetimes) its weights come out 0.1–0.4 % lower.
 
 The FONLL grids are regenerated with FONLL 1.3.3 and the patches in
 `grendel/production/fonll_grids/patches`
