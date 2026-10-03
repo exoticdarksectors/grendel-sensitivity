@@ -94,6 +94,8 @@ def results(tmp_path_factory):
 
     for model in ("hnl", "bc4", "bc5", "bc10"):
         _run(["grendel.io.thresholds", str(out / model / "sensitivity.csv"), "--threshold", "10"], env, repo)
+    _run(["grendel.io.variants", str(out / "bc5" / "sensitivity.csv"), "--variant", "hSS"], env, repo)
+    _run(["grendel.io.thresholds", str(out / "bc5" / "sensitivity_hSS.csv"), "--threshold", "10"], env, repo)
     return out, env, repo, work
 
 
@@ -116,3 +118,64 @@ def test_scan_writes_the_documented_layout(results, model, prefix):
     assert len(both) > 0
     assert (both[f"{prefix}_min_N10"] >= both[f"{prefix}_min"] * (1 - 1e-12)).all()
     assert (both[f"{prefix}_max_N10"] <= both[f"{prefix}_max"] * (1 + 1e-12)).all()
+
+
+BC5_VARIANTS = ("mixing", "hSS", "BSS", "brhss0.001", "brhss0.001_hSS", "brhss0.001_BSS")
+
+
+def _same_edge(a, b, rtol=1e-5):
+    return (np.isnan(a) and np.isnan(b)) or bool(np.isclose(a, b, rtol=rtol))
+
+
+def test_bc5_splits_the_island_by_production_mode(results):
+    out, _, _, _ = results
+    frame = pd.read_csv(out / "bc5" / "sensitivity.csv").set_index("mass_GeV")
+    for v in BC5_VARIANTS:
+        assert {f"{v}_u2_min", f"{v}_u2_max", f"{v}_peak_N", f"{v}_peak_u2", f"{v}_has_sensitivity",
+                f"{v}_u2_min_open", f"{v}_u2_max_open", f"{v}_u2_min_N10", f"{v}_has_sensitivity_N10"} <= set(frame.columns)
+    assert {"n_hits_mixing", "n_hits_hSS", "n_hits_BSS", "n_hits_quartic",
+            "u2_min_N_mixing", "u2_min_N_quartic", "u2_min_N_hSS", "peak_u2_N_BSS"} <= set(frame.columns)
+    for label in ("u2_min", "peak_u2", "u2_max"):
+        quartic, modes = frame[f"{label}_N_quartic"], frame[f"{label}_N_hSS"] + frame[f"{label}_N_BSS"]
+        known = quartic.notna()
+        assert known.any() and np.allclose(quartic[known], modes[known], rtol=1e-9)
+    assert (frame["n_hits_mixing"] + frame["n_hits_hSS"] + frame["n_hits_BSS"] == frame["n_hits_mixing"] + frame["n_hits_quartic"]).all()
+
+    # every curve solved on a subset (or a down-scaled copy) of the nominal rows lies inside the nominal island
+    for mass, row in frame.iterrows():
+        for v in BC5_VARIANTS:
+            assert row[f"{v}_peak_N"] <= row["peak_N"] * (1 + 1e-6), (mass, v)
+            if not row[f"{v}_has_sensitivity"]:
+                continue
+            if np.isfinite(row["u2_min"]):
+                assert row[f"{v}_u2_min"] >= row["u2_min"] * (1 - 1e-5), (mass, v)
+            if np.isfinite(row["u2_max"]):
+                assert row[f"{v}_u2_max"] <= row["u2_max"] * (1 + 1e-5), (mass, v)
+    assert np.allclose(frame["brhss0.001_hSS_peak_N"], 0.1 * frame["hSS_peak_N"], rtol=1e-6)
+
+    # above m_B only the Higgs makes S: no mixing or B -> X SS rows, and the h -> SS island is the island
+    high = frame.loc[20.0]
+    assert high["n_hits_mixing"] == 0 and high["n_hits_BSS"] == 0 and high["n_hits_hSS"] > 0
+    assert not high["mixing_has_sensitivity"] and not high["BSS_has_sensitivity"]
+    assert high["hSS_has_sensitivity"] and high["has_sensitivity"]
+    for field in ("u2_min", "u2_max", "peak_u2", "peak_N"):
+        assert _same_edge(high[f"hSS_{field}"], high[field]), field
+    # at 1 GeV every mode produces S
+    low = frame.loc[1.0]
+    assert low["n_hits_mixing"] > 0 and low["n_hits_hSS"] > 0 and low["n_hits_BSS"] > 0
+
+
+def test_bc5_variant_projection_has_the_nominal_layout(results):
+    out, _, _, _ = results
+    root = out / "bc5"
+    frame = pd.read_csv(root / "sensitivity.csv")
+    hss = pd.read_csv(root / "sensitivity_hSS.csv")
+    assert list(hss["mass_GeV"]) == list(frame["mass_GeV"])
+    assert {"u2_min", "u2_max", "peak_N", "peak_u2", "has_sensitivity", "u2_min_open", "u2_min_N10",
+            "has_sensitivity_N10", "n_hits", "u2_min_N_mixing"} <= set(hss.columns)
+    assert not any(c.startswith(("hSS_", "mixing_", "BSS_", "brhss")) for c in hss.columns)
+    for field in ("u2_min", "u2_max", "peak_N", "u2_min_N10"):
+        assert np.allclose(hss[field], frame[f"hSS_{field}"], equal_nan=True), field
+    nsig10 = pd.read_csv(root / "sensitivity_hSS_nsig10.csv")
+    assert "u2_min_N10" not in nsig10.columns
+    assert np.allclose(nsig10["u2_min"], frame["hSS_u2_min_N10"], equal_nan=True)

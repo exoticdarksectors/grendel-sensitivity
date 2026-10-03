@@ -29,7 +29,8 @@ unless the directories are given on the command line; every command has
 `--help`.
 
 The commands below give the v2 curves (tag `v2`); the v1 curves of
-arXiv:2609.00152v1 come from tag `v1`.
+arXiv:2609.00152v1 come from tag `v1`. Tag `v2.1` adds the per-production-mode
+and rescaled-BR(h → SS) islands to the BC5 table (below).
 
 ```
 # production (BC4 and BC5 sample their four-vectors inside the scan)
@@ -51,7 +52,27 @@ python -m grendel.models.scalar.scan_bc5 --templates-dir $T/scalar --thresholds 
 python -m grendel.models.alp.scan    --templates-dir $T/bc10 --thresholds 3 10 --out RESULTS/bc10
 python -m grendel.models.hnl.scan    --flavor Ue Umu Utau --templates-dir $T/hnl --thresholds 3 10 --out RESULTS/hnl
 python -m grendel.io.thresholds RESULTS/<model>/sensitivity.csv --threshold 10
+python -m grendel.io.variants RESULTS/bc5/sensitivity.csv --variant hSS     # --list names them all
 ```
+
+### BC5 by production mode
+
+BC5 makes the scalar three ways: `mixing` (b → X_s S through the mixing
+angle, the BC4 channel), `hSS` (on-shell h → SS, which only an LHC
+experiment has) and `BSS` (b → X_s SS and B_s → SS through the off-shell
+Higgs, the only Higgs-mediated piece a beam dump sees). Besides the nominal
+island, every row of the BC5 `sensitivity.csv` carries the island of each
+mode alone (`mixing_u2_min`, `hSS_peak_N`, `BSS_has_sensitivity`, ...) and,
+for each `--br-hss-overlay` value (default 0.001), the islands rescaled to
+that BR(h → SS): the full curve (`brhss0.001_*`) and each quartic mode
+(`brhss0.001_hSS_*`, `brhss0.001_BSS_*`). The quartic yields are linear in
+BR(h → SS), so all of these come from the same Monte Carlo as the nominal
+curve. `python -m grendel.io.variants <sensitivity.csv> --variant hSS` writes
+`sensitivity_hSS.csv` in the layout of `sensitivity.csv`, and
+`grendel.io.thresholds` applies to it as to any table.
+
+The mode of every four-vector row is the seventh column of the BC5 CSVs. CSVs
+written by v2 lack it; the scan regenerates them (same seeds, same pools).
 
 The published BC4 pool was produced with `particle` 0.26.2; with the pinned
 1.0.1 (PDG 2025 b-hadron lifetimes) its weights come out 0.1–0.4 % lower.

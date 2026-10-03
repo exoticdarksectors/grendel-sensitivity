@@ -319,7 +319,9 @@ def classify_template_modes(templates):
 
 def scan_u2(d, passed, path_len, weight, beta_gamma, ctau_u2_1,
             L_int_pb, u2_grid, sample_w=None, coupling_power=None):
-    """N_signal(U^2) by reweighting the once-built MC."""
+    """N_signal(U^2) by reweighting the once-built MC. ``weight`` is one value per event, or a
+    ``(k, n_events)`` matrix of k weightings of the same events, scanned in one pass: ``N_grid`` is
+    then ``(k, len(u2_grid))``."""
     n_ev, n_samples = d.shape
     pw = passed.astype(float)
     if sample_w is not None:
@@ -328,16 +330,16 @@ def scan_u2(d, passed, path_len, weight, beta_gamma, ctau_u2_1,
     bg = np.asarray(beta_gamma, float)
     power = None if coupling_power is None else np.asarray(coupling_power, float)
     per_sample = (np.asarray(path_len, float) / n_samples)[:, None]
-    N_grid = np.zeros(len(u2_grid))
+    N_grid = np.zeros((len(weight), len(u2_grid)) if weight.ndim == 2 else len(u2_grid))
     for iu, u2 in enumerate(u2_grid):
         lam = bg * ctau_u2_1 / u2
         inv = (1.0 / lam)[:, None]
         density = inv * np.exp(-d * inv)
         P_ev = (per_sample * density * pw).sum(axis=1)
         if power is None:
-            N_grid[iu] = L_int_pb * u2 * float(weight @ P_ev)
+            N_grid[..., iu] = L_int_pb * u2 * (weight @ P_ev)
         else:
-            N_grid[iu] = L_int_pb * float((weight * u2 ** power) @ P_ev)
+            N_grid[..., iu] = L_int_pb * ((weight * u2 ** power) @ P_ev)
     return u2_grid, N_grid
 
 

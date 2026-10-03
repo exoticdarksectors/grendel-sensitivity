@@ -1,5 +1,11 @@
 """Scan the BC5 dark-scalar sensitivity: the (m_S, sin^2 theta) island at BR(h -> SS) = 0.01 over the
-whole mass range, to m_h / 2."""
+whole mass range, to m_h / 2.
+
+Besides the nominal island, every row carries the island of each production mode alone (``mixing_*``:
+b -> X_s S through the mixing angle, the BC4 channel; ``hSS_*``: on-shell h -> S S; ``BSS_*``: b -> X_s
+S S and B_s -> S S through the off-shell Higgs) and, for every ``--br-hss-overlay`` value, the islands
+rescaled to that BR(h -> SS) (``brhss0.001_*``, ``brhss0.001_hSS_*``, ...). ``python -m
+grendel.io.variants`` projects any of them into the layout of ``sensitivity.csv``."""
 from __future__ import annotations
 
 import argparse
@@ -8,19 +14,28 @@ import sys
 from ...scan import NoResultsError, ScanConfig, run_scan
 from ..hnl.scan import add_common_options, resolve_paths
 from . import production_bc5 as production
-from .spec_bc5 import QuarticScalarSpec
+from .spec_bc5 import BR_HSS_OVERLAYS_DEFAULT, QuarticScalarSpec
 
 
 def produce_missing(masses, vectors_dir, n_pool, n_higgs, seed, *, br_hss, quartic_b,
                     force=False, high_pt_tilt_scale=None, nominal_mixture_fraction=0.5) -> int:
-    """Write the CSVs that are missing (all with ``force``) from one shared b-hadron pool and one
-    shared Higgs sample."""
+    """Write the CSVs that are missing or lack the channel column (all with ``force``) from one shared
+    b-hadron pool and one shared Higgs sample."""
     vectors_dir.mkdir(parents=True, exist_ok=True)
     if force:
         to_produce = list(masses)
     else:
-        to_produce = [m for m in masses
-                      if not (vectors_dir / f"mS_{production.format_mass_for_filename(m)}.csv").exists()]
+        to_produce, outdated = [], []
+        for m in masses:
+            path = vectors_dir / f"mS_{production.format_mass_for_filename(m)}.csv"
+            if not path.exists():
+                to_produce.append(m)
+            elif not production.is_current_format(path):
+                to_produce.append(m)
+                outdated.append(path.name)
+        if outdated:
+            print(f"regenerating {len(outdated)} four-vector CSV(s) written without the channel column "
+                  f"(e.g. {outdated[0]}); the per-mode islands need it")
     if not to_produce:
         print(f"reusing existing four-vector CSVs for all {len(masses)} masses "
               "(--force-produce to regenerate)")
@@ -53,6 +68,11 @@ def main(argv=None) -> int:
     parser.add_argument("--seed", type=int, default=42, help="production seed")
     parser.add_argument("--br-hss", type=float, default=production.model.BR_HSS_BC5,
                         help="BR(h -> SS) fixing the quartic coupling (0: no quartic channels)")
+    parser.add_argument("--br-hss-overlay", nargs="*", type=float, metavar="BR",
+                        default=list(BR_HSS_OVERLAYS_DEFAULT),
+                        help="also solve the islands rescaled to these values of BR(h -> SS), from the "
+                             "same Monte Carlo (every quartic yield is linear in it); default "
+                             "%(default)s, the bare flag for none")
     parser.add_argument("--no-quartic-b", action="store_true",
                         help="drop b -> X_s S S and B_s -> S S (cross-checks)")
     parser.add_argument("--force-produce", action="store_true",
@@ -68,10 +88,17 @@ def main(argv=None) -> int:
     args = parser.parse_args(argv)
     if args.decay_samples < 1:
         parser.error("--decay-samples must be >= 1")
+    if any(br <= 0.0 for br in args.br_hss_overlay):
+        parser.error("--br-hss-overlay values must be > 0")
+    overlays = tuple(args.br_hss_overlay)
+    if args.br_hss <= 0.0 and overlays:
+        print("note: --br-hss 0 leaves no quartic rows to rescale; ignoring --br-hss-overlay")
+        overlays = ()
 
     paths = resolve_paths(args, "bc5")
     spec = QuarticScalarSpec(paths, templates_dir=args.templates_dir,
-                             width_scheme=args.width_scheme, br_hss=args.br_hss)
+                             width_scheme=args.width_scheme, br_hss=args.br_hss,
+                             br_hss_overlays=overlays)
     masses = args.mass or production.MASS_GRID_BC5
     produce_missing(masses, paths.vectors, args.n_pool, args.n_higgs, args.seed,
                     br_hss=args.br_hss, quartic_b=not args.no_quartic_b,

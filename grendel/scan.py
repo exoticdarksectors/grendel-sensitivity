@@ -107,6 +107,7 @@ class ScanArrays:
     ctau_ref: float
     sample_w: np.ndarray | None = None
     coupling_power: np.ndarray | None = None
+    channel: np.ndarray | None = None
     extras: dict[str, np.ndarray] = field(default_factory=dict)
     n_hits_eval: int = 0
     hit_estimator: str = "exact"
@@ -237,6 +238,8 @@ def run_point(spec: ModelSpec, pt: MassPoint, cfg: ScanConfig, mesh, *,
     scan_weights = spec.event_weights(pt, backend, scan_weights)
     power = data["coupling_power"][idx]
     coupling_power = None if np.all(power == 1.0) else power
+    channel = data["channel"]
+    channel = None if channel is None else channel[idx]
 
     entry_sel = entry_d[idx]
     exit_sel = exit_d[idx]
@@ -293,7 +296,7 @@ def run_point(spec: ModelSpec, pt: MassPoint, cfg: ScanConfig, mesh, *,
     arrays = ScanArrays(grid=grid, N=N_grid, d=d, passed=passed, path=path,
                         weights=scan_weights, beta_gamma=beta_gamma,
                         ctau_ref=backend.ctau_ref, sample_w=sample_w,
-                        coupling_power=coupling_power, extras=extras,
+                        coupling_power=coupling_power, channel=channel, extras=extras,
                         n_hits_eval=len(idx), hit_estimator=hit_estimator,
                         n_samples=cfg.decay_samples, template_index=template_index, mc=mc)
     row = spec.finish(pt, spec.base_row(pt, n_events, n_hits), backend, arrays, cfg)
@@ -370,6 +373,9 @@ def _config_fingerprint(spec, cfg) -> dict:
             model[key] = str(value)
         elif value is None or isinstance(value, (str, int, float, bool)):
             model[key] = value
+        elif isinstance(value, (tuple, list)) and all(
+                v is None or isinstance(v, (str, int, float, bool)) for v in value):
+            model[key] = list(value)
         else:
             model[key] = type(value).__name__
     scan = {k: getattr(cfg, k) for k in _CONFIG_FIELDS}

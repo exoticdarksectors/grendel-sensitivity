@@ -33,10 +33,10 @@ def main(argv=None) -> int:
     ap.add_argument("sensitivity", type=Path, help="sensitivity.csv of a scan run with several thresholds")
     ap.add_argument("--threshold", type=float, default=10.0)
     ap.add_argument("--out", type=Path, default=None,
-                    help="output table (default: sensitivity_nsig<T>.csv beside the input)")
+                    help="output table (default: <input stem>_nsig<T>.csv beside the input)")
     args = ap.parse_args(argv)
     frame = pd.read_csv(args.sensitivity)
-    out = args.out or args.sensitivity.with_name(f"sensitivity_nsig{args.threshold:g}.csv")
+    out = args.out or args.sensitivity.with_name(f"{args.sensitivity.stem}_nsig{args.threshold:g}.csv")
     split_threshold(frame, args.threshold).to_csv(out, index=False)
     print(out)
     return 0

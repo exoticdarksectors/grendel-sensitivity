@@ -23,5 +23,5 @@ jobs:
           python -m pip install -e ".[test]"
       - name: No machine-specific references
         run: python scripts/check_no_private_refs.py --history
-      - name: End-to-end smoke pipeline
-        run: python -m pytest tests/e2e -q
+      - name: Unit tests and end-to-end smoke pipeline
+        run: python -m pytest tests -q

@@ -5,7 +5,7 @@ from pathlib import Path
 
 import numpy as np
 
-from ...io.vectors import format_mass_for_filename, write_llp_csv
+from ...io.vectors import csv_column_count, format_mass_for_filename, write_llp_csv
 from ...production.decay_engine.kinematics import decay_2body
 from ...production.fonll.fonll_parser import get_sigma_total
 from ...production.fonll.meson_sampler import meson_4vec_from_kinematics, sample_meson_4vectors
@@ -17,7 +17,12 @@ MASS_GRID_BC5 = sorted({round(x, 3) for x in production.MASS_GRID} | {
     22.5, 25.0, 27.5, 30.0, 35.0, 40.0, 45.0, 50.0, 55.0, 60.0, 62.0})
 N_HIGGS_DEFAULT = 200_000
 QUARTIC_POOL_FRACTION = 0.25
+# The production modes, in row order: b -> X_s S through the mixing angle (the BC4 channel, weight
+# scaling with sin^2 theta), on-shell h -> S S, and b -> X_s S S plus B_s -> S S through the off-shell
+# Higgs (the last two fixed by BR(h -> SS)). Each row's mode is its ``channel`` column.
 CHANNELS = ("mixing", "hSS", "BSS")
+CHANNEL_ID = {name: index for index, name in enumerate(CHANNELS)}
+N_COLUMNS = 7
 
 
 def _empty():
@@ -81,8 +86,8 @@ def generate_quartic_b_4vectors(m_S, pool, rng, alpha, sigma_bottom, pool_fracti
 
 def generate_bc5_4vectors(m_S, rngs, *, pool, higgs, sigma_bottom, br_hss=model.BR_HSS_BC5,
                           quartic_b=True):
-    """Every BC5 row for ``m_S``: ``(weights, E, px, py, pz, coupling_power)`` plus the row count per
-    channel."""
+    """Every BC5 row for ``m_S``: ``(weights, E, px, py, pz, coupling_power, channel)`` plus the row
+    count per channel."""
     rng_mix, rng_q, rng_h = rngs
     n_pool = len(pool["pt"])
     parts = {"mixing": production.generate_scalar_4vectors(
@@ -94,21 +99,29 @@ def generate_bc5_4vectors(m_S, rngs, *, pool, higgs, sigma_bottom, br_hss=model.
                     if quartic_b else _empty())
     counts = {name: len(parts[name][0]) for name in CHANNELS}
     power = np.concatenate([np.ones(counts["mixing"]), np.zeros(counts["hSS"]), np.zeros(counts["BSS"])])
+    channel = np.concatenate([np.full(counts[name], CHANNEL_ID[name], float) for name in CHANNELS])
     arrays = tuple(np.concatenate([parts[name][i] for name in CHANNELS]) for i in range(5))
-    return (*arrays, power), counts
+    return (*arrays, power, channel), counts
 
 
 def write_bc5_csv(m_S, out_dir, rngs, **kwargs):
-    """Generate and write ``<out_dir>/mS_<label>.csv`` (six columns)."""
+    """Generate and write ``<out_dir>/mS_<label>.csv`` (``N_COLUMNS`` columns)."""
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     path = out_dir / f"mS_{format_mass_for_filename(m_S)}.csv"
-    (w, E, px, py, pz, power), counts = generate_bc5_4vectors(m_S, rngs, **kwargs)
+    (w, E, px, py, pz, power, channel), counts = generate_bc5_4vectors(m_S, rngs, **kwargs)
     if len(w) == 0:
         path.write_text("")
     else:
-        write_llp_csv(path, w, E, px, py, pz, coupling_power=power)
+        write_llp_csv(path, w, E, px, py, pz, coupling_power=power, channel=channel)
     return path, counts
+
+
+def is_current_format(path) -> bool:
+    """Whether an existing BC5 four-vector CSV has every column of the current format (the channel
+    column arrived after v2); an empty CSV, a mass with no rows, has nothing to add."""
+    n = csv_column_count(path)
+    return n == 0 or n >= N_COLUMNS
 
 
 def make_streams(seed):

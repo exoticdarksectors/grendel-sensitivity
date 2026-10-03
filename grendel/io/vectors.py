@@ -47,11 +47,27 @@ def write_csv_matrix(path, data) -> None:
         np.savetxt(path, data, delimiter=",", fmt=CSV_FMT)
 
 
-def write_llp_csv(path, weights, E, px, py, pz, coupling_power=None) -> None:
+def write_llp_csv(path, weights, E, px, py, pz, coupling_power=None, channel=None) -> None:
+    """``weight, E, px, py, pz`` per row, then the optional ``coupling_power`` (the power of the
+    coupling the weight scales with; 1 when absent) and ``channel`` (an integer production-channel id
+    the model interprets; a coupling power of 1 is written when only the channel is given)."""
     columns = [weights, E, px, py, pz]
-    if coupling_power is not None:
-        columns.append(np.asarray(coupling_power, float))
+    if coupling_power is not None or channel is not None:
+        columns.append(np.ones(len(weights)) if coupling_power is None
+                       else np.asarray(coupling_power, float))
+    if channel is not None:
+        columns.append(np.asarray(channel, float))
     write_csv_matrix(path, np.column_stack(columns))
+
+
+def csv_column_count(path) -> int:
+    """Columns of the first row of a CSV (0 when the file is missing or empty)."""
+    path = Path(path)
+    if not path.exists() or path.stat().st_size == 0:
+        return 0
+    with open(path) as fh:
+        first = fh.readline().strip()
+    return len(first.split(",")) if first else 0
 
 
 def write_empty_csv(path) -> None:
@@ -83,6 +99,7 @@ def load_combined_csv(csv_path, mass):
     py = data[:, 3]
     pz = data[:, 4]
     coupling_power = data[:, 5] if data.shape[1] > 5 else np.ones_like(weight)
+    channel = data[:, 6] if data.shape[1] > 6 else None
 
     p = np.sqrt(px**2 + py**2 + pz**2)
     pt = np.sqrt(px**2 + py**2)
@@ -105,6 +122,7 @@ def load_combined_csv(csv_path, mass):
         "gamma": gamma, "beta": beta, "beta_gamma": beta_gamma,
         "mass": np.full_like(p, mass),
         "coupling_power": coupling_power,
+        "channel": channel,
     }
 
 
@@ -112,4 +130,4 @@ def _empty_dict():
     empty = np.empty(0, dtype=np.float64)
     keys = ["weight", "E", "px", "py", "pz", "p", "pt", "eta", "phi",
             "gamma", "beta", "beta_gamma", "mass", "coupling_power"]
-    return {k: empty for k in keys}
+    return {**{k: empty for k in keys}, "channel": None}
