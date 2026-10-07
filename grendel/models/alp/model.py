@@ -27,7 +27,10 @@ M_B0 = Particle.from_pdgid(511).mass * 1e-3
 TAU_BPLUS_S = 1.638e-12
 TAU_B0_S = 1.519e-12
 
-CBS_EFF = 3.518383e-4
+# b -> s a coupling per unit 1/f: arXiv:2310.03524 Table 1, |C_bs| = 1.8e-9 at f_GKOZ = 1 PeV
+# (Lambda_UV = 1 TeV); v1 and v2 used ALPINIST's 3.518383e-4.
+C_BS_GKOZ_1PEV = 1.8e-9
+CBS_EFF = C_BS_GKOZ_1PEV * 1.0e6 / (QUARK_MASSES["b"] - QUARK_MASSES["s"])
 INV_F_REF = 1.0e-3
 
 LIGHT_MESON_RESONANCE_WINDOWS = (
