@@ -1,0 +1,27 @@
+# $^{20}F$ $\beta$-decay  (HNLimits id: f_decay)
+# Scenario: 100, single electron-flavor dominance
+# Nature: Majorana
+# Category: experimental
+# Source metadata: local_HNL_database.xlsx
+# Source metadata SHA256: aa9346350fd2354af29b71c3a4c6d2da1c5454abd6cef3b780dd1dd858f56783
+# Source URL: https://raw.githubusercontent.com/mhostert/Heavy-Neutrino-Limits/main/src/HNLimits/include/local_HNL_database.xlsx
+# Transformations: HNLimits unit, CL, and Dirac/Majorana rules
+# mass_GeV  U2
+# bottom
+3.69468115e-04  6.17594698e-03
+4.29330720e-04  4.86415959e-03
+4.77684448e-04  4.16126916e-03
+5.34422879e-04  3.51083455e-03
+5.97887240e-04  2.98044512e-03
+6.68815382e-04  2.60763724e-03
+7.48133807e-04  2.30183743e-03
+8.36777282e-04  2.08763367e-03
+1.04221331e-03  1.80499083e-03
+1.17047374e-03  1.70284611e-03
+1.30884625e-03  1.64992395e-03
+1.46969091e-03  1.62522580e-03
+1.69935019e-03  1.66404138e-03
+1.90492446e-03  1.72682074e-03
+2.12960003e-03  1.79095264e-03
+2.38056888e-03  1.90252344e-03
+2.63819693e-03  2.02967049e-03

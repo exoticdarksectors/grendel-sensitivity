@@ -1,0 +1,14 @@
+# ATLAS \\(2019)  (HNLimits id: atlas_2019_prompt)
+# Source: mhostert/Heavy-Neutrino-Limits sheet Ue4
+# Flavor: Ue
+# Mass unit: GeV (workbook 'units'; not converted), U2 before the
+# workbook's CL and Dirac/Majorana rules.
+# Excluded region: above the "bottom" curve.
+# Format: blank line separates "bottom" and "top" curves.
+# mass_GeV  U2
+# bottom
+5.00000e+00  1.85008e-04
+1.00000e+01  4.09606e-05
+2.00000e+01  1.43181e-05
+3.00000e+01  1.53212e-05
+5.00000e+01  3.79762e-05

@@ -1,0 +1,30 @@
+== (b) published LHE, showered here, vs the tracked histogram
+header identical apart from the build time: False
+ggf  cells 1845/1833 counts 199998/199997 identical False; chi2/ndf 1422.3/1688 p=1.000; binned <pT> 51.91/51.88 GeV, <|y|> 1.194/1.192
+     ours:    ggf: n_higgs=200000 (outside grid: 2), pythia=8.317, seed=1, sigma_mg5_lo_pb=18.9424, <pT>=51.73 GeV, <|y|>=1.192
+     tracked: ggf: n_higgs=200000 (outside grid: 3), pythia=8.317, seed=1, sigma_mg5_lo_pb=18.9424, <pT>=51.71 GeV, <|y|>=1.190
+vbf  cells 1752/1748 counts 200000/200000 identical False; chi2/ndf 1146.3/1549 p=1.000; binned <pT> 94.19/94.17 GeV, <|y|> 1.177/1.177
+     ours:    vbf: n_higgs=200000 (outside grid: 0), pythia=8.317, seed=1, sigma_mg5_lo_pb=4.724220923497375, <pT>=93.86 GeV, <|y|>=1.176
+     tracked: vbf: n_higgs=200000 (outside grid: 0), pythia=8.317, seed=1, sigma_mg5_lo_pb=4.724220923497375, <pT>=93.82 GeV, <|y|>=1.176
+wh   cells 1806/1806 counts 200000/200000 identical True; chi2/ndf 0.0/1639 p=1.000; binned <pT> 89.01/89.01 GeV, <|y|> 1.379/1.379
+zh   cells 1793/1796 counts 200000/200000 identical False; chi2/ndf 1043.0/1623 p=1.000; binned <pT> 89.89/89.87 GeV, <|y|> 1.345/1.344
+     ours:    zh: n_higgs=200000 (outside grid: 0), pythia=8.317, seed=1, sigma_mg5_lo_pb=0.78053871, <pT>=89.55 GeV, <|y|>=1.343
+     tracked: zh: n_higgs=200000 (outside grid: 0), pythia=8.317, seed=1, sigma_mg5_lo_pb=0.78053871, <pT>=89.53 GeV, <|y|>=1.343
+tth  cells 1536/1543 counts 199999/199998 identical False; chi2/ndf 842.3/1328 p=1.000; binned <pT> 130.96/130.85 GeV, <|y|> 0.899/0.899
+     ours:    tth: n_higgs=200000 (outside grid: 1), pythia=8.317, seed=1, sigma_mg5_lo_pb=0.59354871841, <pT>=130.16 GeV, <|y|>=0.896
+     tracked: tth: n_higgs=200000 (outside grid: 2), pythia=8.317, seed=1, sigma_mg5_lo_pb=0.59354871841, <pT>=130.08 GeV, <|y|>=0.897
+== (a) MG5 + shower regenerated here vs the tracked histogram
+header identical apart from the build time: False
+ggf  cells 1844/1833 counts 199994/199997 identical False; chi2/ndf 1588.3/1692 p=0.965; binned <pT> 51.70/51.88 GeV, <|y|> 1.193/1.192
+     ours:    ggf: n_higgs=200000 (outside grid: 6), pythia=8.317, seed=1, sigma_mg5_lo_pb=18.9424, <pT>=51.55 GeV, <|y|>=1.191
+     tracked: ggf: n_higgs=200000 (outside grid: 3), pythia=8.317, seed=1, sigma_mg5_lo_pb=18.9424, <pT>=51.71 GeV, <|y|>=1.190
+vbf  cells 1766/1748 counts 200000/200000 identical False; chi2/ndf 1382.3/1560 p=1.000; binned <pT> 94.38/94.17 GeV, <|y|> 1.183/1.177
+     ours:    vbf: n_higgs=200000 (outside grid: 0), pythia=8.317, seed=1, sigma_mg5_lo_pb=4.721392323497375, <pT>=94.04 GeV, <|y|>=1.181
+     tracked: vbf: n_higgs=200000 (outside grid: 0), pythia=8.317, seed=1, sigma_mg5_lo_pb=4.724220923497375, <pT>=93.82 GeV, <|y|>=1.176
+wh   cells 1808/1806 counts 200000/200000 identical False; chi2/ndf 1115.1/1638 p=1.000; binned <pT> 88.89/89.01 GeV, <|y|> 1.379/1.379
+     ours:    wh: n_higgs=200000 (outside grid: 0), pythia=8.317, seed=1, sigma_mg5_lo_pb=1.4359899999999999, <pT>=88.55 GeV, <|y|>=1.378
+     tracked: wh: n_higgs=200000 (outside grid: 0), pythia=8.317, seed=1, sigma_mg5_lo_pb=1.4359899999999999, <pT>=88.64 GeV, <|y|>=1.378
+zh   cells 1796/1796 counts 200000/200000 identical False; chi2/ndf 980.7/1618 p=1.000; binned <pT> 89.92/89.87 GeV, <|y|> 1.345/1.344
+     ours:    zh: n_higgs=200000 (outside grid: 0), pythia=8.317, seed=1, sigma_mg5_lo_pb=0.78053871, <pT>=89.59 GeV, <|y|>=1.343
+     tracked: zh: n_higgs=200000 (outside grid: 0), pythia=8.317, seed=1, sigma_mg5_lo_pb=0.78053871, <pT>=89.53 GeV, <|y|>=1.343
+tth  cells 1546/1543 counts 199998/199998 identical False; chi2/ndf 832.2/1325 p=1.000; binned <pT> 130.83/130.85 GeV, <|y|> 0.899/0.899

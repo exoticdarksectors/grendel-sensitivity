@@ -1,0 +1,53 @@
+     $.exported_utc: '2026-11-06T20:53:56' vs '2026-07-13T12:43:12'
+     $.output_sha256.fragmentation_probability_coefficients_bnt.csv: 'fd50224ca6b5a395d18dd60f13ae2e39ab6be8313a32dd74c717a67f69d45063' vs 'a7c319b5bdc89bf287fa3d742c930a536165baeab528e64f65b73687c176ab65'
+     $.output_sha256.meson_branching_coefficients_bnt.csv: 'b07686701c91eddc3711b825d1dbf2db37a40e57d137df76a386b17b70925750' vs '65f13fdf08302cd2bf33b695dd261ac414b1f64fac07b8b105f31efe8788bb0a'
+     $.output_sha256.meson_decay_channels.json: 'c4cf704b7f587132aa4fa03c075f87f1082808735403469cfd96fff903ae909e' vs '265f4587d4722ec92e2d81127a824bb55a0f2dae1bbfb60cde3083587f0d69ce'
+     $.output_sha256.meson_decay_matrix_elements.json: '752dba6f9e47845893e74724b83cff92da07f1b7c7b41f181dd714402e1d1bcc' vs '0e83863ff172aeccb63785120acc8667abf26f7a02a75a6e9087f33cffc8a4ba'
+     $.output_sha256.production_coupling_coefficients_bnt.csv: '9b6c8af0e881d078aed4f4c16f5d305d1276374d1aeb66f0484e916a353358e4' vs '1160dfd3d1d4d4cf91a181e201050814b548741a99dcb0ad221b130e777beaa1'
+     $.senscalc_commit: '4f7210b6e566f5510e2c7269adec3744a6369880' vs '0bca050633aae16e148d47f21840fa07ff4b8724'
+     $.senscalc_tag: 'v1.4' vs 'v.1.3.3'
+     $.source_sha256.experiments: 'bab9c7d37f933c11674bb19fd9e56334427f80e5d53d8e2b45b49b175671cba0' vs '3e60809105f49d8c5274de9a352cd0063bac9cb8feba31188e5e49ca6e468bdf'
+     $.source_sha256.generic_notebook: '7b4e39b759f468166cedb72b219fe5ee541e5173423ab27aa47efd1182780046' vs '95cc528268e41b273182377275bf9eeb00d8cc1cb92d149ddeaa9e72967f0d4a'
+bremsstrahlung_lhc_metadata.json                 file IDENTICAL; content IDENTICAL (sha256 2b11632912a537ce)
+drell_yan_lhc_cross_section_coefficients.csv     file IDENTICAL; content IDENTICAL (sha256 a068f03738eeaad5)
+drell_yan_lhc_metadata.json                      file IDENTICAL; content IDENTICAL (sha256 f80e0886717e0e10)
+fragmentation_lhc_grid.csv                       file differs; content differs: CSV max |ours/ref-1| = 0.00e+00; 1 cells beyond rtol 1e-12
+     rows 1443505 vs 0
+fragmentation_probability_coefficients_bnt.csv   file differs; content differs: CSV max |ours/ref-1| = 3.10e-14; 0 cells beyond rtol 1e-12
+fragmentation_probability_metadata.json          file IDENTICAL; content IDENTICAL (sha256 56e8ab163a02602f)
+meson_branching_coefficients_bnt.csv             file differs; content differs: CSV max |ours/ref-1| = 0.00e+00; 61 cells beyond rtol 1e-12
+     row 0: 13 vs 12 cells
+     row 1: 13 vs 12 cells
+     row 2: 13 vs 12 cells
+     row 3: 13 vs 12 cells
+     row 4: 13 vs 12 cells
+     row 5: 13 vs 12 cells
+     row 6: 13 vs 12 cells
+     row 7: 13 vs 12 cells
+     row 8: 13 vs 12 cells
+     row 9: 13 vs 12 cells
+meson_decay_channels.json                        file differs; content differs: JSON 19 leaves beyond rtol 1e-12 (strings exact)
+     $.rows: lengths 12 vs 11
+     $.rows[2].branching_expression_input_form: '1.869300911854103*^16*Re[If[mLLP < 0.35413000000000006, (0.16532584952208118*Sqr' vs '6.7114093959731544*Re[If[mLLP < 0.63543, (0.01424635566373695*(0.337729761033625'
+     $.rows[2].process_name: 'Kch-to-ALP-PiCh' vs 'RhoCh-to-ALP-PiCh'
+     $.rows[3].branching_expression_input_form: '6.7114093959731544*Re[If[mLLP < 0.63543, (0.01424635566373695*(0.337729761033625' vs '763358.7786259542*Re[If[mLLP < 0.277, InterpolatingFunction[{{0., 0.955000000000'
+     $.rows[3].process_name: 'RhoCh-to-ALP-PiCh' vs 'Eta-to-ALP-2Pi0'
+     $.rows[4].branching_expression_input_form: '763358.7786259542*Re[If[mLLP < 0.277, InterpolatingFunction[{{0., 0.955000000000' vs '763358.7786259542*Re[If[mLLP < 0.2678600000000001, InterpolatingFunction[{{0., 0'
+     $.rows[4].process_name: 'Eta-to-ALP-2Pi0' vs 'Eta-to-ALP-2PiCh'
+     $.rows[5].branching_expression_input_form: '763358.7786259542*Re[If[mLLP < 0.2678600000000001, InterpolatingFunction[{{0., 0' vs '5319.148936170212*Re[If[mLLP < 0.688, InterpolatingFunction[{{0., 0.955000000000'
+     $.rows[5].process_name: 'Eta-to-ALP-2PiCh' vs 'EtaPr-to-ALP-2Pi0'
+     $.rows[6].branching_expression_input_form: '5319.148936170212*Re[If[mLLP < 0.688, InterpolatingFunction[{{0., 0.955000000000' vs '5319.148936170212*Re[If[mLLP < 0.67886, InterpolatingFunction[{{0., 0.9550000000'
+meson_decay_matrix_elements.json                 file differs; content differs: JSON 24 leaves beyond rtol 1e-12 (strings exact)
+     $: lengths 12 vs 11
+     $[2].process_name: 'Kch-to-ALP-PiCh' vs 'RhoCh-to-ALP-PiCh'
+     $[3].expression_c_form: '0.' vs 'Abs(1.*((0.006698644579441254*(0. - 1.094*E3)*(0.2627590000000001 - 1.094*E3 + P'
+     $[3].expression_input_form: '0.' vs 'Abs[1.*((0.006698644579441254*(0. - 1.094*E3)*(0.2627590000000001 - 1.094*E3 + m'
+     $[3].process_name: 'RhoCh-to-ALP-PiCh' vs 'Eta-to-ALP-2Pi0'
+     $[4].expression_c_form: 'Abs(1.*((0.006698644579441254*(0. - 1.094*E3)*(0.2627590000000001 - 1.094*E3 + P' vs 'Abs(1.*((-0.02513760449699359*(0. - 1.094*E1)*(0.29920900000000006 - 1.094*E1 - '
+     $[4].expression_input_form: 'Abs[1.*((0.006698644579441254*(0. - 1.094*E3)*(0.2627590000000001 - 1.094*E3 + m' vs 'Abs[1.*((-0.02513760449699359*(0. - 1.094*E1)*(0.29920900000000006 - 1.094*E1 - '
+     $[4].process_name: 'Eta-to-ALP-2Pi0' vs 'Eta-to-ALP-2PiCh'
+     $[5].expression_c_form: 'Abs(1.*((-0.02513760449699359*(0. - 1.094*E1)*(0.29920900000000006 - 1.094*E1 - ' vs 'Abs(1.*((0.033153848025882636*(0. - 1.916*E3)*(0.8813139999999999 - 1.916*E3 + P'
+     $[5].expression_input_form: 'Abs[1.*((-0.02513760449699359*(0. - 1.094*E1)*(0.29920900000000006 - 1.094*E1 - ' vs 'Abs[1.*((0.033153848025882636*(0. - 1.916*E3)*(0.8813139999999999 - 1.916*E3 + m'
+production_coupling_coefficients_bnt.csv         file differs; content differs: CSV max |ours/ref-1| = 2.49e-14; 0 cells beyond rtol 1e-12
+production_coupling_coefficients_metadata.json   file IDENTICAL; content IDENTICAL (sha256 f96ee905ede458cd)
+RESULT: FAIL

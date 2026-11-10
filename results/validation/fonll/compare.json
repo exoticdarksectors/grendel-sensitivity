@@ -1,0 +1,393 @@
+{
+  "meson_bottom": {
+    "file": "./work/fonll/grids/output/fonll_pp14tev_nnpdf40_nlo_as_01180_fonll_meson_dsdpTdy_pt0-50_y-3to3_central_bottom.dat",
+    "sha256": "4862bd4e41a5b5d58c0cbf997a0883cabaf98a3cfb8c3898d4147a4db520c617",
+    "tracked_sha256": "35f9e72e4e793509e826f4c1961a7528d936ce61d42248ca9c05060f07515678",
+    "byte_identical": false,
+    "header_only_in_new": [
+      "# scale: mu0=sqrt(m^2+pT^2); ffact(muF)=1, fren(muR)=1",
+      "# lhapdf_member: 0",
+      "# variation_kind: central",
+      "# variation_tag: central",
+      "# meson_mass: heavy quark mass",
+      "# trapezoid_integral_pb_y-3to3_pt0to50: 3.059034524206e+08"
+    ],
+    "header_only_in_tracked": [
+      "# scale: muR=muF=sqrt(m^2+pT^2), ffact=1, fren=1",
+      "# meson_mass: irrelevant in this phase space (ifrframe=1; xmh enters only the szmin guard, inactive for pT<=50 GeV, |y|<=3); on-shell mass applied at sampling time",
+      "# trapezoid_integral_pb_y-3to3_pt0to50: 3.059034524392e+08"
+    ],
+    "data_sha256": "85542528e13451cf162ea538a1784f30ea95c42a865d31269d38bd518d88debc",
+    "data_identical": false,
+    "identical_rows": 4323,
+    "rows": 10000,
+    "per_bin_rel_diff": {
+      "n": 9900,
+      "max": 3.394484677408475e-07,
+      "p99": 8.953300244475975e-09,
+      "median": 2.1953916361475544e-11,
+      "zeros_match": true,
+      "at_pT_y": [
+        9.5959596,
+        -2.8787879
+      ]
+    },
+    "sigma_pb": {
+      "regenerated": 305903454.1348977,
+      "tracked": 305903454.1535143,
+      "rel_diff": -6.085781795905804e-11
+    },
+    "sigma_slices_rel_diff": {
+      "pT 0-5": -3.2543238842553856e-10,
+      "pT 5-10": 2.1541684717239696e-10,
+      "pT 10-20": 2.7698605637127244e-11,
+      "pT 20-50": 1.3729853224277565e-11,
+      "|y| 0-1 (one side)": 6.4790094640424095e-12,
+      "|y| 1-2 (one side)": 8.64646210087855e-11,
+      "|y| 2-3 (one side)": -5.705441225817049e-11
+    }
+  },
+  "meson_charm": {
+    "file": "./work/fonll/grids/output/fonll_pp14tev_nnpdf40_nlo_as_01180_fonll_meson_dsdpTdy_pt0-50_y-3to3_central_charm.dat",
+    "sha256": "9fb21888d7a655f0785c4d0039366be7da1dd093ceafc2f22addd7fd06fa05aa",
+    "tracked_sha256": "2eabd0b51e42eff63f1bbf9626195ebfbb34a869f4ea2ac0c2f06667d8171e35",
+    "byte_identical": false,
+    "header_only_in_new": [
+      "# scale: mu0=sqrt(m^2+pT^2); ffact(muF)=1, fren(muR)=1",
+      "# lhapdf_member: 0",
+      "# variation_kind: central",
+      "# variation_tag: central",
+      "# charm_feeddown_vector_to_direct_weight: 1.21525336888",
+      "# meson_mass: heavy quark mass",
+      "# trapezoid_integral_pb_y-3to3_pt0to50: 2.722259259214e+09"
+    ],
+    "header_only_in_tracked": [
+      "# scale: muR=muF=sqrt(m^2+pT^2), ffact=1, fren=1",
+      "# charm_feeddown_vector_to_direct_weight: 1.21525336412",
+      "# meson_mass: irrelevant in this phase space (ifrframe=1; xmh enters only the szmin guard, inactive for pT<=50 GeV, |y|<=3); on-shell mass applied at sampling time",
+      "# trapezoid_integral_pb_y-3to3_pt0to50: 2.722259395878e+09"
+    ],
+    "data_sha256": "65cb48c34012e4b9e49b32a57129c7aafbdaa3a71b589a9f89d54a3a05c6a7b6",
+    "data_identical": false,
+    "identical_rows": 101,
+    "rows": 10000,
+    "per_bin_rel_diff": {
+      "n": 9900,
+      "max": 3.052090519915425e-05,
+      "p99": 3.380616288681835e-07,
+      "median": 1.5022886494471623e-10,
+      "zeros_match": true,
+      "at_pT_y": [
+        2.020202,
+        -2.7575758
+      ]
+    },
+    "sigma_pb": {
+      "regenerated": 2722259249.3419414,
+      "tracked": 2722259386.005697,
+      "rel_diff": -5.020232683168132e-08
+    },
+    "sigma_slices_rel_diff": {
+      "pT 0-5": -5.87567955867253e-08,
+      "pT 5-10": -8.546937030680257e-10,
+      "pT 10-20": 1.1658525561723058e-09,
+      "pT 20-50": -6.318766573711553e-10,
+      "|y| 0-1 (one side)": 3.0614327469046917e-10,
+      "|y| 1-2 (one side)": 8.668503810327677e-10,
+      "|y| 2-3 (one side)": -5.599440136013165e-08
+    }
+  },
+  "meson_bottom xcheck(macOS raw grid, Linux fragmentation)": {
+    "file": "./work/fonll/xcheck/output/fonll_pp14tev_nnpdf40_nlo_as_01180_fonll_meson_dsdpTdy_pt0-50_y-3to3_central_bottom.dat",
+    "sha256": "56ff19a422cb96f2770c4a35774d64b787605949c344dc76006d2eb16f8a7b1f",
+    "tracked_sha256": "35f9e72e4e793509e826f4c1961a7528d936ce61d42248ca9c05060f07515678",
+    "byte_identical": false,
+    "header_only_in_new": [
+      "# scale: mu0=sqrt(m^2+pT^2); ffact(muF)=1, fren(muR)=1",
+      "# lhapdf_member: 0",
+      "# variation_kind: central",
+      "# variation_tag: central",
+      "# meson_mass: heavy quark mass"
+    ],
+    "header_only_in_tracked": [
+      "# scale: muR=muF=sqrt(m^2+pT^2), ffact=1, fren=1",
+      "# meson_mass: irrelevant in this phase space (ifrframe=1; xmh enters only the szmin guard, inactive for pT<=50 GeV, |y|<=3); on-shell mass applied at sampling time"
+    ],
+    "data_sha256": "ec33ab8bc3e55ee02479a557a23ad2f11c6af857255850c5b77d65686f6536f2",
+    "data_identical": true,
+    "identical_rows": 10000,
+    "rows": 10000,
+    "per_bin_rel_diff": {
+      "n": 9900,
+      "max": 0.0,
+      "p99": 0.0,
+      "median": 0.0,
+      "zeros_match": true,
+      "at_pT_y": [
+        0.50505051,
+        -3.0
+      ]
+    },
+    "sigma_pb": {
+      "regenerated": 305903454.1535143,
+      "tracked": 305903454.1535143,
+      "rel_diff": 0.0
+    },
+    "sigma_slices_rel_diff": {
+      "pT 0-5": 0.0,
+      "pT 5-10": 0.0,
+      "pT 10-20": 0.0,
+      "pT 20-50": 0.0,
+      "|y| 0-1 (one side)": 0.0,
+      "|y| 1-2 (one side)": 0.0,
+      "|y| 2-3 (one side)": 0.0
+    }
+  },
+  "meson_charm xcheck(macOS raw grid, Linux fragmentation)": {
+    "file": "./work/fonll/xcheck/output/fonll_pp14tev_nnpdf40_nlo_as_01180_fonll_meson_dsdpTdy_pt0-50_y-3to3_central_charm.dat",
+    "sha256": "2779378576ee5037cd0331f2b7dd71b3450c6c8062ad457ff74fd54d94f36688",
+    "tracked_sha256": "2eabd0b51e42eff63f1bbf9626195ebfbb34a869f4ea2ac0c2f06667d8171e35",
+    "byte_identical": false,
+    "header_only_in_new": [
+      "# scale: mu0=sqrt(m^2+pT^2); ffact(muF)=1, fren(muR)=1",
+      "# lhapdf_member: 0",
+      "# variation_kind: central",
+      "# variation_tag: central",
+      "# meson_mass: heavy quark mass"
+    ],
+    "header_only_in_tracked": [
+      "# scale: muR=muF=sqrt(m^2+pT^2), ffact=1, fren=1",
+      "# meson_mass: irrelevant in this phase space (ifrframe=1; xmh enters only the szmin guard, inactive for pT<=50 GeV, |y|<=3); on-shell mass applied at sampling time"
+    ],
+    "data_sha256": "feb64ed416655d4a489c52cfb765e4ea41c62ce5ed3592605d8d46c89185bfb8",
+    "data_identical": true,
+    "identical_rows": 10000,
+    "rows": 10000,
+    "per_bin_rel_diff": {
+      "n": 9900,
+      "max": 0.0,
+      "p99": 0.0,
+      "median": 0.0,
+      "zeros_match": true,
+      "at_pT_y": [
+        0.50505051,
+        -3.0
+      ]
+    },
+    "sigma_pb": {
+      "regenerated": 2722259386.005697,
+      "tracked": 2722259386.005697,
+      "rel_diff": 0.0
+    },
+    "sigma_slices_rel_diff": {
+      "pT 0-5": 0.0,
+      "pT 5-10": 0.0,
+      "pT 10-20": 0.0,
+      "pT 20-50": 0.0,
+      "|y| 0-1 (one side)": 0.0,
+      "|y| 1-2 (one side)": 0.0,
+      "|y| 2-3 (one side)": 0.0
+    }
+  },
+  "frag_xcheck bottom central": {
+    "identical_rows": 9748,
+    "rows": 9900,
+    "byte_identical": false,
+    "rel_diff": {
+      "n": 9900,
+      "max": 0.0,
+      "p99": 0.0,
+      "median": 0.0,
+      "zeros_match": true
+    }
+  },
+  "frag_xcheck charm direct": {
+    "identical_rows": 9703,
+    "rows": 9900,
+    "byte_identical": false,
+    "rel_diff": {
+      "n": 9900,
+      "max": 0.0,
+      "p99": 0.0,
+      "median": 0.0,
+      "zeros_match": true
+    }
+  },
+  "frag_xcheck charm D* vector": {
+    "identical_rows": 29179,
+    "rows": 29700,
+    "byte_identical": false,
+    "rel_diff": {
+      "n": 29700,
+      "max": 0.0,
+      "p99": 0.0,
+      "median": 0.0,
+      "zeros_match": true
+    }
+  },
+  "raw_bottom NNPDF4.0": {
+    "header_equal": true,
+    "identical_rows": 2397,
+    "rows": 8000,
+    "matched_rel_diff": {
+      "n": 8000,
+      "max": 6.092886605264472e-07,
+      "p99": 1.340213291010728e-08,
+      "median": 9.145337706249979e-12,
+      "zeros_match": true
+    },
+    "matched_diff_over_fonll_error": {
+      "max": 5.01695809605462,
+      "median": 2.8782303255101793e-08
+    },
+    "per_column_max_rel_diff": {
+      "hdmv": 5.69332663891316e-08,
+      "hdml": 0.00027436805048351444,
+      "hdrs": 0.00013565545151000545,
+      "ehrs": 1.9033965463627067e-05
+    }
+  },
+  "raw_charm NNPDF4.0": {
+    "header_equal": true,
+    "identical_rows": 2068,
+    "rows": 8000,
+    "matched_rel_diff": {
+      "n": 8000,
+      "max": 0.00011940074769724693,
+      "p99": 3.489440993000118e-06,
+      "median": 7.126071216025891e-11,
+      "zeros_match": true
+    },
+    "matched_diff_over_fonll_error": {
+      "max": 8.638617628341574,
+      "median": 8.675622039121289e-08
+    },
+    "per_column_max_rel_diff": {
+      "hdmv": 1.675769519338967e-05,
+      "hdml": 0.05153739792721854,
+      "hdrs": 0.0012104360585122964,
+      "ehrs": 0.06687581571391064
+    }
+  },
+  "frag_bottom central": {
+    "identical_rows": 2832,
+    "rows": 9900,
+    "byte_identical": false,
+    "rel_diff": {
+      "n": 9900,
+      "max": 3.394484677408475e-07,
+      "p99": 8.953300244475975e-09,
+      "median": 2.1953916361475544e-11,
+      "zeros_match": true
+    }
+  },
+  "frag_charm direct": {
+    "identical_rows": 2279,
+    "rows": 9900,
+    "byte_identical": false,
+    "rel_diff": {
+      "n": 9900,
+      "max": 2.3278444851211487e-05,
+      "p99": 3.584310737838907e-07,
+      "median": 4.2394910200588105e-11,
+      "zeros_match": true
+    }
+  },
+  "frag_charm D* vector": {
+    "identical_rows": 6702,
+    "rows": 29700,
+    "byte_identical": false,
+    "rel_diff": {
+      "n": 29700,
+      "max": 3.470485078993136e-05,
+      "p99": 3.553546276227178e-07,
+      "median": 3.686605021491511e-11,
+      "zeros_match": true
+    }
+  },
+  "raw_charm CTEQ6.6 calibration": {
+    "header_equal": true,
+    "identical_rows": 105,
+    "rows": 240,
+    "matched_rel_diff": {
+      "n": 240,
+      "max": 3.481467024819824e-07,
+      "p99": 9.3448581054752e-09,
+      "median": 0.0,
+      "zeros_match": true
+    },
+    "matched_diff_over_fonll_error": {
+      "max": 0.0016921166821474284,
+      "median": 0.0
+    },
+    "per_column_max_rel_diff": {
+      "hdmv": 2.449849897176569e-08,
+      "hdml": 8.391616513085068e-06,
+      "hdrs": 3.9308720997800613e-07,
+      "ehrs": 6.379558597381767e-07
+    }
+  },
+  "frag_calibration direct_pseudoscalar": {
+    "identical_rows": 5,
+    "rows": 9,
+    "byte_identical": false,
+    "rel_diff": {
+      "n": 9,
+      "max": 1.2059229077038832e-10,
+      "p99": 1.1422005757970935e-10,
+      "median": 0.0,
+      "zeros_match": true
+    }
+  },
+  "frag_calibration dstar_vector": {
+    "identical_rows": 19,
+    "rows": 27,
+    "byte_identical": false,
+    "rel_diff": {
+      "n": 27,
+      "max": 2.0796535507324198e-10,
+      "p99": 1.9722340991448372e-10,
+      "median": 0.0,
+      "zeros_match": true
+    }
+  },
+  "charm_calibration": {
+    "weight": 1.2152533688784284,
+    "original_weight": 1.2152533641182024,
+    "rel_diff": 3.917064648174686e-09,
+    "max_abs_rel_vs_public": 0.001940977245991303
+  },
+  "raw_bottom CTEQ6.6 closure (y=-0.5,0,0.5)": {
+    "header_equal": true,
+    "identical_rows": 119,
+    "rows": 240,
+    "matched_rel_diff": {
+      "n": 240,
+      "max": 2.0064948362280934e-09,
+      "p99": 2.339411832181608e-10,
+      "median": 0.0,
+      "zeros_match": true
+    },
+    "matched_diff_over_fonll_error": {
+      "max": 3.419117602965161e-05,
+      "median": 0.0
+    },
+    "per_column_max_rel_diff": {
+      "hdmv": 2.946747237707778e-10,
+      "hdml": 2.2517937724721617e-07,
+      "hdrs": 1.4870281358453242e-07,
+      "ehrs": 2.220955743661347e-08
+    }
+  },
+  "bottom_public_point": {
+    "point": "B hadron, pT = 5 GeV, y = 0, CTEQ6.6, Kartvelishvili alpha = 24.2",
+    "local_linux": 7535277.1274,
+    "public_fonll_web": 7532900.0,
+    "original_local_macos": 7535277.0,
+    "rel_vs_public": 0.00031556603698438163,
+    "rel_vs_original_local": 1.6907142185792587e-08,
+    "raw_grid": "./work/fonll/grids/run/cteq66_bottom_y0/ct_b_.out",
+    "original_local_macos_full_precision": 7535277.1279,
+    "rel_vs_original_full_precision": -6.635457110198297e-11
+  }
+}

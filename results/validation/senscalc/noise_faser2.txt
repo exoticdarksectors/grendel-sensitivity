@@ -1,0 +1,102 @@
+N>=3. noise run vs production run (both Linux): test Sensitivity_ALP-fermion_at_FASER2-FPF_Nev=3._Npot=2.16e17.json  ref Sensitivity_ALP-fermion_at_FASER2-FPF_Nev=3._Npot=2.16e17.json  variants: test 9, ref 9, common 1
+  AP-Central|Central           max|lower-1| +3.12% (m=0.2)  max|upper-1| +4.66% (m=0.4)  range test 0.0246-3.7147 ref 0.0246-3.7168  <- central
+    m=0.05  lower +0.75%  upper +0.00%
+    m=0.1   lower +1.53%  upper +0.00%
+    m=0.15  lower +1.83%  upper +0.00%
+    m=0.2   lower +3.12%  upper +0.00%
+    m=0.25  lower +1.19%  upper +3.19%
+    m=0.3   lower +0.72%  upper +3.72%
+    m=0.4   lower +0.09%  upper +4.66%
+    m=0.5   lower -0.40%  upper +0.78%
+    m=0.7   lower -0.49%  upper -0.91%
+    m=1.0   lower -0.31%  upper -0.01%
+    m=1.5   lower -0.19%  upper +0.39%
+    m=2.0   lower +0.34%  upper -0.58%
+    m=2.5   lower -1.62%  upper +1.82%
+    m=3.0   lower -0.40%  upper +0.73%
+    m=3.5   lower -0.14%  upper -0.41%
+N>=3. noise run vs campaign: test Sensitivity_ALP-fermion_at_FASER2-FPF_Nev=3._Npot=2.16e17.json  ref Sensitivity_ALP-fermion_at_FASER2-FPF_Nev=3._Npot=2.16e17.json  variants: test 9, ref 9, common 1
+  AP-Central|Central           max|lower-1| -1.41% (m=2.5)  max|upper-1| +2.59% (m=0.4)  range test 0.0246-3.7147 ref 0.0246-3.7133  <- central
+    m=0.05  lower -0.38%  upper +0.00%
+    m=0.1   lower +0.49%  upper +0.00%
+    m=0.15  lower +0.61%  upper +0.00%
+    m=0.2   lower +0.92%  upper +0.00%
+    m=0.25  lower +0.22%  upper +1.12%
+    m=0.3   lower -0.08%  upper +1.57%
+    m=0.4   lower -0.53%  upper +2.59%
+    m=0.5   lower -0.55%  upper -0.46%
+    m=0.7   lower -0.18%  upper +0.62%
+    m=1.0   lower +0.00%  upper +0.03%
+    m=1.5   lower -0.37%  upper +0.80%
+    m=2.0   lower -0.14%  upper -1.00%
+    m=2.5   lower -1.41%  upper +1.17%
+    m=3.0   lower -0.33%  upper +1.12%
+    m=3.5   lower -0.69%  upper +1.03%
+N>=3. production run vs campaign: test Sensitivity_ALP-fermion_at_FASER2-FPF_Nev=3._Npot=2.16e17.json  ref Sensitivity_ALP-fermion_at_FASER2-FPF_Nev=3._Npot=2.16e17.json  variants: test 9, ref 9, common 1
+  AP-Central|Central           max|lower-1| -2.13% (m=0.2)  max|upper-1| -2.07% (m=0.3)  range test 0.0246-3.7168 ref 0.0246-3.7133  <- central
+    m=0.05  lower -1.12%  upper +0.00%
+    m=0.1   lower -1.02%  upper +0.00%
+    m=0.15  lower -1.20%  upper +0.00%
+    m=0.2   lower -2.13%  upper +0.00%
+    m=0.25  lower -0.96%  upper -2.01%
+    m=0.3   lower -0.79%  upper -2.07%
+    m=0.4   lower -0.62%  upper -1.98%
+    m=0.5   lower -0.16%  upper -1.23%
+    m=0.7   lower +0.31%  upper +1.54%
+    m=1.0   lower +0.31%  upper +0.04%
+    m=1.5   lower -0.18%  upper +0.40%
+    m=2.0   lower -0.47%  upper -0.43%
+    m=2.5   lower +0.21%  upper -0.64%
+    m=3.0   lower +0.07%  upper +0.39%
+    m=3.5   lower -0.54%  upper +1.45%
+N>=2.3 noise run vs production run (both Linux): test Sensitivity_ALP-fermion_at_FASER2-FPF_Nev=2.3_Npot=2.16e17.json  ref Sensitivity_ALP-fermion_at_FASER2-FPF_Nev=2.3_Npot=2.16e17.json  variants: test 9, ref 9, common 1
+  AP-Central|Central           max|lower-1| +3.16% (m=0.2)  max|upper-1| +4.79% (m=0.4)  range test 0.0246-3.7553 ref 0.0246-3.7578  <- central
+    m=0.05  lower +0.75%  upper +0.00%
+    m=0.1   lower +1.53%  upper +0.00%
+    m=0.15  lower +1.83%  upper +0.00%
+    m=0.2   lower +3.16%  upper +0.00%
+    m=0.25  lower +1.18%  upper +3.26%
+    m=0.3   lower +0.72%  upper +3.82%
+    m=0.4   lower +0.10%  upper +4.79%
+    m=0.5   lower -0.40%  upper +0.59%
+    m=0.7   lower -0.49%  upper -0.98%
+    m=1.0   lower -0.35%  upper +0.00%
+    m=1.5   lower -0.16%  upper +0.43%
+    m=2.0   lower +0.33%  upper -0.61%
+    m=2.5   lower -1.57%  upper +2.50%
+    m=3.0   lower -0.44%  upper +0.86%
+    m=3.5   lower -0.14%  upper -0.27%
+N>=2.3 noise run vs campaign: test Sensitivity_ALP-fermion_at_FASER2-FPF_Nev=2.3_Npot=2.16e17.json  ref Sensitivity_ALP-fermion_at_FASER2-FPF_Nev=2.3_Npot=2.16e17.json  variants: test 9, ref 9, common 1
+  AP-Central|Central           max|lower-1| -1.35% (m=2.5)  max|upper-1| +2.68% (m=0.4)  range test 0.0246-3.7553 ref 0.0246-3.7533  <- central
+    m=0.05  lower -0.38%  upper +0.00%
+    m=0.1   lower +0.49%  upper +0.00%
+    m=0.15  lower +0.61%  upper +0.00%
+    m=0.2   lower +0.94%  upper +0.00%
+    m=0.25  lower +0.21%  upper +1.23%
+    m=0.3   lower -0.07%  upper +1.69%
+    m=0.4   lower -0.53%  upper +2.68%
+    m=0.5   lower -0.56%  upper -0.65%
+    m=0.7   lower -0.18%  upper +0.55%
+    m=1.0   lower -0.01%  upper +0.02%
+    m=1.5   lower -0.36%  upper +1.23%
+    m=2.0   lower -0.11%  upper -1.05%
+    m=2.5   lower -1.35%  upper +1.29%
+    m=3.0   lower -0.31%  upper +1.18%
+    m=3.5   lower -0.60%  upper +0.98%
+N>=2.3 production run vs campaign: test Sensitivity_ALP-fermion_at_FASER2-FPF_Nev=2.3_Npot=2.16e17.json  ref Sensitivity_ALP-fermion_at_FASER2-FPF_Nev=2.3_Npot=2.16e17.json  variants: test 9, ref 9, common 1
+  AP-Central|Central           max|lower-1| -2.15% (m=0.2)  max|upper-1| -2.05% (m=0.3)  range test 0.0246-3.7578 ref 0.0246-3.7533  <- central
+    m=0.05  lower -1.12%  upper +0.00%
+    m=0.1   lower -1.02%  upper +0.00%
+    m=0.15  lower -1.20%  upper +0.00%
+    m=0.2   lower -2.15%  upper +0.00%
+    m=0.25  lower -0.96%  upper -1.97%
+    m=0.3   lower -0.79%  upper -2.05%
+    m=0.4   lower -0.63%  upper -2.01%
+    m=0.5   lower -0.16%  upper -1.24%
+    m=0.7   lower +0.31%  upper +1.55%
+    m=1.0   lower +0.34%  upper +0.02%
+    m=1.5   lower -0.20%  upper +0.80%
+    m=2.0   lower -0.44%  upper -0.43%
+    m=2.5   lower +0.22%  upper -1.18%
+    m=3.0   lower +0.13%  upper +0.31%
+    m=3.5   lower -0.46%  upper +1.25%

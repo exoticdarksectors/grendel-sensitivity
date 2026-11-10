@@ -1,0 +1,26 @@
+# KEK  (HNLimits id: kek)
+# Scenario: 010, single muon-flavor dominance
+# Nature: Majorana
+# Category: experimental
+# Source metadata: local_HNL_database.xlsx
+# Source metadata SHA256: aa9346350fd2354af29b71c3a4c6d2da1c5454abd6cef3b780dd1dd858f56783
+# Source URL: https://raw.githubusercontent.com/mhostert/Heavy-Neutrino-Limits/main/src/HNLimits/include/local_HNL_database.xlsx
+# Transformations: HNLimits unit, CL, and Dirac/Majorana rules
+# mass_GeV  U2
+# bottom
+4.49467947e-02  7.09507641e-04
+4.91292328e-02  2.70265783e-04
+5.26260471e-02  1.31300244e-04
+5.63717502e-02  6.34118060e-05
+6.16425388e-02  3.15212101e-05
+6.92857342e-02  1.70809916e-05
+7.94996762e-02  8.94896903e-06
+9.24823912e-02  5.21169864e-06
+1.07585252e-01  3.31691091e-06
+1.25154489e-01  2.30694127e-06
+1.45592874e-01  1.57881231e-06
+1.69368956e-01  1.03220580e-06
+1.97027797e-01  7.51496914e-07
+2.29203471e-01  5.99521079e-07
+2.66633603e-01  6.19544214e-07
+3.06826217e-01  1.01654910e-06

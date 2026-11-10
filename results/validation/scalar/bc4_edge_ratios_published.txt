@@ -1,0 +1,16 @@
+BC4: deepest 7.16e-12 at 1.0 GeV; reach N>=3 3.6 GeV; lower edge at 1-3.5 GeV 7.16e-12-1.4e-11
+     reach N>=10 3.0 GeV
+  FASER2     0.1-1.0   GeV (32): lower proj/GRENDEL 3.11-9.32 (median 5.58); upper 3.57-9.62 (median 5.24)
+  FASER2     1.0-1.5   GeV (11): lower proj/GRENDEL 3.72-9.03 (median 7.54); upper 5.23-9.62 (median 7.50)
+  FASER2     1.5-3.0   GeV (21): lower proj/GRENDEL 7.32-9.65 (median 9.04); upper 8.41-16.90 (median 12.44)
+  FASER2     3.0-4.0   GeV ( 7): lower proj/GRENDEL 6.25-7.32 (median 6.97); upper 12.11-25.66 (median 21.11)
+  FASER2     0.1-5     GeV (68): lower proj/GRENDEL 3.11-9.65 (median 7.08); upper 3.57-25.66 (median 6.83)
+  SHiP       0.1-1.0   GeV (31): lower proj/GRENDEL 0.41-0.52 (median 0.49); upper 13.94-48.37 (median 16.75)
+  SHiP       1.0-1.5   GeV (11): lower proj/GRENDEL 0.37-0.42 (median 0.40); upper 22.94-48.37 (median 24.05)
+  SHiP       1.5-3.0   GeV (21): lower proj/GRENDEL 0.14-0.37 (median 0.30); upper 19.86-34.69 (median 21.84)
+  SHiP       3.0-4.0   GeV ( 7): lower proj/GRENDEL 0.08-0.14 (median 0.11); upper 34.69-67.30 (median 44.21)
+  SHiP       0.1-5     GeV (67): lower proj/GRENDEL 0.08-0.52 (median 0.40); upper 13.94-67.30 (median 21.84)
+  CODEX-b    0.1-1.0   GeV (31): lower proj/GRENDEL 1.02-1.37 (median 1.13); upper 0.09-0.69 (median 0.32)
+  CODEX-b    1.0-1.5   GeV (11): lower proj/GRENDEL 0.92-1.37 (median 1.17); upper 0.06-0.25 (median 0.15)
+  CODEX-b    1.5-3.0   GeV (12): lower proj/GRENDEL 1.27-1.99 (median 1.31); upper 0.04-0.20 (median 0.09)
+  CODEX-b    0.1-5     GeV (52): lower proj/GRENDEL 0.92-1.99 (median 1.14); upper 0.04-0.69 (median 0.23)

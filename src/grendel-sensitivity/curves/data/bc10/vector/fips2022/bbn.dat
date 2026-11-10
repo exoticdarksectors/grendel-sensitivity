@@ -1,0 +1,25 @@
+# BBN constraints (lifetime-based cosmology bound; pre-GKOZ lifetimes -- treat the boundary as indicative) -- existing exclusion
+# Extracted from arXiv:2305.01715 (FIPs 2022 report), ALPs_fermions_fips2022_text_logo.pdf
+# Date: 2026-07-12
+# NOTE: pre-GKOZ phenomenology (see module docstring).
+# Source y axis g_Y = 2 v_h/f; stored as 1/f (BNT) = g_Y/246.
+# Format: chains separated by blank line; each row "mass_GeV  invf_GeV^-1"
+# chain: 18 vertices
+1.022288e-02  4.922141e-11
+1.017899e-02  1.959713e-07
+1.375209e-02  1.609576e-07
+1.981854e-02  1.320349e-07
+3.180500e-02  1.081037e-07
+5.443078e-02  7.781243e-08
+8.363844e-02  5.265674e-08
+1.312979e-01  3.341958e-08
+2.059530e-01  1.446770e-08
+2.144129e-01  3.788991e-09
+2.185530e-01  1.202006e-09
+2.277130e-01  4.615383e-10
+3.279464e-01  2.752473e-10
+6.116859e-01  1.978227e-10
+1.190956e+00  1.332823e-10
+2.369191e+00  8.976325e-11
+3.489485e+00  8.361928e-11
+3.484858e+00  4.419600e-11

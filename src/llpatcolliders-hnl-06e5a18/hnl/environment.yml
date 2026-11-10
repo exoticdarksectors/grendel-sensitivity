@@ -1,0 +1,40 @@
+# Conda env for the HNL production and sensitivity pipeline.
+#
+# Create:
+#     conda env create -f hnl/environment.yml
+#     conda activate hnl
+#
+# The pipeline also needs MadGraph (vendored separately, see
+# hnl/vendored/PROVENANCE.md) and HNLCalc (vendored under
+# hnl/vendored/HNLCalc/). Both are loaded by path, not via this env.
+#
+# LHAPDF runtime: once activated, _mg5_common._resolve_lhapdf_config()
+# picks up $CONDA_PREFIX/bin/lhapdf-config automatically. Provision the PDF
+# data set (NNPDF40_nlo_as_01180, ~340 MB) once into this env with
+#     conda activate hnl && lhapdf install NNPDF40_nlo_as_01180
+# or point $HNL_LHAPDF_DATA at an existing LHAPDF data directory.
+name: hnl
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  # Direct production and analysis dependencies
+  - numpy
+  - particle
+  - matplotlib
+  - tqdm
+  - trimesh
+  - rtree
+  - networkx        # trimesh mesh-repair backend (fix_normals/fix_winding)
+  - scipy
+  - pandas
+  - pytest
+  # Vendored HNLCalc dependencies
+  - sympy
+  - mpmath
+  - numba
+  - cycler
+  # MadGraph PDF backend (binary + library; install the PDF data set into
+  # this env with `lhapdf install NNPDF40_nlo_as_01180`, see README)
+  - lhapdf=6.5.*
+  - pip

@@ -1,0 +1,19 @@
+channels: ['B', 'Bremsstrahlung-AP-Central', 'DrellYan-Central', 'Eta', 'EtaPr', 'Fragmentation', 'KS', 'Omega', 'RhoCh']
+m=0.10: lower edge g_Y~0.000904, N_tot max 3.43e+08; shares at edge: B 1.00
+        peak N per channel: B 3.42e+08, EtaPr 5.24e+05, KS 3.44e+04, Omega 1.16e+03, Eta 929, RhoCh 730, Bremsstrahlung-AP-Central 718, Fragmentation 590
+m=0.30: lower edge g_Y~4.1e-05, N_tot max 9.74e+04; shares at edge: B 1.00
+        peak N per channel: B 9.67e+04, EtaPr 19.3, Bremsstrahlung-AP-Central 11.3, KS 0.995, Fragmentation 0.341, Omega 0.0519
+m=0.50: lower edge g_Y~3e-05, N_tot max 2.74e+04; shares at edge: B 1.00
+        peak N per channel: B 2.74e+04, Bremsstrahlung-AP-Central 31.5, Fragmentation 12.6, EtaPr 3.11, Omega 0.0331
+m=1.00: lower edge g_Y~1.48e-05, N_tot max 1.58e+03; shares at edge: B 0.98, Fragmentation 0.02
+        peak N per channel: B 1.54e+03, Bremsstrahlung-AP-Central 49.5, Fragmentation 19.9
+m=1.50: lower edge g_Y~5.36e-06, N_tot max 20.5; shares at edge: B 1.00
+        peak N per channel: B 20.4
+m=2.00: lower edge g_Y~6.78e-06, N_tot max 111; shares at edge: B 1.00
+        peak N per channel: B 110, Fragmentation 0.018
+m=3.00: lower edge g_Y~5.15e-06, N_tot max 32.5; shares at edge: B 1.00
+        peak N per channel: B 32.3
+m=3.50: lower edge g_Y~5.15e-06, N_tot max 13.8; shares at edge: B 1.00
+        peak N per channel: B 13.8
+m=3.70: lower edge g_Y~5.79e-06, N_tot max 3.42; shares at edge: B 1.00
+        peak N per channel: B 3.42

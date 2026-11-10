@@ -1,0 +1,7 @@
+branching_ratios.csv.gz                          file IDENTICAL; content IDENTICAL (sha256 e961ee61848a5dd7)
+decay_channels.json.gz                           file IDENTICAL; content IDENTICAL (sha256 2f647dc2dc0b2df1)
+matrix_elements.json.gz                          file IDENTICAL; content IDENTICAL (sha256 e392556b84889bdc)
+widths_bnt.csv.gz                                file IDENTICAL; content IDENTICAL (sha256 1da8ece72b366c8b)
+widths_metadata.json                             file IDENTICAL; content IDENTICAL (sha256 22b922c661b88f1b)
+only in ours: EXPORT_MANIFEST.json, widths_raw_senscalc.csv
+RESULT: PASS

@@ -1,0 +1,11 @@
+bc4: 4 masses compared with src/grendel-sensitivity/curves/data/grendel_v2_5/bc4/sensitivity.csv
+ mass_GeV n_events   n_hits ctau_sin2th1_m   u2_min   u2_max   peak_N u2_min_N10 u2_max_N10   sens_N3    sens_N10  bit_identical  edges_bit_identical  max_rel_diff_all_columns  peak_N_ours  peak_N_pub
+      0.5 1.000000 1.000000       1.000000 1.000000 1.000000 1.000000   1.000000   1.000000 True/True   True/True          False                 True              4.440892e-16  2058.768042 2058.768042
+      1.0 1.000000 1.000000       1.000000 1.000000 1.000000 1.000000   1.000000   1.000000 True/True   True/True          False                 True              2.220446e-16    34.192365   34.192365
+      2.0 1.000000 1.000000       1.000000 1.000000 1.000000 1.000000   1.000000   1.000000 True/True   True/True          False                 True              1.554312e-15    60.969124   60.969124
+      3.6 1.000000 1.000000       1.000000 1.000000 1.000000 1.000000   1.000000   1.000000 True/True False/False          False                 True              4.440892e-16     3.729815    3.729815
+bit-identical rows: 0/4; rows with every edge column (u2_min*, u2_max*) bit-identical: 4/4; largest relative difference of any numeric column: median 4.4e-16, max 1.6e-15
+sensitivity flips (N>=3 or N>=10): 0
+  u2_min: ratio median 1.0000, range 1.0000-1.0000, max |log10| 0.0000 dex
+  u2_max: ratio median 1.0000, range 1.0000-1.0000, max |log10| 0.0000 dex
+  peak_N: ratio median 1.0000, range 1.0000-1.0000, max |log10| 0.0000 dex

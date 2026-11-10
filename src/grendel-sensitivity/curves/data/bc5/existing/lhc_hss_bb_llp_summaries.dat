@@ -1,0 +1,15 @@
+# LHC h -> S S limit in the BC5 plane at BR(h -> S S) = 0.01: S -> b b, ATLAS/CMS LLP summary plots (ATL-PHYS-PUB-2025-002)
+# Source: A. Escalante del Valle, arXiv:2509.02564, JHEP 12 (2025) 129, Fig. 5;
+#   data github.com/aescalante/LLP_DarkScalarReinterpretation at 5788e478, plots_sin2theta/combined_exclusion_multi_threshold_sin2theta_log.txt
+#   (label '$\\mathrm{S}\\to bb$ (LHC LLP Summaries)'), taken as published.
+# The excluded band lies between each pair of chains (lower, then upper), over the
+#   source's mass points, joined by straight lines in log-log.
+# Extracted: 2026-09-29
+# mass_GeV  sin2theta
+15  7.5317107148e-14
+35  4.6882565022e-15
+55  2.1941357889e-15
+
+15  4.9469347885e-12
+35  1.1346182074e-10
+55  7.3538713267e-11

@@ -1,0 +1,154 @@
+diff --git a/misc1/fragmfonll.f b/misc1/fragmfonll.f
+index 7bc382e..f892dfb 100644
+--- a/misc1/fragmfonll.f
++++ b/misc1/fragmfonll.f
+@@ -37,9 +37,11 @@ c
+       write(21,*) kmode,'  ! -1 for low, 0 for central, 1 for high'
+       write(6,*)'enter 0 for no fragmentation,'
+       write(6,*)'enter 1 for Peterson fragmentation,'
+-      write(6,*)'enter 2 for (1-x) x^ep form'
++      write(6,*)'enter 2 for (1-x) x^ep form,'
++      write(6,*)'enter 4 for BCFY vector form,'
++      write(6,*)'enter 5 for BCFY pseudoscalar form'
+       read(5,*) ifrag
+-      write(21,*) ifrag,'  ! 0:no fr., 1: Pet., 2: (1-x)x^ep'
++      write(21,*) ifrag,'  ! 0:none, 1:Pet., 2:Kart., 4/5:BCFY'
+       if(ifrag.ne.0) then
+          write(6,*)'enter 0 to perform the fragmentation in the lab'
+          write(6,*)
+@@ -54,7 +56,7 @@ c
+          else
+             mheqfl=0
+          endif
+-         write(6,*)'enter Peterson parameter'
++         write(6,*)'enter fragmentation parameter'
+          read(5,*)ep
+          write(21,*)ep,'     ! ep param. for fragm.'
+ c Compute the normalization of the fragmentation function
+@@ -213,20 +215,20 @@ c Save results to a file
+       if(ptmin.eq.1.d-6)ptmin=0.d0
+       if(imode.lt.2)then
+         if(ipt.eq.2)then
+-          write(31,'(4(d10.4,1x))') pt2,ey,av,sd
++          write(31,'(4(es18.10,1x))') pt2,ey,av,sd
+         else
+-          write(31,'(4(d10.4,1x))') pt,ey,2*pt*av,2*pt*sd
++          write(31,'(4(es18.10,1x))') pt,ey,2*pt*av,2*pt*sd
+         endif
+       elseif(imode.ge.2.and.imode.lt.4)then
+         if(ipt.eq.2)then
+-          write(31,'(5(d10.4,1x))') pt2,eymin,eymax,av,sd
++          write(31,'(5(es18.10,1x))') pt2,eymin,eymax,av,sd
+         else
+-          write(31,'(5(d10.4,1x))') pt,eymin,eymax,2*pt*av,2*pt*sd
++          write(31,'(5(es18.10,1x))') pt,eymin,eymax,2*pt*av,2*pt*sd
+         endif
+       elseif(imode.ge.4.and.imode.lt.6)then
+-        write(31,'(5(d10.4,1x))') ey,ptmin,ptmax,av,sd
++        write(31,'(5(es18.10,1x))') ey,ptmin,ptmax,av,sd
+       else
+-        write(31,'(6(d10.4,1x))') eymin,eymax,ptmin,ptmax,av,sd
++        write(31,'(6(es18.10,1x))') eymin,eymax,ptmin,ptmax,av,sd
+       endif
+       goto 33
+  999  continue
+@@ -241,7 +243,7 @@ c wrapper to fragdiff0 to eventually find maximum and minimum of the cross secti
+       common/ckmode/kmode
+ c
+       integer nymx,nptmx,maxfiles
+-      parameter(nymx=50,nptmx=250,maxfiles=10)
++      parameter(nymx=120,nptmx=250,maxfiles=10)
+       real * 8 yval(nymx,maxfiles),zseq(nptmx,maxfiles),
+      #         ypxsec(nymx*nptmx,maxfiles),
+      #         xm(maxfiles),ffact(maxfiles),ebeam1(maxfiles),
+@@ -582,7 +584,7 @@ c
+       common/cxnorm/xnorm
+       integer ifrag,ifrframe
+       common/cifrag/ifrag,ifrframe
+-      real * 8 tmp
++      real * 8 tmp,den,poly,r
+       if(ifrag.eq.0) then
+          fragfun=1
+       elseif(ifrag.eq.1) then
+@@ -592,6 +594,29 @@ c Use this form to avoid numerical problems at z=0 and z=1
+          fragfun=xnorm*tmp
+       elseif(ifrag.eq.2) then
+          fragfun=xnorm*(1-z)*z**ep
++      elseif(ifrag.eq.4) then
++c BCFY vector S-wave heavy-light fragmentation model.
++         r=ep
++         den=1.d0-(1.d0-r)*z
++         poly=2.d0-2.d0*(3.d0-2.d0*r)*z
++     #        +3.d0*(3.d0-2.d0*r+4.d0*r**2)*z**2
++     #        -2.d0*(1.d0-r)*(4.d0-r+2.d0*r**2)*z**3
++     #        +(1.d0-r)**2*(3.d0-2.d0*r+2.d0*r**2)*z**4
++         fragfun=xnorm*3.d0*r*z*(1.d0-z)**2*poly/den**6
++      elseif(ifrag.eq.5.or.ifrag.eq.8) then
++c BCFY pseudoscalar S-wave heavy-light fragmentation model.
++         r=ep
++         den=1.d0-(1.d0-r)*z
++         poly=6.d0-18.d0*(1.d0-2.d0*r)*z
++     #        +(21.d0-74.d0*r+68.d0*r**2)*z**2
++     #        -2.d0*(1.d0-r)*(6.d0-19.d0*r+18.d0*r**2)
++     #        *z**3
++     #        +3.d0*(1.d0-r)**2*(1.d0-2.d0*r+2.d0*r**2)
++     #        *z**4
++         fragfun=xnorm*r*z*(1.d0-z)**2*poly/den**6
++      else
++         write(6,*)'ERROR: unknown fragmentation option ',ifrag
++         stop
+       endif
+       end
+ 
+@@ -644,7 +669,7 @@ c
+       real * 8 cparam
+ c
+       integer nymx,nptmx,maxfiles
+-      parameter(nymx=50,nptmx=250,maxfiles=10)
++      parameter(nymx=120,nptmx=250,maxfiles=10)
+       real * 8 yval(nymx,maxfiles),zseq(nptmx,maxfiles),
+      #         ypxsec(nymx*nptmx,maxfiles),
+      #         xm(maxfiles),ffact(maxfiles),ebeam1(maxfiles),
+@@ -713,7 +738,7 @@ c parameters
+       parameter (nline=200)
+       parameter (narr=10)
+       integer nymx,nptmx,nmx
+-      parameter (nymx=50,nptmx=250)
++      parameter (nymx=120,nptmx=250)
+       parameter (nmx=nymx*nptmx)
+ c arguments
+       integer itype,iproc,iret,mode
+@@ -1044,7 +1069,7 @@ c concatenates str1 and str2 into str. Ignores trailing blanks of str1,str2
+       real * 8 dsigdpt2dy,pt,y
+ c
+       integer nymx,nptmx,maxfiles
+-      parameter(nymx=50,nptmx=250,maxfiles=10)
++      parameter(nymx=120,nptmx=250,maxfiles=10)
+       real * 8 yval(nymx,maxfiles),zseq(nptmx,maxfiles),
+      #         ypxsec(nymx*nptmx,maxfiles),
+      #         xm(maxfiles),ffact(maxfiles),ebeam1(maxfiles),
+@@ -1115,7 +1140,7 @@ c karr is the number of real numbers found
+       real * 8 rarr(narr)
+       character *(*) string
+ c
+-      character * 15 numstr
++      character * 24 numstr
+       integer istr,istart,ios
+       karr=0
+       istr=1
+@@ -1138,13 +1163,13 @@ c find next non-blank
+       endif
+       istr=istr-1
+  22   continue
+-      if(istr-istart+1.gt.15) then
++      if(istr-istart+1.gt.24) then
+          write(*,*) ' error: number too long'
+          stop
+       endif
+       numstr=string(istart:istr)
+       karr=karr+1
+-      read(unit=numstr,iostat=ios,fmt='(bn,f15.0)') rarr(karr)
++      read(unit=numstr,iostat=ios,fmt='(bn,f24.0)') rarr(karr)
+ c if not a valid number ignore silently
+       if(ios.ne.0) then
+          karr=karr-1

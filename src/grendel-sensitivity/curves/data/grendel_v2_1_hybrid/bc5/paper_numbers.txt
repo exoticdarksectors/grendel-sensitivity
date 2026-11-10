@@ -1,0 +1,14 @@
+table: results/bc5_hybrid/sensitivity.csv
+  island at 1 GeV: 4.69e-13 - 1.21e-08
+  island at 10 GeV: 1.64e-15 - 2.15e-11
+  island at 60 GeV: 2.49e-17 - 6.22e-14
+  smallest mixing: 2.00e-17 at 45 GeV
+  peak N minimum: 109 at 62 GeV; N10 everywhere: True
+  N>=10: lower edge x3.46 max; upper edge /1.11-1.59 (median 1.43)
+  SHiP below 2.5 GeV: probes 3.9-9.6x smaller mixing
+  GRENDEL deeper than SHiP from 2.7 GeV (1.62x there) to its end
+  CODEX-b lower edge: up to 5.7x smaller below ~4.3 GeV; GRENDEL up to 5.5x smaller above
+  CODEX-b upper edge above 1 GeV: GRENDEL reaches >= 3.03x larger (at 45 GeV)
+  MATHUSLA40 10-60 GeV: lower edge 1.8-3.9x smaller; GRENDEL upper edge 5.1-14.8x larger
+  ANUBIS >5 GeV: lower edge 1.27-5.6x smaller; upper edge 1.60-9.1x larger
+  LHC h->SS bands cover the upper 1.2-2.0 decades (28%-49%) of the island at 2-55 GeV

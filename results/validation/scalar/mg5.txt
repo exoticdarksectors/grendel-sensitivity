@@ -1,0 +1,11 @@
+mode  sigma_LO ours [pb]  published  ratio  seed ours/published
+ggf        18.9424       18.9424  1.00000  21/21
+vbf        4.72139       4.72422  0.99940  21/21
+wh         1.43599       1.43599  1.00000  21/21
+zh        0.780539      0.780539  1.00000  21/21
+tth       0.593549      0.593549  1.00000  21/21
+ggf LHE vs published: 200000 events compared: 149774 identical, 50226 with the same particles and momenta differing by at most 6.9e-05 of the particle energy, 0 with different particle content
+vbf LHE vs published: 200000 events compared: 0 identical, 12813 with the same particles and momenta differing by at most 1.2e+03 of the particle energy, 187187 with different particle content
+wh LHE vs published: 200000 events compared: 131327 identical, 68673 with the same particles and momenta differing by at most 2.5e-05 of the particle energy, 0 with different particle content
+zh LHE vs published: 200000 events compared: 128818 identical, 71182 with the same particles and momenta differing by at most 3.3e-05 of the particle energy, 0 with different particle content
+tth LHE vs published: 200000 events compared: 120678 identical, 79322 with the same particles and momenta differing by at most 3.2e-06 of the particle energy, 0 with different particle content

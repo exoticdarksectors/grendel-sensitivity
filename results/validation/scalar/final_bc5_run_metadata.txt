@@ -1,0 +1,8 @@
+run_metadata.json: 26/33 fields equal: model flavors decay_samples thresholds max_hit_events event_chunk seed_salt seed_offset track_momentum_cut_GeV config.model.name config.model.grid config.model.br_hss config.model.br_hss_overlays config.model.width_scheme config.scan.decay_samples config.scan.thresholds config.scan.max_hit_events config.scan.event_chunk config.scan.seed_salt config.scan.seed_offset masses_GeV n_points_requested n_points_processed code geometry n_sensitive
+  config.code: published "16eaa1e245944039bdef8c1e7f29aa266d8982d192271a7efdf02b44bfb8b84a", here "ae2b430e1514c1c28b6f20511bfa64fcde91d1868f084f0f0c3da8b81a79eec7"
+  config.model.templates: published "inputs/scalar/templates_exhad", here "work/scalar/templates_exhad"
+  config.model.templates_dir: published "inputs/scalar/templates_exhad", here "work/scalar/templates_exhad"
+  config.model.vectors: published "inputs/bc5/llp_4vectors", here "work/scalar/bc5/llp_4vectors"
+  inputs: 112 per-mass digests here, 112 published, 0 equal
+  total_time_s: published 84305.4, here 37887.6
+  workers: published "1 per HTCondor job", here "1 per job (pipelines/scalar/scan_one.sh)"

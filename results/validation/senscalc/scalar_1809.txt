@@ -1,0 +1,9 @@
+ctauS.mx eb2c456 245b1f82f8b592e3 v1.4 245b1f82f8b592e3 same
+BrRatioScalar.mx eb2c456 a25fc6f7e4315d8f v1.4 a25fc6f7e4315d8f same
+SensCalc ctauS.mx: 8501 nodes 0.001-69.982 GeV; tracked: 11012 rows 0.01-63 GeV; compared 11012 tracked masses inside the SensCalc range
+tracked masses that are SensCalc nodes: 5508, with identical ctau: 37
+max |ctau_tracked / ctau_SensCalc - 1| = 3.762e-01
+  m in [1e-2, 1e-1) GeV: max 1.443e-15
+  m in [1e-1, 1e0) GeV: max 3.762e-01
+  m in [1e0, 1e1) GeV: max 4.098e-03
+  m in [1e1, 1e2) GeV: max 1.189e-03

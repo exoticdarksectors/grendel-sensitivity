@@ -1,0 +1,5 @@
+mass_GeV	n_events	n_hits	ctau_sin2th1_m	u2_min	u2_max	peak_N	u2_min_N10	u2_max_N10	sens_N3	sens_N10	bit_identical	edges_bit_identical	max_rel_diff_all_columns	peak_N_ours	peak_N_pub
+0.3	1.0	1.0	1.0	1.0	1.0	0.9999999999999999	1.0	1.0	True/True	True/True	False	False	4.9960036108132044e-15	24087.005800042472	24087.005800042476
+1.0	1.0	1.0	1.0	1.0	1.0	1.0000000000000004	1.0	1.0	True/True	True/True	False	True	4.440892098500626e-16	387.5310797811059	387.53107978110575
+15.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	True/True	True/True	True	True	0.0	468.13526288026213	468.13526288026213
+50.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	True/True	True/True	True	True	0.0	225.42286721769554	225.42286721769554

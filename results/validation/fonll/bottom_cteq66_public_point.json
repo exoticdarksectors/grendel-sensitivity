@@ -1,0 +1,9 @@
+{
+  "point": "B hadron, pT = 5 GeV, y = 0, CTEQ6.6, Kartvelishvili alpha = 24.2",
+  "local_linux": 7535277.1274,
+  "public_fonll_web": 7532900.0,
+  "original_local_macos": 7535277.0,
+  "rel_vs_public": 0.00031556603698438163,
+  "rel_vs_original_local": 1.6907142185792587e-08,
+  "raw_grid": "./work/fonll/grids/run/cteq66_bottom_y0/ct_b_.out"
+}

@@ -1,0 +1,44 @@
+{
+ "measured": {
+  "n_sections": 66,
+  "chainage_range_m": [
+   54.8,
+   108.8
+  ],
+  "width_at_0p8_m": 2.975,
+  "width_at_0p8_5_95pct_m": [
+   2.812,
+   3.171
+  ],
+  "floor_width_m": 2.884,
+  "width_at_1p4_m": 3.042,
+  "crown_above_floor_m": 2.946,
+  "springline_above_floor_m": 1.654,
+  "roof_radius_m": 1.517,
+  "roof_centre_above_floor_m": 1.429,
+  "width_at_springline_m": 3.0004,
+  "area_m2": 7.8,
+  "centroid_above_floor_m": 1.3453,
+  "source": "2015 laser scan of UP542 by the CMS survey team (report CMS-I-UR-0261 v3, EDMS 1568271; data EDMS 1568275; cloud re-registered in 2017; CMS pitch removed and the rotation the 2017 re-fit left free fixed by this study), medians over the scanned sections; walls straight from the floor to the springline, circular roof",
+  "profile_file": "UP542_section_profile.csv"
+ },
+ "design": {
+  "floor_width_m": 2.6,
+  "springline_above_floor_m": 1.474,
+  "roof_radius_m": 1.3,
+  "crown_above_floor_m": 2.774,
+  "area_m2": 6.487,
+  "centroid_above_floor_m": 1.264,
+  "source": "CERN civil drawings of UP542, structure 3529 (cross-section LHC-DGS135294002): re-issued 'as built' by the contractor (Dragados-SELI) on 20 Dec 2004, with the section dimensions as designed"
+ },
+ "lining": {
+  "thickness_m": 0.3,
+  "material": "shotcrete",
+  "excavation_width_m": 3.2
+ },
+ "recommended": "measured",
+ "names": {
+  "measured": "section from the 2015 laser scan (CMS survey team)",
+  "design": "section of the CERN civil drawings (2004), as designed"
+ }
+}

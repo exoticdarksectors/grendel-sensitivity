@@ -1,0 +1,33 @@
+grendel/campaigns/bc10/faser2_senscalc_20261025/logs/channel_breakdown_FASER2-FPF.txt
+grendel/campaigns/bc10/faser2_senscalc_20261025/logs/inspect_acceptances.txt
+grendel/campaigns/bc10/faser2_senscalc_20261025/src/SensCalc-eb2c456e8c9b35e77d212d18813306da195a13cb.tar.gz
+grendel/campaigns/bc10/faser2_senscalc_20261025/src/SensCalc@eb2c456/Sensitivity domains/ALP-fermion/FASER2-FPF-Etot100/Sensitivity_ALP-fermion_at_FASER2-FPF-Etot100_Nev=2.3_Npot=2.16e17.json
+grendel/campaigns/bc10/faser2_senscalc_20261025/src/SensCalc@eb2c456/Sensitivity domains/ALP-fermion/FASER2-FPF-Etot100/Sensitivity_ALP-fermion_at_FASER2-FPF-Etot100_Nev=3._Npot=2.16e17.json
+grendel/campaigns/bc10/faser2_senscalc_20261025/src/SensCalc@eb2c456/Sensitivity domains/ALP-fermion/FASER2-FPF/Sensitivity_ALP-fermion_at_FASER2-FPF_Nev=2.3_Npot=2.16e17.json
+grendel/campaigns/bc10/faser2_senscalc_20261025/src/SensCalc@eb2c456/Sensitivity domains/ALP-fermion/FASER2-FPF/Sensitivity_ALP-fermion_at_FASER2-FPF_Nev=3._Npot=2.16e17.json
+grendel/campaigns/bc10/faser2_senscalc_20261025/src/SensCalc@eb2c456/Sensitivity domains/ALP-fermion/SHiP-ECN3/Sensitivity_ALP-fermion_at_SHiP-ECN3_Nev=2.3_Npot=6.e20.json
+grendel/campaigns/bc10/faser2_senscalc_20261025/src/SensCalc@eb2c456/Tabulated Nevents/ALP-fermion/FASER2-FPF-Etot100/Nevents_ALP-fermion_Bremsstrahlung-AP-Central_at_FASER2-FPF-Etot100_Npot=2.16e17_decayDescr=Default.dat
+grendel/campaigns/bc10/faser2_senscalc_20261025/src/SensCalc@eb2c456/Tabulated Nevents/ALP-fermion/FASER2-FPF-Etot100/Nevents_ALP-fermion_Bremsstrahlung-AP-Lower_at_FASER2-FPF-Etot100_Npot=2.16e17_decayDescr=Default.dat
+grendel/campaigns/bc10/faser2_senscalc_20261025/src/SensCalc@eb2c456/Tabulated Nevents/ALP-fermion/FASER2-FPF-Etot100/Nevents_ALP-fermion_Bremsstrahlung-AP-Upper_at_FASER2-FPF-Etot100_Npot=2.16e17_decayDescr=Default.dat
+grendel/campaigns/bc10/faser2_senscalc_20261025/src/SensCalc@eb2c456/Tabulated Nevents/ALP-fermion/FASER2-FPF-Etot100/Nevents_ALP-fermion_Fragmentation_at_FASER2-FPF-Etot100_Npot=2.16e17_decayDescr=Default.dat
+grendel/campaigns/bc10/faser2_senscalc_20261025/src/SensCalc@eb2c456/Tabulated Nevents/ALP-fermion/FASER2-FPF/Nevents_ALP-fermion_Bremsstrahlung-AP-Central_at_FASER2-FPF_Npot=2.16e17_decayDescr=Default.dat
+grendel/campaigns/bc10/faser2_senscalc_20261025/src/SensCalc@eb2c456/Tabulated Nevents/ALP-fermion/FASER2-FPF/Nevents_ALP-fermion_Bremsstrahlung-AP-Lower_at_FASER2-FPF_Npot=2.16e17_decayDescr=Default.dat
+grendel/campaigns/bc10/faser2_senscalc_20261025/src/SensCalc@eb2c456/Tabulated Nevents/ALP-fermion/FASER2-FPF/Nevents_ALP-fermion_Bremsstrahlung-AP-Upper_at_FASER2-FPF_Npot=2.16e17_decayDescr=Default.dat
+grendel/campaigns/bc10/faser2_senscalc_20261025/src/SensCalc@eb2c456/Tabulated Nevents/ALP-fermion/FASER2-FPF/Nevents_ALP-fermion_Fragmentation_at_FASER2-FPF_Npot=2.16e17_decayDescr=Default.dat
+grendel/campaigns/bc10/faser2_senscalc_20261025/src/SensCalc@eb2c456/Tabulated Nevents/ALP-fermion/SHiP-ECN3/Nevents_ALP-fermion_Bremsstrahlung-AP-Central_at_SHiP-ECN3_Npot=6.e20_decayDescr=Default.dat
+grendel/campaigns/bc10/faser2_senscalc_20261025/src/SensCalc@eb2c456/Tabulated Nevents/ALP-fermion/SHiP-ECN3/Nevents_ALP-fermion_Bremsstrahlung-AP-Lower_at_SHiP-ECN3_Npot=6.e20_decayDescr=Default.dat
+grendel/campaigns/bc10/faser2_senscalc_20261025/src/SensCalc@eb2c456/Tabulated Nevents/ALP-fermion/SHiP-ECN3/Nevents_ALP-fermion_Bremsstrahlung-AP-Upper_at_SHiP-ECN3_Npot=6.e20_decayDescr=Default.dat
+grendel/campaigns/bc10/faser2_senscalc_20261025/src/SensCalc@eb2c456/Tabulated Nevents/ALP-fermion/SHiP-ECN3/Nevents_ALP-fermion_Fragmentation_at_SHiP-ECN3_Npot=6.e20_decayDescr=Default.dat
+grendel/campaigns/bc10/maksym_alp_fix_check_20261018/ship_json/Sensitivity_ALP-fermion_at_SHiP-ECN3_Nev=2.3_Npot=6.e20_2026-10-16.json
+grendel/signal-models/bc10-alp/llpatcolliders_BC10_PR18/alp_fermion/tmp/senscalc_2501_production/PRODUCTION_EXPORT_MANIFEST.json
+grendel/signal-models/bc10-alp/llpatcolliders_BC10_PR18/alp_fermion/tmp/senscalc_2501_production/bremsstrahlung_lhc_metadata.json
+grendel/signal-models/bc10-alp/llpatcolliders_BC10_PR18/alp_fermion/tmp/senscalc_2501_production/drell_yan_lhc_cross_section_coefficients.csv
+grendel/signal-models/bc10-alp/llpatcolliders_BC10_PR18/alp_fermion/tmp/senscalc_2501_production/drell_yan_lhc_metadata.json
+grendel/signal-models/bc10-alp/llpatcolliders_BC10_PR18/alp_fermion/tmp/senscalc_2501_production/fragmentation_lhc_grid.csv
+grendel/signal-models/bc10-alp/llpatcolliders_BC10_PR18/alp_fermion/tmp/senscalc_2501_production/fragmentation_probability_coefficients_bnt.csv
+grendel/signal-models/bc10-alp/llpatcolliders_BC10_PR18/alp_fermion/tmp/senscalc_2501_production/fragmentation_probability_metadata.json
+grendel/signal-models/bc10-alp/llpatcolliders_BC10_PR18/alp_fermion/tmp/senscalc_2501_production/meson_branching_coefficients_bnt.csv
+grendel/signal-models/bc10-alp/llpatcolliders_BC10_PR18/alp_fermion/tmp/senscalc_2501_production/meson_decay_channels.json
+grendel/signal-models/bc10-alp/llpatcolliders_BC10_PR18/alp_fermion/tmp/senscalc_2501_production/meson_decay_matrix_elements.json
+grendel/signal-models/bc10-alp/llpatcolliders_BC10_PR18/alp_fermion/tmp/senscalc_2501_production/production_coupling_coefficients_bnt.csv
+grendel/signal-models/bc10-alp/llpatcolliders_BC10_PR18/alp_fermion/tmp/senscalc_2501_production/production_coupling_coefficients_metadata.json

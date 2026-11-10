@@ -1,0 +1,3 @@
+paper PNG reference/paper_figures/bc10_grendel_paper.png: 1523x1020, sha256 45b100f199e8a018
+work/alp/figures_published/bc10_grendel_paper.png: sha256 e396e2ecf1df05ee; pixels differing from the paper PNG 0 of 1553460 (0.00e+00), > 32 levels 0, max 0
+work/alp/figures_control/bc10_grendel_paper.png: sha256 e396e2ecf1df05ee; pixels differing from the paper PNG 0 of 1553460 (0.00e+00), > 32 levels 0, max 0

@@ -1,0 +1,6 @@
+# Reference files that tools/make_reference_bundle.sh leaves out of the archives: they were given to the authors
+# privately. A validation that needs one prints a SKIP line without it. Paths relative to $GRENDEL_REF.
+#
+# M. Ovchynnikov's SensCalc result for SHiP-ECN3, BC10 (private communication, 2026-10-16), from which the published
+# SHiP curve curves/data/bc10/projections/ship_senscalc.dat was converted (pipelines/senscalc, step 14).
+grendel/campaigns/bc10/maksym_alp_fix_check_20261018/ship_json/Sensitivity_ALP-fermion_at_SHiP-ECN3_Nev=2.3_Npot=6.e20_2026-10-16.json

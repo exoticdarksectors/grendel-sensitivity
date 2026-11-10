@@ -1,0 +1,12 @@
+# Super-Allowed $\beta$ decays \\(Bryman-Shrock)  (HNLimits id: beta_spectrum)
+# Source: mhostert/Heavy-Neutrino-Limits sheet Ue4
+# Flavor: Ue
+# Mass unit: MeV (workbook 'units'; not converted), U2 before the
+# workbook's CL and Dirac/Majorana rules.
+# Excluded region: above the "bottom" curve.
+# Format: blank line separates "bottom" and "top" curves.
+# mass_MeV  U2
+# bottom
+1.00000e+00  2.70000e-04
+5.00000e+00  2.70000e-04
+9.40000e+00  2.70000e-04

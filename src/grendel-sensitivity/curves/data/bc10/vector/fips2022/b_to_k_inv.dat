@@ -1,0 +1,15 @@
+# B -> K + invisible -- existing exclusion
+# Extracted from arXiv:2305.01715 (FIPs 2022 report), ALPs_fermions_fips2022_text_logo.pdf
+# Date: 2026-07-12
+# NOTE: pre-GKOZ phenomenology (see module docstring).
+# Source y axis g_Y = 2 v_h/f; stored as 1/f (BNT) = g_Y/246.
+# Format: chains separated by blank line; each row "mass_GeV  invf_GeV^-1"
+# chain: 8 vertices
+1.038027e-02  4.065312e-03
+1.021998e-02  4.415325e-05
+4.633955e-02  3.772003e-05
+1.921779e-01  4.044900e-05
+2.079274e-01  4.088073e-04
+1.328288e-01  1.512396e-03
+8.666885e-02  2.969302e-03
+7.041583e-02  4.065312e-03

@@ -1,0 +1,18 @@
+{
+ "name": "UP542 geometry",
+ "version": "2026-10-16.1",
+ "generated": "2026-10-16",
+ "source": "https://gitlab.cern.ch/grendel/grendel-geometry results/geometry/ (code/scripts/export_geometry.py)",
+ "files": {
+  "README.md": "a8f98853493f152c887f6c52ee7d46acd17610dae0d57aae390c7a88f63d39de",
+  "UP542_alignment_elements.csv": "ddde07e04a5e90e32c3c964701b2e0065d01b0cfbce640400d32f62c0caca3c5",
+  "UP542_centreline.csv": "df720c8d3e6690f843ef8174c5dcf30f4bb7138f39589fc12091692ed230b5a6",
+  "UP542_frame.json": "9b3753d1f95fc27cf5f5e2fc973e5448981dd63a33ba10de75cd9c7fdea83a15",
+  "UP542_landmarks.json": "83b8f5209286b7f130befe38decc3ae3a3692e111ca344892769432a94f22317",
+  "UP542_material.json": "3c89660e7bf0832153ee1574c6c85b814fef31cab2ce93c8f2b9f164b599f2ef",
+  "UP542_material_budget.csv": "52ecf8e4403f34bb553edb37aa70970457f30e65fbf78314963f729add59e8a2",
+  "UP542_pm54_branch.csv": "5ac20b153f0fdcf070543a6a7c142d82231f110bb7902c61cac7b93234e71ae3",
+  "UP542_section.json": "b721e11d07f2a65494f09ea92ba7a61f155b1bbe42028d4f8a5e21a28c7c2f2b",
+  "UP542_section_profile.csv": "3dbbffd3d32c75e07f4d26dff67547e95072042d9160d47afb23bd54696388d7"
+ }
+}

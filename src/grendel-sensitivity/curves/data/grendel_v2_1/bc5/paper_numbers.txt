@@ -1,0 +1,11 @@
+Numbers quoted in Section bc5Sens, from results/bc5_ds100 (100 decay positions) vs results/bc5 (50):
+  m_S=1 GeV: full island 5.44e-13 - 1.13e-08   (ds50: 5.47e-13 - 1.13e-08)
+  m_S=10 GeV: full island 1.33e-15 - 2.20e-11   (ds50: 1.32e-15 - 2.20e-11)
+  m_S=60 GeV: full island 3.90e-17 - 7.68e-14   (ds50: 3.88e-17 - 7.66e-14)
+  smallest mixing reached: 2.27e-17 at 40 GeV   (ds50: 2.27e-17 at 40 GeV)
+  mixing-only reach ends at 3.8 GeV (ds50 3.8); BSS-only at 2.3 GeV (ds50 2.3)
+  above m_B the hSS island equals the full island at every mass: True
+  mode setting the lower edge: {'hSS': 67, 'BSS': 37, 'mixing': 8}; the upper edge: {'hSS': 106, 'mixing': 2}
+  above m_B: width 4.03 -> 2.67 decades at 0.1%; lower edge x10.3, upper edge x0.44
+  peak N minimum: 110 at 62 GeV; hits per mass 2155-18838, median 15613
+  ds100 vs ds50 lower edges: rms 0.001 dex, max 0.004 dex

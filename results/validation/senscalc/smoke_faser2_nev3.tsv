@@ -1,0 +1,19 @@
+variant	m_GeV	lower_ref	lower_test/ref	upper_ref	upper_test/ref
+AP-Central|Central	0.05	1.26315e-03	1.11629	9.90832e-02	1.00000
+AP-Central|Central	0.1	9.00565e-04	1.27504	9.90832e-02	1.00000
+AP-Central|Central	0.2	5.97573e-04	1.16250	9.90832e-02	1.00000
+AP-Central|Central	0.3	4.00312e-05	1.32693	5.10950e-03	0.84593
+AP-Central|Central	0.4	3.35582e-05	1.31890	3.39143e-03	0.85463
+AP-Central|Central	0.5	2.95376e-05	1.17228	2.70698e-03	0.89983
+AP-Central|Central	0.7	2.51830e-05	1.29173	1.68407e-03	0.85430
+AP-Central|Central	1.0	1.42476e-05	1.09516	6.06952e-04	1.01363
+AP-Central|Central	1.2	6.89046e-06	1.25475	8.24763e-05	0.79650
+AP-Central|Central	1.5	5.30822e-06	1.09645	3.53413e-05	0.81709
+AP-Central|Central	1.8	6.27240e-06	1.14970	7.43911e-05	0.82228
+AP-Central|Central	2.0	6.71970e-06	1.00914	9.68861e-05	1.04300
+AP-Central|Central	2.5	6.15626e-06	1.05574	8.35922e-05	1.00288
+AP-Central|Central	3.0	4.98382e-06	1.13646	4.11903e-05	0.82846
+AP-Central|Central	3.5	5.07194e-06	1.04832	2.57202e-05	0.93212
+AP-Central|Central	4.0	-	-	-	-
+AP-Central|Central	4.5	-	-	-	-
+AP-Central|Central	range	0.0246-3.7133	0.0246-3.6662		

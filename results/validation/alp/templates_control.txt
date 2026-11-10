@@ -1,0 +1,20 @@
+templates compared: 9; table fields bit-identical in 9; same decays (PDG sequence) in 8, largest daughter |dp| or |dE| 3.0e-08 GeV; 88 homogeneity tests: fraction p<0.05 0.000, p<0.01 0.000, min p 1.00e+00 (uniform expectation 0.05 / 0.01); flagged: 0 
+
+0p300: exact OK (ctau 1.8823465771e-06)  same PDG sequence True, max |dp| 5.6e-17 GeV, bit-identical decays 0.748  vis 1.0000/1.0000 (+0.0)  mult 2.000/2.000 (+0.0)  <p_ch> 0.1065/0.1065 (+0.0)  min p 1.000
+    class 1.000  label 1.000  n_charged 1.000  n_daughters 1.000  KS p(mu) 1.000
+1p000: exact OK (ctau 9.6677342128e-08)  same PDG sequence True, max |dp| 1.4e-14 GeV, bit-identical decays 0.239  vis 0.8203/0.8203 (+0.0)  mult 5.204/5.204 (+0.0)  <p_ch> 0.2453/0.2453 (+0.0)  min p 1.000
+    class 1.000  label 1.000  n_charged 1.000  n_daughters 1.000  KS p(pi+-) 1.000  KS p(mu) 1.000  KS p(e) 1.000  KS p(gamma) 1.000
+1p240: exact OK (ctau 1.5712876531e-09)  same PDG sequence True, max |dp| 1.9e-14 GeV, bit-identical decays 0.047  vis 0.7574/0.7574 (+0.0)  mult 6.426/6.426 (+0.0)  <p_ch> 0.2341/0.2341 (+0.0)  min p 1.000
+    class 1.000  label 1.000  n_charged 1.000  n_daughters 1.000  KS p(pi+-) 1.000  KS p(K+-) 1.000  KS p(mu) 1.000  KS p(e) 1.000  KS p(gamma) 1.000  KS p(K_L) 1.000
+1p490: exact OK (ctau 1.5703109046e-09)  same PDG sequence True, max |dp| 4.7e-14 GeV, bit-identical decays 0.159  vis 0.7793/0.7793 (+0.0)  mult 5.882/5.882 (+0.0)  <p_ch> 0.3039/0.3039 (+0.0)  min p 1.000
+    class 1.000  label 1.000  n_charged 1.000  n_daughters 1.000  KS p(pi+-) 1.000  KS p(K+-) 1.000  KS p(mu) 1.000  KS p(e) 1.000  KS p(gamma) 1.000  KS p(K_L) 1.000
+2p000: exact OK (ctau 1.1375687628e-08)  same PDG sequence True, max |dp| 6.1e-09 GeV, bit-identical decays 0.059  vis 0.7892/0.7892 (+0.0)  mult 5.836/5.836 (+0.0)  <p_ch> 0.5016/0.5016 (+0.0)  min p 1.000
+    class 1.000  label 1.000  n_charged 1.000  n_daughters 1.000  KS p(pi+-) 1.000  KS p(K+-) 1.000  KS p(mu) 1.000  KS p(e) 1.000  KS p(gamma) 1.000  KS p(K_L) 1.000  KS p(p/n) 1.000
+2p500: exact OK (ctau 1.1031418956e-08)  same PDG sequence True, max |dp| 2.9e-08 GeV, bit-identical decays 0.065  vis 0.8677/0.8677 (+0.0)  mult 6.431/6.431 (+0.0)  <p_ch> 0.5243/0.5243 (+0.0)  min p 1.000
+    class 1.000  label 1.000  n_charged 1.000  n_daughters 1.000  KS p(pi+-) 1.000  KS p(K+-) 1.000  KS p(mu) 1.000  KS p(e) 1.000  KS p(gamma) 1.000  KS p(K_L) 1.000  KS p(p/n) 1.000
+3p000: exact OK (ctau 4.3916603687e-09)  same PDG sequence False, max |dp| nan GeV, bit-identical decays 0.027  vis 0.9354/0.9353 (+0.0)  mult 7.638/7.638 (-0.0)  <p_ch> 0.4813/0.4813 (-0.0)  min p 1.000
+    class 1.000  label 1.000  n_charged 1.000  n_daughters 1.000  KS p(pi+-) 1.000  KS p(K+-) 1.000  KS p(mu) 1.000  KS p(e) 1.000  KS p(gamma) 1.000  KS p(K_L) 1.000  KS p(p/n) 1.000
+3p420: exact OK (ctau 2.8761574339e-09)  same PDG sequence True, max |dp| 3.0e-08 GeV, bit-identical decays 0.019  vis 0.9565/0.9565 (+0.0)  mult 8.531/8.531 (+0.0)  <p_ch> 0.4984/0.4984 (+0.0)  min p 1.000
+    class 1.000  label 1.000  n_charged 1.000  n_daughters 1.000  KS p(pi+-) 1.000  KS p(K+-) 1.000  KS p(mu) 1.000  KS p(e) 1.000  KS p(gamma) 1.000  KS p(K_L) 1.000  KS p(p/n) 1.000
+3p500: exact OK (ctau 2.6886724591e-09)  same PDG sequence True, max |dp| 5.4e-09 GeV, bit-identical decays 0.019  vis 0.9597/0.9597 (+0.0)  mult 8.743/8.743 (+0.0)  <p_ch> 0.5013/0.5013 (+0.0)  min p 1.000
+    class 1.000  label 1.000  n_charged 1.000  n_daughters 1.000  KS p(pi+-) 1.000  KS p(K+-) 1.000  KS p(mu) 1.000  KS p(e) 1.000  KS p(gamma) 1.000  KS p(K_L) 1.000  KS p(p/n) 1.000

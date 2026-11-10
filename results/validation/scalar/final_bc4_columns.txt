@@ -1,0 +1,27 @@
+work/scalar/results/bc4/sensitivity.csv vs src/grendel-sensitivity/curves/data/grendel_v2_5/bc4/sensitivity.csv
+  SHA-256 equal: False; rows 86 (ours) / 86 (published); columns 26 / 26
+  columns bit-identical in all 86 rows: 10/26
+    u2_min_open u2_max_open has_sensitivity has_sensitivity_N10 u2_min_open_N10 u2_max_open_N10 n_events n_hits ctau_sin2th1_m decay_backend
+  columns with differences: 16/26 (rows differing; largest |ours/published - 1| at mass)
+    u2_max_max_event_fraction           25 rows  max 0.15 at 2.5 GeV
+    u2_min_max_event_fraction           23 rows  max 0.112 at 2.4 GeV
+    peak_u2_max_event_fraction          23 rows  max 0.0789 at 3.6 GeV
+    u2_max_event_ess                    33 rows  max 0.00801 at 2.4 GeV
+    u2_max_sample_ess                   30 rows  max 0.00721 at 2.4 GeV
+    peak_N                              56 rows  max 0.00318 at 2.5 GeV
+    u2_max                               4 rows  max 0.00312 at 3.6 GeV
+    u2_min_sample_ess                   32 rows  max 0.00233 at 2.5 GeV
+    u2_min                               4 rows  max 0.00231 at 3.6 GeV
+    peak_u2_sample_ess                  33 rows  max 0.00223 at 2.5 GeV
+    u2_min_event_ess                    30 rows  max 0.00209 at 3.1 GeV
+    u2_max_N10                           2 rows  max 0.00183 at 2.5 GeV
+    u2_min_N10                           2 rows  max 0.00159 at 2.5 GeV
+    peak_u2_event_ess                   35 rows  max 0.00149 at 3.6 GeV
+    peak_u2_N10                          5 rows  max 0.00128 at 3.1 GeV
+    peak_u2                              5 rows  max 0.00128 at 3.1 GeV
+  rows bit-identical in every column: 16/86
+  largest |ours/published - 1| of any numeric column, the 81 other masses: 8.66e-15 (at 0.875 GeV)
+  largest |ours/published - 1| of any numeric column, the split masses (2.4 2.5 3.1 3.6 4.2 GeV): 0.15 (at 2.5 GeV)
+  verdict disagreements: 0 (in 2 columns: has_sensitivity has_sensitivity_N10)
+  has_sensitivity: 75 sensitive masses here, 75 published
+  has_sensitivity_N10: 69 sensitive masses here, 69 published

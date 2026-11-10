@@ -1,0 +1,7 @@
+BplustoXsSStotal.dat  tracked c1b724d2323f7d51  SensCalc eb2c456 c1b724d2323f7d51  IDENTICAL
+BplustoXsSStotal.dat  tracked c1b724d2323f7d51  SensCalc-v1.4 4f7210b c1b724d2323f7d51  IDENTICAL
+BstoSS.dat  tracked 4017912bd8885bae  SensCalc eb2c456 4017912bd8885bae  IDENTICAL
+BstoSS.dat  tracked 4017912bd8885bae  SensCalc-v1.4 4f7210b 4017912bd8885bae  IDENTICAL
+BplustoKplusSS.dat  tracked 011aadb7a0a58abd  SensCalc eb2c456 011aadb7a0a58abd  IDENTICAL
+BplustoKplusSS.dat  tracked 011aadb7a0a58abd  SensCalc-v1.4 4f7210b 011aadb7a0a58abd  IDENTICAL
+LICENSE  IDENTICAL to SensCalc v1.4

@@ -1,0 +1,4 @@
+112/112 bundles compared; exact fields equal in 112; physics arrays byte-identical in 0
+event by event (same daughters, momenta within 1e-6): fraction of events equal per bundle: median 1.0000, min 1.0000; daughter-count arrays differ in 6 bundles
+max |z| over channel fractions, <mult>, <n_charged>, P(>=2 charged): median 0.00, max 0.56; KS p-values: min 0.972, fraction < 0.01: 0.000
+report: work/scalar/validation/templates.tsv

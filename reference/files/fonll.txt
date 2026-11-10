@@ -1,0 +1,11 @@
+grendel/shared/NNPDF40/fonll-local/output/charm_feeddown_calibration.json
+grendel/shared/NNPDF40/fonll-local/run/cteq66_bottom/ct_b_.out
+grendel/shared/NNPDF40/fonll-local/run/cteq66_bottom/fragmfonll.dat
+grendel/shared/NNPDF40/fonll-local/run/nlo_bottom/fragmfonll_central.dat
+grendel/shared/NNPDF40/fonll-local/run/nlo_bottom/nl_b_.out
+grendel/shared/NNPDF40/fonll-local/run/nlo_charm/fragmfonll_direct_pseudoscalar.dat
+grendel/shared/NNPDF40/fonll-local/run/nlo_charm/fragmfonll_dstar_vector_feeddown.dat
+grendel/shared/NNPDF40/fonll-local/run/nlo_charm/nl_c_.out
+grendel/shared/NNPDF40/fonll-local/run/validate_cteq66_charm_y0/fragmfonll_calibration_direct_pseudoscalar.dat
+grendel/shared/NNPDF40/fonll-local/run/validate_cteq66_charm_y0/fragmfonll_calibration_dstar_vector.dat
+grendel/shared/NNPDF40/fonll-local/run/validate_cteq66_charm_y0/val_c_.out

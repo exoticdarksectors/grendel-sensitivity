@@ -1,0 +1,66 @@
+# BBN exclusion of a single Majorana HNL, |U_{eN}|^2 single-flavour mixing
+# Source: Chen and Zhang, 'BBN constraint on heavy neutrino production and decay',
+#   arXiv:2410.07343v2 (Phys. Rev. D 111 (2025) 123024), Fig. 1: the blue 'BBN Constraint' region.
+# Source figure PDF: sources/arXiv-2410.07343/Ue4sq_Constraints.pdf (arXiv source bundle)
+# Model: one Majorana heavy neutrino mixing with a single active flavour, whose
+#   abundance (thermal freeze-out, or freeze-in from zero) and decays are both fixed
+#   by (m_N, |U|^2) -- the paper's benchmark. Excluded at 95% CL (Y_p and D/H).
+#   Used as published: no CL rescaling, no Dirac/Majorana factor.
+# Method: vector extraction of the region's two solid navy boundary strokes,
+#   RGB(0,0,0.502), each checked to lie on the outline of its 30%-opacity fill;
+#   log-axis calibration from TICK GEOMETRY:
+#   x 200.3605 pt/decade (major ticks 1e-3 .. 10, 30 GeV; fit residual 0.000 pt),
+#   y 19.6596 pt/decade (a major tick every decade, 10^0 .. 10^-28).
+# Coverage: m_N = 0.02 .. 1.2 GeV (top), 0.001 .. 1.2 GeV (bottom).
+#   The paper's region ends at m_N = 1.2 GeV with a dashed closure (top edge there
+#   3.98e-11): its calculation stops, leaving 1-10 GeV as a gap. That closure
+#   is not stored, nor are the >= 10 GeV region and, above 0.3 GeV, the CMB constraint,
+#   both below |U|^2 = 1e-15.
+#   The top edge crosses |U|^2 = 1e-10 at m_N = 1.01 GeV.
+#   The paper draws each boundary as a coarse polygon: the top edge has 6 vertices
+#   from 0.3 to 1.2 GeV, and is stored as drawn.
+# top = upper boundary (the HNL decays too early, tau ~ 0.02 s); bottom = lower
+#   boundary (too little abundance). The region between them is excluded.
+# Extracted: 2026-09-28
+# mass_GeV  U2
+# bottom
+1.000002e-03  5.754378e-06
+1.455462e-03  6.309553e-10
+2.113494e-03  2.754217e-10
+3.076103e-03  1.202258e-10
+4.466844e-03  5.248062e-11
+6.501309e-03  2.290860e-11
+9.462388e-03  9.999957e-12
+1.374044e-02  6.606903e-12
+1.999865e-02  2.884015e-12
+2.904027e-02  1.258922e-12
+4.226692e-02  5.495387e-13
+6.151776e-02  2.398821e-13
+8.933066e-02  1.584885e-13
+1.300172e-01  6.918266e-14
+1.412539e-01  1.318250e-15
+1.845018e-01  6.918279e-17
+2.409909e-01  1.584881e-17
+3.147753e-01  7.585732e-18
+4.111500e-01  7.585732e-18
+5.370322e-01  8.317580e-19
+7.014559e-01  3.981037e-19
+9.162213e-01  1.905448e-19
+1.196742e+00  9.120033e-20
+
+# top
+1.999865e-02  9.999974e-03
+2.904027e-02  2.238724e-03
+4.226692e-02  2.376840e-04
+6.151776e-02  5.296625e-05
+8.933066e-02  1.191243e-05
+1.300172e-01  1.258926e-06
+1.412539e-01  2.511875e-06
+1.845018e-01  1.318251e-07
+2.409909e-01  3.019941e-08
+3.147753e-01  6.918287e-09
+4.111500e-01  3.311295e-09
+5.370322e-01  1.584888e-09
+7.014559e-01  3.630771e-10
+9.162213e-01  1.737793e-10
+1.196742e+00  3.981056e-11

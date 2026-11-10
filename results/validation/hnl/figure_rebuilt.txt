@@ -1,0 +1,8 @@
+a: work/hnl/figures/rebuilt/hnlimits_grendel_paper.png 1584x1232 sha256 ce26d25fefb69182...
+b: reference/paper_figures/hnlimits_grendel_paper.png 1584x1232 sha256 f5cde76d47c71c73...
+differing pixels: 4718 of 1951488 (0.242 %); largest channel difference 150
+bounding box of the differences: x 137-1414, y 35-954
+  pixels differing by more than 8: 1535
+  pixels differing by more than 32: 301
+  pixels differing by more than 128: 2
+diff image: work/hnl/validation/figure_rebuilt_diff.png

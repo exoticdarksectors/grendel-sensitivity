@@ -1,0 +1,11 @@
+# toolchain, fetched software and data: rebuilt by env/bootstrap.sh and the pipelines
+env/conda/
+env/venv/
+env/mamba/
+env/bin/
+env/wolfram/
+third_party/*/
+work/
+logs/
+__pycache__/
+*.egg-info/

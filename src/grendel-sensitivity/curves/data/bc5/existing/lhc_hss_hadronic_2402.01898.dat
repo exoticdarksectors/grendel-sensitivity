@@ -1,0 +1,21 @@
+# LHC h -> S S limit in the BC5 plane at BR(h -> S S) = 0.01: S -> pi pi, K K, g g, s s, c c, tau_h tau_h, CMS muon-system showers, arXiv:2402.01898
+# Source: A. Escalante del Valle, arXiv:2509.02564, JHEP 12 (2025) 129, Fig. 5;
+#   data github.com/aescalante/LLP_DarkScalarReinterpretation at 5788e478, plots_sin2theta/combined_exclusion_multi_threshold_sin2theta_log.txt
+#   (label '$\\mathrm{S}\\to \\pi\\pi, KK, gg, s\\bar{s}, c\\bar{c}, \\tau_{h}\\tau_{h}$ (arXiv:2402.01898)'), taken as published.
+# The excluded band lies between each pair of chains (lower, then upper), over the
+#   source's mass points, joined by straight lines in log-log.
+# Extracted: 2026-09-29
+# mass_GeV  sin2theta
+0.4  1.2188321464e-07
+1  1.7597025235e-09
+1.5  1.5480018835e-09
+3  1.3459533141e-10
+7  2.4123814934e-12
+15  1.1744252523e-13
+
+0.4  5.0784672768e-06
+1  3.2994422316e-08
+1.5  1.7691450097e-07
+3  3.1060461095e-08
+7  1.9299051947e-10
+15  8.2209767658e-12

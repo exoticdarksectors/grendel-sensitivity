@@ -1,0 +1,88 @@
+{
+ "molasse": {
+  "density_g_cm3": 2.5,
+  "density_unc_g_cm3": 0.05,
+  "lambda_I_g_cm2": 95.8,
+  "lambda_cm": 38.32,
+  "density_source": "wet bulk density of the Point 5 marls: 2.51 (SD 0.03, 194 samples, 1997) and 2.50 (17, 2015), GADZ report 7223-2 (HL-LHC Point 5 geotechnical presentation, EDMS 1952965); Fern et al., Tunn. Undergr. Space Technol. 77 (2018) 249 (public, CERN-wide 2.44-2.60 by facies)",
+  "composition": "clay 20-60 %, quartz 15-40 %, calcite 20-30 % (Fern et al. 2018), illite 42-59 % of the clay (LHC-K3500-ER-0002), pore water 6.5 % of the dry mass",
+  "lambda_scale": "ROOT/Geant4 scale of the CMS material (standard rock 99.5 g/cm2; PDG scale: 96.8-98.0 g/cm2)",
+  "simulation_material": {
+   "name": "Molasse_P5",
+   "density_g_cm3": 2.5,
+   "mass_fractions": {
+    "O": 0.52342,
+    "Si": 0.22086,
+    "Ca": 0.094,
+    "Al": 0.05832,
+    "C": 0.02817,
+    "Mg": 0.02384,
+    "Fe": 0.02348,
+    "K": 0.01364,
+    "H": 0.01017,
+    "Na": 0.00412
+   },
+   "minerals_dry_mass_fraction": {
+    "illite": 0.22,
+    "chlorite": 0.18,
+    "quartz": 0.3,
+    "calcite": 0.25,
+    "albite": 0.05
+   },
+   "pore_water_per_dry_mass": 0.065,
+   "note": "representative weak-to-strong marl; use for Geant4 (G4Material by mass fraction)"
+  }
+ },
+ "concrete": {
+  "density_g_cm3": 2.4,
+  "density_unc_g_cm3": 0.1,
+  "lambda_I_g_cm2": 97.9,
+  "note": "assumed (CMSSW standard 2.35, reinforced 2.49); no density on record: the CERN civil drawings (2004, LHC-DGS135294002/-003) give strength classes only (invert and pillar concrete C25/30, secondary lining C28/35, fibre-reinforced shotcrete and gunite 30-35 N/mm2), i.e. ordinary normal-weight concrete; the gallery lining is 0.30 m of shotcrete (2004 drawings)"
+ },
+ "cms": {
+  "source": "CMS simulation geometry CMSSW_20_1_0_pre2 (Run 3), official CMS frame (CMS-I-UR-0281); Geant4 agrees with the ROOT walk to 0.2 lambda_I",
+  "magnet_model": {
+   "code": "code/scripts/magnet_model.py (15 Oct 2026)",
+   "cold_mass_t": 222.5,
+   "cold_mass": "winding 262 mm from R 3.160 m + Al 5083 external cylinder 50 mm to R 3.473 m (Kircher et al., IEEE Trans. Appl. Supercond. 10 (2000) 407), as built 222.5 t: 89.5 % Al, 3.9 % Cu, 2.2 % NbTi, 4.4 % G10 (MTB93 annex 9304, EDMS 753430)",
+   "tank_and_shields": "stainless vacuum-tank shells 60 mm (R 2.970-3.030, 3.740-3.800; CMS Magnet TDR Table 9.2), aluminium thermal shields 5 mm (TDR 17.4.1)",
+   "chimney": "cryogenic chimney (stainless envelope, thermal shield, 17 pipes) from the CMS magnet drawings CMS-SC-ED-0100/-0107 (restricted; details in the CERN-internal report), over an opening in the outer vacuum-tank shell only (the coil and the inner shell continue); axis at z = +1.471 m (CMSSW)",
+   "confirmed": "CMS magnet group, 15 Oct 2026: opening only in the outer vacuum-tank shell; cold mass mostly aluminium, ~220 t",
+   "chimney_lambda_I_on_opening_lines": [
+    0.141,
+    0.322
+   ],
+   "real_magnet_lambda_median": 1.578,
+   "real_magnet_lambda_through_opening": 1.491,
+   "cmssw_magnet_lambda_median": 2.089,
+   "magnet_unc_lambda_I": 0.1,
+   "least_total_chimney_variants": [
+    39.83,
+    39.99
+   ],
+   "cmssw_problem": "CMSSW mgnt.xml: copper cold mass (446 t) and the chimney hole (r 0.48 m) cut through every layer"
+  }
+ },
+ "totals": {
+  "thin_places": [
+   {
+    "where": "PX56 mouth (the line climbs the open shaft)",
+    "ch": -1.0,
+    "lambda_I": 21.44
+   },
+   {
+    "where": "above CMS's cryogenic chimney (CH 40-70)",
+    "ch": 56.0,
+    "lambda_I": 39.86
+   }
+  ],
+  "fiducial_volume": "not decided; no cut applied (15 Oct 2026)",
+  "min_whole_gallery": 21.44,
+  "max": 115.67,
+  "pm54_branch": [
+   55.88,
+   64.95
+  ]
+ },
+ "model": "gallery (grendel-geometry): section from the 2015 laser scan (CMS survey team) on the axis and floor of the CERN civil drawings (2004); the UP542 lining of the CERN 3D civil model (PLM ST0116966) moved onto the levels of the 2004 drawings (the 3D civil model's west leg falls 1.91 % instead of 2.22-2.24 %) and mapped onto the section from the 2015 scan; section centre = centroid of that section; PM54 branch: axis from the walls in the 2015 scan, section of the 2004 drawings, modelled 0.30 m lining"
+}

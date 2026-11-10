@@ -1,0 +1,35 @@
+# --- generated analysis output -------------------------------------------
+# Scans, campaigns and figures write under the work directory
+# (GRENDEL_WORK_DIR, default ./grendel_work) or under the --out you give them.
+grendel_work/
+/figures/
+/results/
+
+# --- large re-downloadable inputs ----------------------------------------
+# Source figures of the reference curves (arXiv source bundles); see
+# curves/sources/README.md for what each one is and where to get it.
+curves/sources/PBC/arXiv-*/
+curves/sources/arXiv-*/
+
+# Third-party software fetched by third_party/fetch.py (pinned in PINS.json)
+third_party/*/
+!third_party/README.md
+
+# --- environments ---------------------------------------------------------
+.conda-env/
+.venv/
+venv/
+
+# --- python ---------------------------------------------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+
+# --- editors / OS ---------------------------------------------------------
+.DS_Store
+.idea/
+.vscode/

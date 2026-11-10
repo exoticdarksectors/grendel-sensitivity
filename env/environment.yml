@@ -1,0 +1,20 @@
+# Toolchain for the GRENDEL v2 reproduction: everything that is not pip-installable
+# or that a generic Linux box may lack (Fortran for FONLL and MadGraph, LHAPDF, cmake).
+# Created with env/bootstrap.sh into env/conda (user space, no root needed).
+name: grendel-repro
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - c-compiler
+  - cxx-compiler
+  - fortran-compiler
+  - make
+  - cmake
+  - pkg-config
+  - zlib
+  - lhapdf=6.5
+  - rsync
+  - wget
+  - bc

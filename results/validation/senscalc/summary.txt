@@ -1,0 +1,128 @@
+./work/senscalc/out/faser2_fpf_senscalc_nev3.dat 5 chains 8972 vertices mass range 0.0246-3.7168
+./work/senscalc/out/faser2_fpf_senscalc_nev2p3.dat 4 chains 8987 vertices mass range 0.0246-3.7578
+wrote ./work/senscalc/out/projections/ship_senscalc.dat (4 chains)
+wrote ./work/senscalc/out/projections/ship_senscalc_rerun.dat (4 chains)
+== byte checks
+ship_senscalc.dat: ours 97df2c6cd92e7163 tracked 97df2c6cd92e7163 IDENTICAL
+faser2_senscalc_fpf.dat: ours a9b9602ea625172c tracked fa1638681b3ecb12 DIFFERENT
+== FASER2-FPF and SHiP-ECN3 regions vs the campaign (all 9 variants; MC noise of the campaign's own rerun: <= 0.5 %)
+FASER2-FPF N>=3.: ours vs campaign: test Sensitivity_ALP-fermion_at_FASER2-FPF_Nev=3._Npot=2.16e17.json  ref Sensitivity_ALP-fermion_at_FASER2-FPF_Nev=3._Npot=2.16e17.json  variants: test 9, ref 9, common 9
+  AP-Central|Central           max|lower-1| -2.13% (m=0.2)  max|upper-1| -2.07% (m=0.3)  range test 0.0246-3.7168 ref 0.0246-3.7133  <- central
+  AP-Central|Lower             max|lower-1| -2.13% (m=0.2)  max|upper-1| -2.07% (m=0.3)  range test 0.0246-3.7168 ref 0.0246-3.7133
+  AP-Central|Upper             max|lower-1| -2.13% (m=0.2)  max|upper-1| -2.07% (m=0.3)  range test 0.0246-3.7168 ref 0.0246-3.7133
+  AP-Lower|Central             max|lower-1| -2.13% (m=0.2)  max|upper-1| -2.19% (m=0.3)  range test 0.0246-3.7168 ref 0.0246-3.7133
+  AP-Lower|Lower               max|lower-1| -2.13% (m=0.2)  max|upper-1| -2.19% (m=0.3)  range test 0.0246-3.7168 ref 0.0246-3.7133
+  AP-Lower|Upper               max|lower-1| -2.13% (m=0.2)  max|upper-1| -2.19% (m=0.3)  range test 0.0246-3.7168 ref 0.0246-3.7133
+  AP-Upper|Central             max|lower-1| -2.13% (m=0.2)  max|upper-1| -1.53% (m=0.3)  range test 0.0246-3.7168 ref 0.0246-3.7133
+  AP-Upper|Lower               max|lower-1| -2.13% (m=0.2)  max|upper-1| -1.53% (m=0.3)  range test 0.0246-3.7168 ref 0.0246-3.7133
+  AP-Upper|Upper               max|lower-1| -2.13% (m=0.2)  max|upper-1| -1.53% (m=0.3)  range test 0.0246-3.7168 ref 0.0246-3.7133
+  central within 1.00%: FAIL
+FASER2-FPF N>=2.3: ours vs campaign: test Sensitivity_ALP-fermion_at_FASER2-FPF_Nev=2.3_Npot=2.16e17.json  ref Sensitivity_ALP-fermion_at_FASER2-FPF_Nev=2.3_Npot=2.16e17.json  variants: test 9, ref 9, common 9
+  AP-Central|Central           max|lower-1| -2.15% (m=0.2)  max|upper-1| -2.05% (m=0.3)  range test 0.0246-3.7578 ref 0.0246-3.7533  <- central
+  AP-Central|Lower             max|lower-1| -2.15% (m=0.2)  max|upper-1| -2.05% (m=0.3)  range test 0.0246-3.7578 ref 0.0246-3.7533
+  AP-Central|Upper             max|lower-1| -2.15% (m=0.2)  max|upper-1| -2.05% (m=0.3)  range test 0.0246-3.7578 ref 0.0246-3.7533
+  AP-Lower|Central             max|lower-1| -2.15% (m=0.2)  max|upper-1| -2.18% (m=0.3)  range test 0.0246-3.7578 ref 0.0246-3.7533
+  AP-Lower|Lower               max|lower-1| -2.15% (m=0.2)  max|upper-1| -2.18% (m=0.3)  range test 0.0246-3.7578 ref 0.0246-3.7533
+  AP-Lower|Upper               max|lower-1| -2.15% (m=0.2)  max|upper-1| -2.18% (m=0.3)  range test 0.0246-3.7578 ref 0.0246-3.7533
+  AP-Upper|Central             max|lower-1| -2.15% (m=0.2)  max|upper-1| +1.52% (m=0.7)  range test 0.0246-3.7578 ref 0.0246-3.7533
+  AP-Upper|Lower               max|lower-1| -2.15% (m=0.2)  max|upper-1| +1.52% (m=0.7)  range test 0.0246-3.7578 ref 0.0246-3.7533
+  AP-Upper|Upper               max|lower-1| -2.15% (m=0.2)  max|upper-1| +1.52% (m=0.7)  range test 0.0246-3.7578 ref 0.0246-3.7533
+  central within 1.00%: FAIL
+FASER2-FPF-Etot100 N>=3.: ours vs campaign: test Sensitivity_ALP-fermion_at_FASER2-FPF-Etot100_Nev=3._Npot=2.16e17.json  ref Sensitivity_ALP-fermion_at_FASER2-FPF-Etot100_Nev=3._Npot=2.16e17.json  variants: test 9, ref 9, common 9
+  AP-Central|Central           max|lower-1| -0.77% (m=3.5)  max|upper-1| -2.08% (m=0.3)  range test 0.0246-3.7149 ref 0.0246-3.7112  <- central
+  AP-Central|Lower             max|lower-1| -0.77% (m=3.5)  max|upper-1| -2.08% (m=0.3)  range test 0.0246-3.7149 ref 0.0246-3.7111
+  AP-Central|Upper             max|lower-1| -0.77% (m=3.5)  max|upper-1| -2.08% (m=0.3)  range test 0.0246-3.7149 ref 0.0246-3.7112
+  AP-Lower|Central             max|lower-1| -0.77% (m=3.5)  max|upper-1| -2.19% (m=0.3)  range test 0.0246-3.7149 ref 0.0246-3.7112
+  AP-Lower|Lower               max|lower-1| -0.77% (m=3.5)  max|upper-1| -2.19% (m=0.3)  range test 0.0246-3.7149 ref 0.0246-3.7111
+  AP-Lower|Upper               max|lower-1| -0.77% (m=3.5)  max|upper-1| -2.19% (m=0.3)  range test 0.0246-3.7149 ref 0.0246-3.7112
+  AP-Upper|Central             max|lower-1| -0.77% (m=3.5)  max|upper-1| -1.54% (m=0.3)  range test 0.0246-3.7149 ref 0.0246-3.7112
+  AP-Upper|Lower               max|lower-1| -0.77% (m=3.5)  max|upper-1| -1.54% (m=0.3)  range test 0.0246-3.7149 ref 0.0246-3.7111
+  AP-Upper|Upper               max|lower-1| -0.77% (m=3.5)  max|upper-1| -1.54% (m=0.3)  range test 0.0246-3.7149 ref 0.0246-3.7112
+  central within 1.00%: FAIL
+FASER2-FPF-Etot100 N>=2.3: ours vs campaign: test Sensitivity_ALP-fermion_at_FASER2-FPF-Etot100_Nev=2.3_Npot=2.16e17.json  ref Sensitivity_ALP-fermion_at_FASER2-FPF-Etot100_Nev=2.3_Npot=2.16e17.json  variants: test 9, ref 9, common 9
+  AP-Central|Central           max|lower-1| -0.72% (m=3.5)  max|upper-1| -2.06% (m=0.3)  range test 0.0246-3.7547 ref 0.0246-3.7507  <- central
+  AP-Central|Lower             max|lower-1| -0.72% (m=3.5)  max|upper-1| -2.06% (m=0.3)  range test 0.0246-3.7547 ref 0.0246-3.7507
+  AP-Central|Upper             max|lower-1| -0.72% (m=3.5)  max|upper-1| -2.06% (m=0.3)  range test 0.0246-3.7547 ref 0.0246-3.7507
+  AP-Lower|Central             max|lower-1| -0.72% (m=3.5)  max|upper-1| -2.19% (m=0.3)  range test 0.0246-3.7547 ref 0.0246-3.7507
+  AP-Lower|Lower               max|lower-1| -0.72% (m=3.5)  max|upper-1| -2.19% (m=0.3)  range test 0.0246-3.7547 ref 0.0246-3.7507
+  AP-Lower|Upper               max|lower-1| -0.72% (m=3.5)  max|upper-1| -2.19% (m=0.3)  range test 0.0246-3.7547 ref 0.0246-3.7507
+  AP-Upper|Central             max|lower-1| -0.72% (m=3.5)  max|upper-1| +1.49% (m=0.7)  range test 0.0246-3.7547 ref 0.0246-3.7507
+  AP-Upper|Lower               max|lower-1| -0.72% (m=3.5)  max|upper-1| +1.49% (m=0.7)  range test 0.0246-3.7547 ref 0.0246-3.7507
+  AP-Upper|Upper               max|lower-1| -0.72% (m=3.5)  max|upper-1| +1.49% (m=0.7)  range test 0.0246-3.7547 ref 0.0246-3.7507
+  central within 1.00%: FAIL
+faser2_senscalc_fpf.dat: ours vs tracked: test faser2_senscalc_fpf.dat  ref faser2_senscalc_fpf.dat  variants: test 1, ref 1, common 1
+  AP-Central|Central           max|lower-1| -2.13% (m=0.2)  max|upper-1| -2.07% (m=0.3)  range test 0.0246-3.7168 ref 0.0246-3.7133  <- central
+  central within 1.00%: FAIL
+SHiP-ECN3 rerun vs M. Ovchynnikov 2026-10-16: test Sensitivity_ALP-fermion_at_SHiP-ECN3_Nev=2.3_Npot=6.e20.json  ref Sensitivity_ALP-fermion_at_SHiP-ECN3_Nev=2.3_Npot=6.e20_2026-10-16.json  variants: test 9, ref 9, common 9
+  AP-Central|Central           max|lower-1| +0.56% (m=3.5)  max|upper-1| -0.23% (m=3.0)  range test 0.0244-4.7600 ref 0.0244-4.7600  <- central
+  AP-Central|Lower             max|lower-1| +0.56% (m=3.5)  max|upper-1| -0.23% (m=3.0)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Central|Upper             max|lower-1| +0.57% (m=3.5)  max|upper-1| -0.23% (m=3.0)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Lower|Central             max|lower-1| +0.56% (m=3.5)  max|upper-1| -0.31% (m=0.7)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Lower|Lower               max|lower-1| +0.56% (m=3.5)  max|upper-1| -0.31% (m=0.7)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Lower|Upper               max|lower-1| +0.57% (m=3.5)  max|upper-1| -0.31% (m=0.7)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Upper|Central             max|lower-1| +0.56% (m=3.5)  max|upper-1| -0.23% (m=3.0)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Upper|Lower               max|lower-1| +0.56% (m=3.5)  max|upper-1| -0.23% (m=3.0)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Upper|Upper               max|lower-1| +0.57% (m=3.5)  max|upper-1| -0.23% (m=3.0)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  central within 0.50%: FAIL
+SHiP-ECN3 rerun vs campaign rerun: test Sensitivity_ALP-fermion_at_SHiP-ECN3_Nev=2.3_Npot=6.e20.json  ref Sensitivity_ALP-fermion_at_SHiP-ECN3_Nev=2.3_Npot=6.e20.json  variants: test 9, ref 9, common 9
+  AP-Central|Central           max|lower-1| +0.24% (m=4.0)  max|upper-1| +0.27% (m=4.0)  range test 0.0244-4.7600 ref 0.0244-4.7600  <- central
+  AP-Central|Lower             max|lower-1| +0.24% (m=4.0)  max|upper-1| +0.27% (m=4.0)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Central|Upper             max|lower-1| +0.24% (m=4.0)  max|upper-1| +0.27% (m=4.0)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Lower|Central             max|lower-1| +0.24% (m=4.0)  max|upper-1| +0.27% (m=4.0)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Lower|Lower               max|lower-1| +0.24% (m=4.0)  max|upper-1| +0.27% (m=4.0)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Lower|Upper               max|lower-1| +0.24% (m=4.0)  max|upper-1| +0.27% (m=4.0)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Upper|Central             max|lower-1| +0.24% (m=4.0)  max|upper-1| +0.27% (m=4.0)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Upper|Lower               max|lower-1| +0.24% (m=4.0)  max|upper-1| +0.27% (m=4.0)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Upper|Upper               max|lower-1| +0.24% (m=4.0)  max|upper-1| +0.27% (m=4.0)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  central within 1.00%: PASS
+(reference) campaign rerun vs M. Ovchynnikov: test Sensitivity_ALP-fermion_at_SHiP-ECN3_Nev=2.3_Npot=6.e20.json  ref Sensitivity_ALP-fermion_at_SHiP-ECN3_Nev=2.3_Npot=6.e20_2026-10-16.json  variants: test 9, ref 9, common 9
+  AP-Central|Central           max|lower-1| +0.48% (m=3.5)  max|upper-1| -0.30% (m=4.0)  range test 0.0244-4.7600 ref 0.0244-4.7600  <- central
+  AP-Central|Lower             max|lower-1| +0.48% (m=3.5)  max|upper-1| -0.30% (m=4.0)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Central|Upper             max|lower-1| +0.50% (m=3.5)  max|upper-1| -0.30% (m=4.0)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Lower|Central             max|lower-1| +0.48% (m=3.5)  max|upper-1| -0.51% (m=0.3)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Lower|Lower               max|lower-1| +0.48% (m=3.5)  max|upper-1| -0.51% (m=0.3)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Lower|Upper               max|lower-1| +0.50% (m=3.5)  max|upper-1| -0.51% (m=0.3)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Upper|Central             max|lower-1| +0.48% (m=3.5)  max|upper-1| -0.30% (m=4.0)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Upper|Lower               max|lower-1| +0.48% (m=3.5)  max|upper-1| -0.30% (m=4.0)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  AP-Upper|Upper               max|lower-1| +0.50% (m=3.5)  max|upper-1| -0.30% (m=4.0)  range test 0.0244-4.7600 ref 0.0244-4.7600
+  central within 0.50%: PASS
+== deterministic channels (bremsstrahlung, fragmentation) vs the campaign, tabulated N_ev (py/smoke_check.py)
+-- FASER2-FPF
+bremsstrahlung  Bremsstrahlung-AP-Central    points   5130  max |ratio-1| 0.002%  (tol 0.5%)  PASS
+bremsstrahlung  Bremsstrahlung-AP-Lower      points   1478  max |ratio-1| 0.001%  (tol 0.5%)  PASS
+bremsstrahlung  Bremsstrahlung-AP-Upper      points   6928  max |ratio-1| 0.019%  (tol 0.5%)  PASS
+fragmentation   Fragmentation                points   4625  max |ratio-1| 0.541%  (tol 2.0%)  PASS
+-- FASER2-FPF-Etot100
+bremsstrahlung  Bremsstrahlung-AP-Central    points   5130  max |ratio-1| 0.006%  (tol 0.5%)  PASS
+bremsstrahlung  Bremsstrahlung-AP-Lower      points   1478  max |ratio-1| 0.003%  (tol 0.5%)  PASS
+bremsstrahlung  Bremsstrahlung-AP-Upper      points   6928  max |ratio-1| 0.014%  (tol 0.5%)  PASS
+fragmentation   Fragmentation                points   4540  max |ratio-1| 0.438%  (tol 2.0%)  PASS
+-- SHiP-ECN3
+bremsstrahlung  Bremsstrahlung-AP-Central    points  16612  max |ratio-1| 0.307%  (tol 0.5%)  PASS
+bremsstrahlung  Bremsstrahlung-AP-Lower      points  12544  max |ratio-1| 0.394%  (tol 0.5%)  PASS
+bremsstrahlung  Bremsstrahlung-AP-Upper      points  18896  max |ratio-1| 0.267%  (tol 0.5%)  PASS
+fragmentation   Fragmentation                points  19598  max |ratio-1| 2.623%  (tol 2.0%)  FAIL
+== deterministic metadata of the acceptance tables (Br_vis, ctau(m, y=1), particle numbers) vs the campaign
+SHiP-ECN3: acceptance metadata IDENTICAL (14 lines)
+FASER2-FPF: acceptance metadata IDENTICAL (14 lines)
+== channel breakdown at the lower edge (FASER2-FPF, N>=3)
+1,9c1,9
+< m=0.10: lower edge g_Y~0.000904, N_tot max 3.43e+08; shares 
+< m=0.30: lower edge g_Y~4.1e-05, N_tot max 9.74e+04; shares a
+< m=0.50: lower edge g_Y~3e-05, N_tot max 2.74e+04; shares at 
+< m=1.00: lower edge g_Y~1.48e-05, N_tot max 1.58e+03; shares 
+< m=1.50: lower edge g_Y~5.36e-06, N_tot max 20.5; shares at e
+< m=2.00: lower edge g_Y~6.78e-06, N_tot max 111; shares at ed
+< m=3.00: lower edge g_Y~5.15e-06, N_tot max 32.5; shares at e
+< m=3.50: lower edge g_Y~5.15e-06, N_tot max 13.8; shares at e
+< m=3.70: lower edge g_Y~5.79e-06, N_tot max 3.42; shares at e
+---
+> m=0.10: lower edge g_Y~0.000904, N_tot max 3.36e+08; shares 
+> m=0.30: lower edge g_Y~4.1e-05, N_tot max 9.65e+04; shares a
+> m=0.50: lower edge g_Y~3e-05, N_tot max 2.67e+04; shares at 
+> m=1.00: lower edge g_Y~1.48e-05, N_tot max 1.57e+03; shares 
+> m=1.50: lower edge g_Y~5.36e-06, N_tot max 20.7; shares at e
+> m=2.00: lower edge g_Y~6.78e-06, N_tot max 109; shares at ed
+> m=3.00: lower edge g_Y~5.15e-06, N_tot max 31.6; shares at e
+> m=3.50: lower edge g_Y~5.15e-06, N_tot max 13.3; shares at e
+> m=3.70: lower edge g_Y~6.03e-06, N_tot max 3.32; shares at e

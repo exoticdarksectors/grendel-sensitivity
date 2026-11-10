@@ -1,0 +1,25 @@
+# ANUBIS BC5 dark-scalar sensitivity, BR(h -> SS) = 0.01
+# Extracted from arXiv:2505.00947v2 / Figures/5-PhysicsReach/BSM_benchmarks/pbc_bc5_gray_final.pdf
+# Date: 2026-09-26
+# Line style in the source: solid (background from extrapolation of existing data).
+# The published contour is a 16-segment polyline from 5 to 62.5 GeV.
+# Source y axis is sin(theta); values below are squared to sin^2(theta).
+# Format: chains separated by blank line; each row "mass_GeV  sin2theta"
+# chain: 17 vertices
+5.000002e+00  5.953547e-10
+1.000001e+01  3.445656e-11
+2.000001e+01  2.958367e-12
+3.000002e+01  1.123587e-12
+4.000003e+01  5.898174e-13
+5.000003e+01  5.040948e-13
+6.000003e+01  4.956106e-13
+6.250003e+01  5.040948e-13
+6.250003e+01  4.796030e-18
+6.000003e+01  4.708831e-18
+5.000003e+01  4.839941e-18
+4.000003e+01  5.856316e-18
+3.000002e+01  1.155985e-17
+2.000001e+01  3.422213e-17
+1.000001e+01  4.839944e-16
+5.000002e+00  1.060886e-14
+5.000002e+00  5.953547e-10

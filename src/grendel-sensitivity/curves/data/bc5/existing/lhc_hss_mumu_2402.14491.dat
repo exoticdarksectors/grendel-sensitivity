@@ -1,0 +1,21 @@
+# LHC h -> S S limit in the BC5 plane at BR(h -> S S) = 0.01: S -> mu mu, CMS displaced dimuons, arXiv:2402.14491
+# Source: A. Escalante del Valle, arXiv:2509.02564, JHEP 12 (2025) 129, Fig. 5;
+#   data github.com/aescalante/LLP_DarkScalarReinterpretation at 5788e478, plots_sin2theta/combined_exclusion_multi_threshold_sin2theta_log.txt
+#   (label '$\\mathrm{S}\\to \\mu\\mu$ (arXiv:2402.14491)'), taken as published.
+# The excluded band lies between each pair of chains (lower, then upper), over the
+#   source's mass points, joined by straight lines in log-log.
+# Extracted: 2026-09-29
+# mass_GeV  sin2theta
+10  5.3682264488e-11
+20  1.3725601684e-11
+30  7.9311801360e-12
+40  5.8814829756e-12
+50  1.5048480253e-12
+60  4.0231553645e-13
+
+10  3.0192499712e-08
+20  4.3404195692e-10
+30  1.4103701468e-10
+40  1.0458806717e-10
+50  8.4622843460e-11
+60  7.1542122812e-11

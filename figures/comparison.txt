@@ -1,0 +1,36 @@
+Rebuilt Sec. IV figures vs the paper's PNGs (reference/paper_figures), 2026-11-10 15:16:55
+A pixel differs when any channel differs; '>32/255' counts the visible differences.
+
+== Fig. 4 (BC4)
+figures/scalar/bc4_grendel_paper.png: 1531x1020; reference/paper_figures/bc4_grendel_paper.png: 1531x1020
+pixels differing: 0.05917% (>32/255: 0.00000%); max channel difference 19; bounding box x 1216-1463, y 470-650
+
+== Fig. 5 (BC5)
+figures/scalar/bc5_grendel_paper.png: 1524x1020; reference/paper_figures/bc5_grendel_paper.png: 1524x1020
+pixels differing: 0.06806% (>32/255: 0.00019%); max channel difference 36; bounding box x 675-1103, y 247-646
+
+== Fig. 6 (HNL)
+figures/hnl/hnlimits_grendel_paper.png: 1584x1232; reference/paper_figures/hnlimits_grendel_paper.png: 1584x1232
+pixels differing: 0.24176% (>32/255: 0.01542%); max channel difference 150; bounding box x 137-1414, y 35-954
+
+== Fig. 7 (BC10), rebuilt table and rebuilt SensCalc curves
+figures/alp/bc10_grendel_paper.png: 1523x1020; reference/paper_figures/bc10_grendel_paper.png: 1523x1020
+pixels differing: 0.63722% (>32/255: 0.34697%); max channel difference 197; bounding box x 142-1367, y 168-697
+
+== Fig. 7 (BC10), rebuilt table, tracked SensCalc curves
+work/figures/bc10_tracked_curves/bc10_grendel_paper.png: 1523x1020; reference/paper_figures/bc10_grendel_paper.png: 1523x1020
+pixels differing: 0.04886% (>32/255: 0.00013%); max channel difference 79; bounding box x 1113-1338, y 549-697
+
+== Fig. 7 (BC10), published table, rebuilt SensCalc curves
+work/figures/bc10_published_table/bc10_grendel_paper.png: 1523x1020; reference/paper_figures/bc10_grendel_paper.png: 1523x1020
+pixels differing: 0.58894% (>32/255: 0.34684%); max channel difference 197; bounding box x 142-1367, y 168-666
+
+== Input digests (sha256, first 16 hex digits)
+9109e126a80ff396  figures/scalar/bc4_grendel_paper.png
+b63eb0920577e4b1  figures/scalar/bc5_grendel_paper.png
+ce26d25fefb69182  figures/hnl/hnlimits_grendel_paper.png
+9bc75ab10b88cca7  figures/alp/bc10_grendel_paper.png
+97df2c6cd92e7163  results/senscalc/ship_senscalc.dat
+a9b9602ea625172c  results/senscalc/faser2_senscalc_fpf.dat
+97df2c6cd92e7163  src/grendel-sensitivity/curves/data/bc10/projections/ship_senscalc.dat
+fa1638681b3ecb12  src/grendel-sensitivity/curves/data/bc10/projections/faser2_senscalc_fpf.dat

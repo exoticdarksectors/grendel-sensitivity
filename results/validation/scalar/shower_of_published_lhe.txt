@@ -1,0 +1,6 @@
+shower of the published LHE (Linux) vs the published shower (macOS), per mode:
+  ggf: sha256 equal False; 174242 of 200000 rows differ; rows differing by > 1e-6 rel: 174230; <pT> 51.7289 vs 51.7144 GeV
+  vbf: sha256 equal False; 197483 of 200000 rows differ; rows differing by > 1e-6 rel: 197483; <pT> 93.8567 vs 93.8193 GeV
+  wh: sha256 equal False; 36 of 200000 rows differ; rows differing by > 1e-6 rel: 0; <pT> 88.6447 vs 88.6447 GeV
+  zh: sha256 equal False; 145475 of 200000 rows differ; rows differing by > 1e-6 rel: 145467; <pT> 89.5510 vs 89.5350 GeV
+  tth: sha256 equal False; 161205 of 200000 rows differ; rows differing by > 1e-6 rel: 161205; <pT> 130.1643 vs 130.0822 GeV

@@ -1,0 +1,24 @@
+== bc4: published tables rendered here vs the paper PNG (renderer check)
+work/scalar/figures/published_tables/bc4_grendel_paper.png: 1531x1020; reference/paper_figures/bc4_grendel_paper.png: 1531x1020
+pixels differing: 0.00000% (>32/255: 0.00000%); max channel difference 0; bounding box none
+== bc4: our tables vs the paper PNG (data check)
+work/scalar/figures/ours/bc4_grendel_paper.png: 1531x1020; reference/paper_figures/bc4_grendel_paper.png: 1531x1020
+pixels differing: 0.05917% (>32/255: 0.00000%); max channel difference 19; bounding box x 1216-1463, y 470-650
+== bc4: our tables with the published rows at the template-differing masses (2.4 2.5 3.1 3.6 4.2 11 GeV) vs the paper PNG
+work/scalar/figures/spliced/bc4_grendel_paper.png: 1531x1020; reference/paper_figures/bc4_grendel_paper.png: 1531x1020
+pixels differing: 0.00000% (>32/255: 0.00000%); max channel difference 0; bounding box none
+== bc4: PDFs vs the paper PDF (bytes, apart from the /CreationDate stamp)
+published_tables: DIFFERENT (36144 / 36144 bytes without the date stamp)
+ours: DIFFERENT (36146 / 36144 bytes without the date stamp)
+== bc5: published tables rendered here vs the paper PNG (renderer check)
+work/scalar/figures/published_tables/bc5_grendel_paper.png: 1524x1020; reference/paper_figures/bc5_grendel_paper.png: 1524x1020
+pixels differing: 0.00000% (>32/255: 0.00000%); max channel difference 0; bounding box none
+== bc5: our tables vs the paper PNG (data check)
+work/scalar/figures/ours/bc5_grendel_paper.png: 1524x1020; reference/paper_figures/bc5_grendel_paper.png: 1524x1020
+pixels differing: 0.06806% (>32/255: 0.00019%); max channel difference 36; bounding box x 675-1103, y 247-646
+== bc5: our tables with the published rows at the template-differing masses (2.4 2.5 3.1 3.6 4.2 11 GeV) vs the paper PNG
+work/scalar/figures/spliced/bc5_grendel_paper.png: 1524x1020; reference/paper_figures/bc5_grendel_paper.png: 1524x1020
+pixels differing: 0.00000% (>32/255: 0.00000%); max channel difference 0; bounding box none
+== bc5: PDFs vs the paper PDF (bytes, apart from the /CreationDate stamp)
+published_tables: DIFFERENT (34921 / 34921 bytes without the date stamp)
+ours: DIFFERENT (34927 / 34921 bytes without the date stamp)

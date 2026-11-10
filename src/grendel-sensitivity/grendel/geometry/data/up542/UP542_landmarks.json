@@ -1,0 +1,57 @@
+{
+ "length_m": 109.76,
+ "chainage_start_m": -1.255,
+ "chainage_end_m": 108.505,
+ "start": "PX56 shaft face (CH -1.255)",
+ "end": "south end wall (CH 108.505)",
+ "red_door": {
+  "id": "YCPZ01=PX56",
+  "chainage_m": 50.9,
+  "Xb_m": -10.01,
+  "Yt_m": 4.64,
+  "note": "end-of-zone door since 2019 (ECR LHC-Y-EC-0022): CH > 50.9 (PM54 side) accessible with beam"
+ },
+ "pm54_junction": {
+  "chainage_m": 73.06,
+  "note": "branch to PM54: UP542_pm54_branch.csv (axis from the walls in the 2015 laser scan, 11.75 m from the main axis to the PM54 shaft face; 14.10 m on the 2004 plan drawing)"
+ },
+ "floor_spot_levels_m": [
+  [
+   -1.255,
+   23.8
+  ],
+  [
+   20.061,
+   23.376
+  ],
+  [
+   38.478,
+   22.968
+  ],
+  [
+   73.06,
+   22.192
+  ],
+  [
+   107.205,
+   22.811
+  ]
+ ],
+ "milliqan": {
+  "slab_support_chainage_m": [
+   89.9,
+   92.5
+  ],
+  "slab_support_source": "CMS-I-UR-0299 (EDMS 2875513), public",
+  "slab_detector_cad_chainage_m": [
+   88.1,
+   93.4
+  ],
+  "slab_detector_cad_source": "PLM ST1628675_01 placed through its own copy of the CERN 3D civil model (PLM ST0116966)",
+  "bars_chainage_m_estimated": [
+   76,
+   89
+  ],
+  "note": "not part of the material budget (milliQan may be removed)"
+ }
+}

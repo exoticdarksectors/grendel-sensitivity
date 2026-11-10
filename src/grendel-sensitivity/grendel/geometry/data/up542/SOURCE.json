@@ -1,0 +1,7 @@
+{
+ "mirror_of": "https://gitlab.cern.ch/grendel/grendel-geometry",
+ "path": "results/geometry/",
+ "commit": "fd39aa2afa626e9e02bb24e177afc9f8fb41761d",
+ "synced": "2026-10-16",
+ "how": "python scripts/sync_up542_geometry.py <path to a clone of grendel-geometry>; do not edit these files here"
+}

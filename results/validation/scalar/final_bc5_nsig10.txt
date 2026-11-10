@@ -1,0 +1,116 @@
+work/scalar/results/bc5/sensitivity_nsig10.csv vs src/grendel-sensitivity/curves/data/grendel_v2_5/bc5/sensitivity_nsig10.csv
+  SHA-256 equal: False; rows 112 (ours) / 112 (published); columns 80 / 80
+  columns bit-identical in all 112 rows: 29/80
+    u2_min_open u2_max_open has_sensitivity n_events n_hits br_hss decay_backend n_hits_quartic n_hits_mixing n_hits_hSS n_hits_BSS mixing_has_sensitivity mixing_u2_min_open mixing_u2_max_open hSS_has_sensitivity hSS_u2_min_open hSS_u2_max_open BSS_has_sensitivity BSS_u2_min_open BSS_u2_max_open brhss0.001_has_sensitivity brhss0.001_u2_min_open brhss0.001_u2_max_open brhss0.001_hSS_has_sensitivity brhss0.001_hSS_u2_min_open brhss0.001_hSS_u2_max_open brhss0.001_BSS_has_sensitivity brhss0.001_BSS_u2_min_open brhss0.001_BSS_u2_max_open
+  columns with differences: 51/80 (rows differing; largest |ours/published - 1| at mass)
+    u2_max_N_BSS                        24 rows  max 0.408 at 2.4 GeV
+    u2_max_N_mixing                     38 rows  max 0.189 at 3.1 GeV
+    u2_max_max_event_fraction          103 rows  max 0.172 at 2.4 GeV
+    u2_max_event_ess                    34 rows  max 0.108 at 4.2 GeV
+    u2_min_max_event_fraction          112 rows  max 0.0986 at 4.2 GeV
+    peak_u2_max_event_fraction         112 rows  max 0.0805 at 3.6 GeV
+    u2_max_sample_ess                   38 rows  max 0.0611 at 4.2 GeV
+    peak_u2_N_mixing                    31 rows  max 0.0113 at 3.1 GeV
+    u2_min_event_ess                    34 rows  max 0.00724 at 4.2 GeV
+    peak_u2_N_BSS                       31 rows  max 0.00689 at 2.4 GeV
+    u2_min_N_mixing                     67 rows  max 0.00511 at 2.4 GeV
+    mixing_u2_max                       25 rows  max 0.00419 at 2.5 GeV
+    u2_min_sample_ess                   49 rows  max 0.00391 at 4.2 GeV
+    hSS_u2_max                          35 rows  max 0.00377 at 3.1 GeV
+    u2_max                              44 rows  max 0.00377 at 3.1 GeV
+    peak_u2_sample_ess                  24 rows  max 0.00373 at 3.6 GeV
+    hSS_peak_N                          29 rows  max 0.00349 at 3.6 GeV
+    brhss0.001_hSS_peak_N               21 rows  max 0.00349 at 3.6 GeV
+    peak_u2_N_quartic                   30 rows  max 0.00349 at 3.6 GeV
+    peak_u2_N_hSS                       28 rows  max 0.00349 at 3.6 GeV
+    peak_N                              61 rows  max 0.00348 at 3.6 GeV
+    brhss0.001_peak_N                   39 rows  max 0.00341 at 3.6 GeV
+    brhss0.001_hSS_u2_min               42 rows  max 0.00321 at 3.6 GeV
+    brhss0.001_u2_min                   29 rows  max 0.00314 at 3.6 GeV
+    hSS_u2_min                          37 rows  max 0.00299 at 3.6 GeV
+    u2_min                              37 rows  max 0.00298 at 3.6 GeV
+    mixing_peak_N                       26 rows  max 0.0029 at 3.6 GeV
+    brhss0.001_BSS_peak_u2              28 rows  max 0.00288 at 2.5 GeV
+    BSS_peak_u2                         28 rows  max 0.00288 at 2.5 GeV
+    brhss0.001_hSS_u2_max               34 rows  max 0.00267 at 3.6 GeV
+    brhss0.001_u2_max                   36 rows  max 0.00265 at 3.6 GeV
+    mixing_peak_u2                      29 rows  max 0.00186 at 2.5 GeV
+    peak_u2_event_ess                   23 rows  max 0.00141 at 4.2 GeV
+    peak_u2                             44 rows  max 0.0012 at 2.4 GeV
+    brhss0.001_hSS_peak_u2              38 rows  max 0.0012 at 11 GeV
+    hSS_peak_u2                         38 rows  max 0.0012 at 11 GeV
+    brhss0.001_peak_u2                  37 rows  max 0.0012 at 11 GeV
+    u2_min_N_BSS                        18 rows  max 0.00114 at 2.5 GeV
+    BSS_peak_N                          13 rows  max 0.000817 at 2.5 GeV
+    brhss0.001_BSS_peak_N               12 rows  max 0.000817 at 2.5 GeV
+    mixing_u2_min                       19 rows  max 0.000236 at 2.4 GeV
+    u2_min_N_hSS                        43 rows  max 9.37e-05 at 2.5 GeV
+    u2_min_N_quartic                    22 rows  max 5.92e-05 at 2.4 GeV
+    u2_max_N_quartic                    31 rows  max 4.03e-06 at 3.6 GeV
+    u2_max_N_hSS                        32 rows  max 4.03e-06 at 3.6 GeV
+    brhss0.001_BSS_u2_min                5 rows  max 2.66e-14 at 0.14 GeV
+    brhss0.001_BSS_u2_max                6 rows  max 2.6e-14 at 0.18 GeV
+    ctau_sin2th1_m                      43 rows  max 3.55e-15 at 0.16 GeV
+    alpha_GeV                            1 rows  max 2.22e-16 at 62 GeV
+    BSS_u2_max                          22 rows  max 2.22e-16 at 0.3 GeV
+    BSS_u2_min                          14 rows  max 2.22e-16 at 0.18 GeV
+  rows bit-identical in every column: 0/112
+  largest |ours/published - 1| of any numeric column, the 106 other masses: 7.2e-13 (at 0.9 GeV)
+  largest |ours/published - 1| of any numeric column, the split masses (2.4 2.5 3.1 3.6 4.2 11 GeV): 0.408 (at 2.4 GeV)
+  verdict disagreements: 0 (in 7 columns: has_sensitivity mixing_has_sensitivity hSS_has_sensitivity BSS_has_sensitivity brhss0.001_has_sensitivity brhss0.001_hSS_has_sensitivity brhss0.001_BSS_has_sensitivity)
+  has_sensitivity: 112 sensitive masses here, 112 published
+work/scalar/results/bc5/sensitivity_nsig10.csv vs work/scalar/validation/published_bc5_nsig10_projected_here.csv
+  SHA-256 equal: False; rows 112 (ours) / 112 (published); columns 80 / 80
+  columns bit-identical in all 112 rows: 35/80
+    u2_min_open u2_max_open has_sensitivity n_events n_hits br_hss alpha_GeV ctau_sin2th1_m decay_backend n_hits_quartic n_hits_mixing n_hits_hSS n_hits_BSS mixing_has_sensitivity mixing_u2_min_open mixing_u2_max_open hSS_has_sensitivity hSS_u2_min_open hSS_u2_max_open BSS_u2_min BSS_u2_max BSS_has_sensitivity BSS_u2_min_open BSS_u2_max_open brhss0.001_has_sensitivity brhss0.001_u2_min_open brhss0.001_u2_max_open brhss0.001_hSS_has_sensitivity brhss0.001_hSS_u2_min_open brhss0.001_hSS_u2_max_open brhss0.001_BSS_u2_min brhss0.001_BSS_u2_max brhss0.001_BSS_has_sensitivity brhss0.001_BSS_u2_min_open brhss0.001_BSS_u2_max_open
+  columns with differences: 45/80 (rows differing; largest |ours/published - 1| at mass)
+    u2_max_N_BSS                         8 rows  max 0.408 at 2.4 GeV
+    u2_max_N_mixing                     17 rows  max 0.189 at 3.1 GeV
+    u2_max_max_event_fraction           26 rows  max 0.172 at 2.4 GeV
+    u2_max_event_ess                    30 rows  max 0.108 at 4.2 GeV
+    u2_min_max_event_fraction           14 rows  max 0.0986 at 4.2 GeV
+    peak_u2_max_event_fraction          14 rows  max 0.0805 at 3.6 GeV
+    u2_max_sample_ess                   26 rows  max 0.0611 at 4.2 GeV
+    peak_u2_N_mixing                    16 rows  max 0.0113 at 3.1 GeV
+    u2_min_event_ess                    27 rows  max 0.00724 at 4.2 GeV
+    peak_u2_N_BSS                       14 rows  max 0.00689 at 2.4 GeV
+    u2_min_N_mixing                     18 rows  max 0.00511 at 2.4 GeV
+    mixing_u2_max                        2 rows  max 0.00419 at 2.5 GeV
+    u2_min_sample_ess                   26 rows  max 0.00391 at 4.2 GeV
+    hSS_u2_max                           6 rows  max 0.00377 at 3.1 GeV
+    u2_max                               6 rows  max 0.00377 at 3.1 GeV
+    peak_u2_sample_ess                  17 rows  max 0.00373 at 3.6 GeV
+    hSS_peak_N                          19 rows  max 0.00349 at 3.6 GeV
+    brhss0.001_hSS_peak_N               19 rows  max 0.00349 at 3.6 GeV
+    peak_u2_N_hSS                       19 rows  max 0.00349 at 3.6 GeV
+    peak_u2_N_quartic                   20 rows  max 0.00349 at 3.6 GeV
+    peak_N                              54 rows  max 0.00348 at 3.6 GeV
+    brhss0.001_peak_N                   34 rows  max 0.00341 at 3.6 GeV
+    brhss0.001_hSS_u2_min                6 rows  max 0.00321 at 3.6 GeV
+    brhss0.001_u2_min                    6 rows  max 0.00314 at 3.6 GeV
+    hSS_u2_min                           6 rows  max 0.00299 at 3.6 GeV
+    u2_min                               6 rows  max 0.00298 at 3.6 GeV
+    mixing_peak_N                       18 rows  max 0.0029 at 3.6 GeV
+    brhss0.001_BSS_peak_u2               2 rows  max 0.00288 at 2.5 GeV
+    BSS_peak_u2                          2 rows  max 0.00288 at 2.5 GeV
+    brhss0.001_hSS_u2_max                6 rows  max 0.00267 at 3.6 GeV
+    brhss0.001_u2_max                    6 rows  max 0.00265 at 3.6 GeV
+    mixing_peak_u2                       5 rows  max 0.00186 at 2.5 GeV
+    peak_u2_event_ess                   20 rows  max 0.00141 at 4.2 GeV
+    peak_u2                              6 rows  max 0.0012 at 2.4 GeV
+    brhss0.001_peak_u2                   6 rows  max 0.0012 at 11 GeV
+    brhss0.001_hSS_peak_u2               6 rows  max 0.0012 at 11 GeV
+    hSS_peak_u2                          6 rows  max 0.0012 at 11 GeV
+    u2_min_N_BSS                         6 rows  max 0.00114 at 2.5 GeV
+    BSS_peak_N                           8 rows  max 0.000817 at 2.5 GeV
+    brhss0.001_BSS_peak_N                8 rows  max 0.000817 at 2.5 GeV
+    mixing_u2_min                        2 rows  max 0.000236 at 2.4 GeV
+    u2_min_N_hSS                        23 rows  max 9.37e-05 at 2.5 GeV
+    u2_min_N_quartic                    17 rows  max 5.92e-05 at 2.4 GeV
+    u2_max_N_quartic                    24 rows  max 4.03e-06 at 3.6 GeV
+    u2_max_N_hSS                        24 rows  max 4.03e-06 at 3.6 GeV
+  rows bit-identical in every column: 43/112
+  largest |ours/published - 1| of any numeric column, the 106 other masses: 1.55e-14 (at 0.825 GeV)
+  largest |ours/published - 1| of any numeric column, the split masses (2.4 2.5 3.1 3.6 4.2 11 GeV): 0.408 (at 2.4 GeV)
+  verdict disagreements: 0 (in 7 columns: has_sensitivity mixing_has_sensitivity hSS_has_sensitivity BSS_has_sensitivity brhss0.001_has_sensitivity brhss0.001_hSS_has_sensitivity brhss0.001_BSS_has_sensitivity)
+  has_sensitivity: 112 sensitive masses here, 112 published

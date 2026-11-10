@@ -1,0 +1,19 @@
+ray-cast caches compared with the stored macOS ones: 18 of 18 identical events (of 18 stored)
+0.5: 1199988 four-vectors, hits 12114 / stored 12114, hit flags differing 0, max |d entry| 2.6e-13 m, max |d exit| 2.6e-13 m
+1: 1199988 four-vectors, hits 11583 / stored 11583, hit flags differing 0, max |d entry| 2.7e-13 m, max |d exit| 2.6e-13 m
+1.5: 1199988 four-vectors, hits 11448 / stored 11448, hit flags differing 0, max |d entry| 1.8e-13 m, max |d exit| 2.0e-13 m
+2: 1199988 four-vectors, hits 10977 / stored 10977, hit flags differing 0, max |d entry| 1.8e-13 m, max |d exit| 2.6e-13 m
+2.5: 1199988 four-vectors, hits 10844 / stored 10844, hit flags differing 0, max |d entry| 3.8e-13 m, max |d exit| 3.9e-13 m
+3: 1199988 four-vectors, hits 10482 / stored 10482, hit flags differing 0, max |d entry| 2.4e-13 m, max |d exit| 1.9e-13 m
+3.2: 1199988 four-vectors, hits 10547 / stored 10547, hit flags differing 0, max |d entry| 1.7e-13 m, max |d exit| 3.9e-13 m
+3.24: 1199988 four-vectors, hits 10480 / stored 10480, hit flags differing 0, max |d entry| 1.8e-13 m, max |d exit| 2.1e-13 m
+3.28: 1199988 four-vectors, hits 10403 / stored 10403, hit flags differing 0, max |d entry| 1.7e-13 m, max |d exit| 2.7e-13 m
+3.3: 1199988 four-vectors, hits 10326 / stored 10326, hit flags differing 0, max |d entry| 1.7e-13 m, max |d exit| 1.9e-13 m
+3.32: 1199988 four-vectors, hits 10362 / stored 10362, hit flags differing 0, max |d entry| 1.1e-07 m, max |d exit| 3.0e-07 m
+3.34: 1199988 four-vectors, hits 10421 / stored 10421, hit flags differing 0, max |d entry| 1.4e-12 m, max |d exit| 2.6e-13 m
+3.36: 1199988 four-vectors, hits 10359 / stored 10359, hit flags differing 0, max |d entry| 2.8e-13 m, max |d exit| 2.1e-13 m
+3.38: 1199988 four-vectors, hits 10410 / stored 10410, hit flags differing 0, max |d entry| 2.0e-12 m, max |d exit| 3.2e-13 m
+3.4: 1199988 four-vectors, hits 10288 / stored 10288, hit flags differing 0, max |d entry| 9.8e-13 m, max |d exit| 2.1e-13 m
+3.5: 1199988 four-vectors, hits 10389 / stored 10389, hit flags differing 0, max |d entry| 7.7e-13 m, max |d exit| 2.8e-13 m
+3.6: 1066656 four-vectors, hits 9247 / stored 9247, hit flags differing 0, max |d entry| 1.6e-12 m, max |d exit| 1.8e-13 m
+4: 533328 four-vectors, hits 4540 / stored 4540, hit flags differing 0, max |d entry| 2.3e-13 m, max |d exit| 3.3e-13 m

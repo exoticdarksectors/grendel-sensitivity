@@ -1,0 +1,4 @@
+BC5 rows with the rebuilt Higgs histogram / with the tracked one (same RNG stream, same templates):
+    1 GeV: u2_min x1.0028, u2_max x1.0034, peak N x1.0059; N>=10 edges x1.0033, x0.9958
+   15 GeV: u2_min x0.9909, u2_max x1.0202, peak N x1.0264; N>=10 edges x0.9905, x1.0166
+   50 GeV: u2_min x1.0115, u2_max x0.9970, peak N x0.9730; N>=10 edges x1.0120, x0.9952

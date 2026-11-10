@@ -1,0 +1,23 @@
+== BC5 paper_numbers.txt: ours vs published (first line is the table path)
+1c1
+< table: results/bc5/sensitivity.csv
+---
+> table: curves/data/grendel_v2_5/bc5/sensitivity.csv
+12c12
+<   MATHUSLA40 10-60 GeV: lower edge 2.0-4.3x smaller; GRENDEL upper edge 4.8-13.8x larger
+---
+>   MATHUSLA40 10-60 GeV: lower edge 2.0-4.3x smaller; GRENDEL upper edge 4.8-13.7x larger
+== BC4 Sec. IV numbers (edge_ratios.py): ours vs published (validation/bc4_edge_ratios_*.txt)
+6c6
+<   FASER2     3.0-4.0   GeV ( 7): lower proj/GRENDEL 6.27-7.32 (median 6.97); upper 12.07-25.66 (median 21.11)
+---
+>   FASER2     3.0-4.0   GeV ( 7): lower proj/GRENDEL 6.25-7.32 (median 6.97); upper 12.11-25.66 (median 21.11)
+11,12c11,12
+<   SHiP       3.0-4.0   GeV ( 7): lower proj/GRENDEL 0.08-0.14 (median 0.11); upper 34.69-67.09 (median 44.21)
+<   SHiP       0.1-5     GeV (67): lower proj/GRENDEL 0.08-0.52 (median 0.40); upper 13.94-67.09 (median 21.84)
+---
+>   SHiP       3.0-4.0   GeV ( 7): lower proj/GRENDEL 0.08-0.14 (median 0.11); upper 34.69-67.30 (median 44.21)
+>   SHiP       0.1-5     GeV (67): lower proj/GRENDEL 0.08-0.52 (median 0.40); upper 13.94-67.30 (median 21.84)
+== paper Sec. IV: deepest BC4 7.2e-12 at 1.0 GeV, BC4 reach 3.6 GeV, BC5 2.0e-17 near 50 GeV
+bc4: deepest 7.2e-12 at 1 GeV; reach (N>=3) 3.6 GeV; 75 sensitive masses of 86; N>=10 69
+bc5: deepest 2e-17 at 50 GeV; reach (N>=3) 62 GeV; 112 sensitive masses of 112; N>=10 112

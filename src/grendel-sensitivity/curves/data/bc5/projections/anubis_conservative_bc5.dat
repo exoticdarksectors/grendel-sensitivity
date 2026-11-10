@@ -1,0 +1,25 @@
+# ANUBIS BC5 dark-scalar sensitivity, BR(h -> SS) = 0.01
+# Extracted from arXiv:2510.26932v2 / Fig. 14a, figures/Combined_CLsOnly/sinTheta/sin_theta_br0p01_SigEff0p5_ANUBISonly_ceilingOnly_withBand_CombOnly.pdf
+# Date: 2026-10-25
+# Ceiling, 1+2DVs, 95% CL exclusion, eps_sig = 0.5, 3 ab^-1; conservative background (hatched in the source); drawn in the paper panel.
+# Closed contour with vertices at 10, 15, 20, 25, 30, 40, 50, 60 GeV.
+# Source y axis is sin(theta); values below are squared to sin^2(theta).
+# Format: chains separated by blank line; each row "mass_GeV  sin2theta"
+# chain: 17 vertices
+9.999982e+00  2.717848e-11
+9.999982e+00  6.441131e-16
+1.499998e+01  1.242035e-16
+1.999999e+01  5.826968e-17
+2.499999e+01  3.094030e-17
+2.999999e+01  2.179405e-17
+3.999999e+01  1.291651e-17
+5.000000e+01  6.183887e-18
+6.000000e+01  4.351574e-18
+6.000000e+01  1.704141e-13
+5.000000e+01  2.623766e-13
+3.999999e+01  4.273635e-13
+2.999999e+01  8.302251e-13
+2.499999e+01  1.301928e-12
+1.999999e+01  2.313677e-12
+1.499998e+01  5.097942e-12
+9.999982e+00  2.717848e-11

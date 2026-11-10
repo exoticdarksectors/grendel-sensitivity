@@ -1,0 +1,41 @@
+[bottom] meson grid vs tracked: byte-identical=False; data rows identical=False (4323/10000 rows equal)
+[bottom]   header lines differing: 6 new / 3 tracked
+[bottom]   per-bin |rel diff|: max 3.394e-07 at (pT, y) = [9.5959596, -2.8787879], p99 8.953e-09, median 2.195e-11; pT=0 rows zero in both: True
+[bottom]   sigma (trapezoid, pT 0-50, |y|<3): 3.059034541e+08 vs 3.059034542e+08 pb, rel -6.086e-11
+[bottom]   slices: pT 0-5 -3.3e-10, pT 5-10 +2.2e-10, pT 10-20 +2.8e-11, pT 20-50 +1.4e-11, |y| 0-1 (one side) +6.5e-12, |y| 1-2 (one side) +8.6e-11, |y| 2-3 (one side) -5.7e-11
+[charm] meson grid vs tracked: byte-identical=False; data rows identical=False (101/10000 rows equal)
+[charm]   header lines differing: 7 new / 4 tracked
+[charm]   per-bin |rel diff|: max 3.052e-05 at (pT, y) = [2.020202, -2.7575758], p99 3.381e-07, median 1.502e-10; pT=0 rows zero in both: True
+[charm]   sigma (trapezoid, pT 0-50, |y|<3): 2.722259249e+09 vs 2.722259386e+09 pb, rel -5.020e-08
+[charm]   slices: pT 0-5 -5.9e-08, pT 5-10 -8.5e-10, pT 10-20 +1.2e-09, pT 20-50 -6.3e-10, |y| 0-1 (one side) +3.1e-10, |y| 1-2 (one side) +8.7e-10, |y| 2-3 (one side) -5.6e-08
+
+[bottom xcheck(macOS raw grid, Linux fragmentation)] meson grid vs tracked: byte-identical=False; data rows identical=True (10000/10000 rows equal)
+[bottom xcheck(macOS raw grid, Linux fragmentation)]   header lines differing: 5 new / 2 tracked
+[bottom xcheck(macOS raw grid, Linux fragmentation)]   per-bin |rel diff|: max 0.000e+00 at (pT, y) = [0.50505051, -3.0], p99 0.000e+00, median 0.000e+00; pT=0 rows zero in both: True
+[bottom xcheck(macOS raw grid, Linux fragmentation)]   sigma (trapezoid, pT 0-50, |y|<3): 3.059034542e+08 vs 3.059034542e+08 pb, rel +0.000e+00
+[bottom xcheck(macOS raw grid, Linux fragmentation)]   slices: pT 0-5 +0.0e+00, pT 5-10 +0.0e+00, pT 10-20 +0.0e+00, pT 20-50 +0.0e+00, |y| 0-1 (one side) +0.0e+00, |y| 1-2 (one side) +0.0e+00, |y| 2-3 (one side) +0.0e+00
+[charm xcheck(macOS raw grid, Linux fragmentation)] meson grid vs tracked: byte-identical=False; data rows identical=True (10000/10000 rows equal)
+[charm xcheck(macOS raw grid, Linux fragmentation)]   header lines differing: 5 new / 2 tracked
+[charm xcheck(macOS raw grid, Linux fragmentation)]   per-bin |rel diff|: max 0.000e+00 at (pT, y) = [0.50505051, -3.0], p99 0.000e+00, median 0.000e+00; pT=0 rows zero in both: True
+[charm xcheck(macOS raw grid, Linux fragmentation)]   sigma (trapezoid, pT 0-50, |y|<3): 2.722259386e+09 vs 2.722259386e+09 pb, rel +0.000e+00
+[charm xcheck(macOS raw grid, Linux fragmentation)]   slices: pT 0-5 +0.0e+00, pT 5-10 +0.0e+00, pT 10-20 +0.0e+00, pT 20-50 +0.0e+00, |y| 0-1 (one side) +0.0e+00, |y| 1-2 (one side) +0.0e+00, |y| 2-3 (one side) +0.0e+00
+[xcheck bottom central] fragmfonll output vs stored: 9748/9900 rows identical; max |rel diff| 0.00e+00
+[xcheck charm direct] fragmfonll output vs stored: 9703/9900 rows identical; max |rel diff| 0.00e+00
+[xcheck charm D* vector] fragmfonll output vs stored: 29179/29700 rows identical; max |rel diff| 0.00e+00
+
+[bottom NNPDF4.0] raw quark grid vs stored macOS: 2397/8000 rows byte-identical; matched FONLL xsec |rel diff| max 6.09e-07, median 9.1e-12; |diff|/(FONLL integration error) max 5.02e+00
+[bottom NNPDF4.0]   per column max rel diff: hdmv 5.7e-08, hdml 2.7e-04, hdrs 1.4e-04, ehrs 1.9e-05
+[charm NNPDF4.0] raw quark grid vs stored macOS: 2068/8000 rows byte-identical; matched FONLL xsec |rel diff| max 1.19e-04, median 7.1e-11; |diff|/(FONLL integration error) max 8.64e+00
+[charm NNPDF4.0]   per column max rel diff: hdmv 1.7e-05, hdml 5.2e-02, hdrs 1.2e-03, ehrs 6.7e-02
+[bottom central] fragmfonll output vs stored: 2832/9900 rows identical; max |rel diff| 3.39e-07
+[charm direct] fragmfonll output vs stored: 2279/9900 rows identical; max |rel diff| 2.33e-05
+[charm D* vector] fragmfonll output vs stored: 6702/29700 rows identical; max |rel diff| 3.47e-05
+
+[charm CTEQ6.6 calibration] raw quark grid vs stored macOS: 105/240 rows byte-identical; matched FONLL xsec |rel diff| max 3.48e-07, median 0.0e+00; |diff|/(FONLL integration error) max 1.69e-03
+[charm CTEQ6.6 calibration]   per column max rel diff: hdmv 2.4e-08, hdml 8.4e-06, hdrs 3.9e-07, ehrs 6.4e-07
+[calibration direct_pseudoscalar] fragmfonll output vs stored: 5/9 rows identical; max |rel diff| 1.21e-10
+[calibration dstar_vector] fragmfonll output vs stored: 19/27 rows identical; max |rel diff| 2.08e-10
+[charm calibration] weight 1.215253368878 vs original 1.215253364118 (rel +3.92e-09); max |rel| vs the 9 public D0 points 1.9410e-03 (original 1.9410e-03)
+[bottom CTEQ6.6 closure (y=-0.5,0,0.5)] raw quark grid vs stored macOS: 119/240 rows byte-identical; matched FONLL xsec |rel diff| max 2.01e-09, median 0.0e+00; |diff|/(FONLL integration error) max 3.42e-05
+[bottom CTEQ6.6 closure (y=-0.5,0,0.5)]   per column max rel diff: hdmv 2.9e-10, hdml 2.3e-07, hdrs 1.5e-07, ehrs 2.2e-08
+[bottom closure] B hadron pT=5 y=0 CTEQ6.6: 7.5352771e+06 pb/GeV; public 7.53290e+06 (+0.032%); original macOS 7.5352771279e+06 (-6.6e-11)

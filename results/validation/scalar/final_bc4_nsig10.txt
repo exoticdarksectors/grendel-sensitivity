@@ -1,0 +1,47 @@
+work/scalar/results/bc4/sensitivity_nsig10.csv vs src/grendel-sensitivity/curves/data/grendel_v2_5/bc4/sensitivity_nsig10.csv
+  SHA-256 equal: False; rows 86 (ours) / 86 (published); columns 20 / 20
+  columns bit-identical in all 86 rows: 6/20
+    u2_min_open u2_max_open has_sensitivity n_events n_hits decay_backend
+  columns with differences: 14/20 (rows differing; largest |ours/published - 1| at mass)
+    u2_max_max_event_fraction           69 rows  max 0.15 at 2.5 GeV
+    u2_min_max_event_fraction           75 rows  max 0.112 at 2.4 GeV
+    peak_u2_max_event_fraction          86 rows  max 0.0789 at 3.6 GeV
+    u2_max_event_ess                    34 rows  max 0.00801 at 2.4 GeV
+    u2_max_sample_ess                   35 rows  max 0.00721 at 2.4 GeV
+    peak_N                              58 rows  max 0.00318 at 2.5 GeV
+    u2_min_sample_ess                   36 rows  max 0.00233 at 2.5 GeV
+    peak_u2_sample_ess                  34 rows  max 0.00223 at 2.5 GeV
+    u2_min_event_ess                    37 rows  max 0.00209 at 3.1 GeV
+    u2_max                              27 rows  max 0.00183 at 2.5 GeV
+    u2_min                              30 rows  max 0.00159 at 2.5 GeV
+    peak_u2_event_ess                   38 rows  max 0.00149 at 3.6 GeV
+    peak_u2                             36 rows  max 0.00128 at 3.1 GeV
+    ctau_sin2th1_m                      36 rows  max 3.55e-15 at 0.16 GeV
+  rows bit-identical in every column: 0/86
+  largest |ours/published - 1| of any numeric column, the 81 other masses: 1.87e-13 (at 0.22 GeV)
+  largest |ours/published - 1| of any numeric column, the split masses (2.4 2.5 3.1 3.6 4.2 GeV): 0.15 (at 2.5 GeV)
+  verdict disagreements: 0 (in 1 columns: has_sensitivity)
+  has_sensitivity: 69 sensitive masses here, 69 published
+work/scalar/results/bc4/sensitivity_nsig10.csv vs work/scalar/validation/published_bc4_nsig10_projected_here.csv
+  SHA-256 equal: False; rows 86 (ours) / 86 (published); columns 20 / 20
+  columns bit-identical in all 86 rows: 7/20
+    u2_min_open u2_max_open has_sensitivity n_events n_hits ctau_sin2th1_m decay_backend
+  columns with differences: 13/20 (rows differing; largest |ours/published - 1| at mass)
+    u2_max_max_event_fraction           25 rows  max 0.15 at 2.5 GeV
+    u2_min_max_event_fraction           23 rows  max 0.112 at 2.4 GeV
+    peak_u2_max_event_fraction          23 rows  max 0.0789 at 3.6 GeV
+    u2_max_event_ess                    33 rows  max 0.00801 at 2.4 GeV
+    u2_max_sample_ess                   30 rows  max 0.00721 at 2.4 GeV
+    peak_N                              56 rows  max 0.00318 at 2.5 GeV
+    u2_min_sample_ess                   32 rows  max 0.00233 at 2.5 GeV
+    peak_u2_sample_ess                  33 rows  max 0.00223 at 2.5 GeV
+    u2_min_event_ess                    30 rows  max 0.00209 at 3.1 GeV
+    u2_max                               2 rows  max 0.00183 at 2.5 GeV
+    u2_min                               2 rows  max 0.00159 at 2.5 GeV
+    peak_u2_event_ess                   35 rows  max 0.00149 at 3.6 GeV
+    peak_u2                              5 rows  max 0.00128 at 3.1 GeV
+  rows bit-identical in every column: 16/86
+  largest |ours/published - 1| of any numeric column, the 81 other masses: 8.66e-15 (at 0.875 GeV)
+  largest |ours/published - 1| of any numeric column, the split masses (2.4 2.5 3.1 3.6 4.2 GeV): 0.15 (at 2.5 GeV)
+  verdict disagreements: 0 (in 1 columns: has_sensitivity)
+  has_sensitivity: 69 sensitive masses here, 69 published

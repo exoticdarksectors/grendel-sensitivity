@@ -1,0 +1,20 @@
+{
+ "origin": "IP5",
+ "level_survey_frame": {
+  "axes": "Xb along the beam (+ towards PX56 / R56), Yt horizontal (+ away from USC55), Z up",
+  "note": "the level frame of the CERN 3D civil model (PLM ST0116966) is the CMS survey frame to ~1 cm (38 points of the CMS survey team in UXC55, CMS-I-UR-0281)"
+ },
+ "cms_physicist_frame": {
+  "pitch_mrad": 12.34,
+  "pitch_deg": 0.707,
+  "from_level": "x = -Yt, y = Z cos a + Xb sin a, z = -Xb cos a + Z sin a",
+  "axes": "x horizontal (+ towards the LHC centre), z along the beam (rising towards L54), y perpendicular",
+  "source": "CMS-I-UR-0281 (EDMS 2028417)"
+ },
+ "scan_genie_civil_labels": {
+  "definition": "Xgc = Xph, Ygc = -Zph (along the beamline, + towards R56), Zgc = Yph",
+  "note": "the 2017 'Genie Civil' coordinates of the 2015 laser scan and of the 2017 survey marks in the gallery (CMS survey team) are CMS physicist coordinates with relabelled axes",
+  "source": "CMS-I-UR-0261 v3 (EDMS 1568271, 13 Oct 2026): the scan report, corrected by the CMS survey team (version 2 described a level frame)"
+ },
+ "grendel_codes_before": "the tunnel of the GRENDEL paper arXiv:2609.00152 as the code repositories had it before 13 Oct 2026 (the 47-point centreline of grendel-sensitivity v2.2 / llpatcolliders, and grendelSim 44680f5) was level and 1.5-3.1 m too low; grendel-sensitivity v2.2 and grendelSim 44680f5 were mirror images"
+}
