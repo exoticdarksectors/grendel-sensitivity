@@ -7,8 +7,8 @@ Two pieces of code are in this repository. Everything else the pipelines use is 
 
 | Path | What | Licence |
 |---|---|---|
-| `src/grendel-sensitivity/` | `git archive` of [exoticdarksectors/grendel-sensitivity](https://github.com/exoticdarksectors/grendel-sensitivity) at 8802f50 (v2.5.0), the analysis code, unmodified | BSD-3-Clause and LGPL-3.0-or-later: its `LICENSE`, `LICENSES/` and `THIRD_PARTY.md` (data derived from published work, with their citations) |
-| `src/llpatcolliders-hnl-06e5a18/` | `hnl/` of exoticdarksectors/llpatcolliders at 06e5a18 (2026-06-23; public on the fork [leoredi/llpatcolliders](https://github.com/leoredi/llpatcolliders), branch `hnl-production-mesons-ew`), the June 2026 HNL production code that some HNL channels still use; unmodified apart from the added `COMMIT` and `LICENSE` | BSD-3-Clause, (c) 2026 Federico Leo Redi (`LICENSE` in that folder) |
+| `src/grendel-sensitivity/` | the analysis code grendel-sensitivity v2.5.0: `git archive` of commit 8802f50 of its development repository, unmodified | BSD-3-Clause and LGPL-3.0-or-later: its `LICENSE`, `LICENSES/` and `THIRD_PARTY.md` (data derived from published work, with their citations) |
+| `src/llpatcolliders-hnl-06e5a18/` | `hnl/` of [exoticdarksectors/llpatcolliders](https://github.com/exoticdarksectors/llpatcolliders) at 06e5a18 (2026-06-23; public through its pull request #14, branch `hnl-production-mesons-ew`), the June 2026 HNL production code that some HNL channels still use; unmodified apart from the added `COMMIT` and `LICENSE` | BSD-3-Clause, (c) 2026 Federico Leo Redi (`LICENSE` in that folder) |
 | `reference/paper_figures/` | the four PNG figures of Sec. IV of arXiv:2609.00152v2 (Figs. 4-7), as in the paper | (c) the authors of the paper |
 | everything else | the reproduction: environment, pipelines, figures, results | BSD-3-Clause, (c) 2026 Federico Leo Redi (`LICENSE`) |
 

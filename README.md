@@ -1,7 +1,8 @@
 # GRENDEL v2: reproduction of the sensitivity figures
 
-This repository rebuilds every number behind the sensitivity figures of the GRENDEL v2 paper, from scratch and on
-a generic x86_64 Linux machine:
+This repository holds the GRENDEL analysis code, grendel-sensitivity v2.5.0 (`src/grendel-sensitivity`, with its own
+README), and rebuilds with it every number behind the sensitivity figures of the GRENDEL v2 paper, from scratch and
+on a generic x86_64 Linux machine:
 
 > M. Citron, F. L. Redi, R. Schmitz, *Proposing GRENDEL: GalleRy ExperimeNt for Decays of Exotic LLPs at the LHC*,
 > [arXiv:2609.00152v2](https://arxiv.org/abs/2609.00152), Sec. IV "Sensitivity".
@@ -40,8 +41,8 @@ byte where the platform allows it; otherwise the size and nature of each differe
 
 ```
 env/                 user-space toolchain: bootstrap.sh, activate.sh, the lock files of every package version
-src/grendel-sensitivity/          the analysis code, `git archive` of exoticdarksectors/grendel-sensitivity 8802f50
-                                  (v2.5.0), used unpatched
+src/grendel-sensitivity/          the analysis code v2.5.0, `git archive` of commit 8802f50 of its development
+                                  repository, used unpatched
 src/llpatcolliders-hnl-06e5a18/   the June 2026 HNL production code (v1), still behind some HNL channels
 pipelines/common/    the shared CPU pool (slot_run.py, slots_status.sh), the reference-data helpers (ref.sh, ref.py)
 pipelines/fonll/     the FONLL heavy-flavour (pT, y) grids every production reads

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # tools/make_reference_bundle.sh DEST -- pack the reference files the validations read (reference/MANIFEST.tsv) from
-# $GRENDEL_REF into one tar archive per pipeline, DEST/grendel-repro-reference-<pipeline>.tar, for a data record
+# $GRENDEL_REF into one tar archive per pipeline, DEST/grendel-sensitivity-reference-<pipeline>.tar, for a data record
 # (e.g. Zenodo). Unpacked into one folder, the archives rebuild the layout of the reference tree; point GRENDEL_REF
 # at that folder (reference/README.md). The files of reference/not_redistributable.txt (given to the authors
 # privately) are left out.
@@ -22,7 +22,7 @@ mkdir -p "$DEST"
 PIPES=("$@")
 [ ${#PIPES[@]} -gt 0 ] || mapfile -t PIPES < <(tail -n +2 "$M" | cut -f1 | sort -u)
 for pipe in "${PIPES[@]}"; do
-  out="$DEST/grendel-repro-reference-$pipe.tar"
+  out="$DEST/grendel-sensitivity-reference-$pipe.tar"
   tail -n +2 "$M" | awk -F'\t' -v p="$pipe" '$1 == p { print $2 }' | grep -vxF -f <(grep -v '^#' "$X") \
     > "$DEST/.$pipe.list" || true
   [ -s "$DEST/.$pipe.list" ] || { rm -f "$DEST/.$pipe.list"; continue; }
@@ -53,4 +53,4 @@ print(f"{out}: {seen} files, checked")
 EOF
   rm -f "$DEST/.$pipe.list"
 done
-(cd "$DEST" && sha256sum grendel-repro-reference-*.tar > SHA256SUMS && du -ch grendel-repro-reference-*.tar | tail -1)
+(cd "$DEST" && sha256sum grendel-sensitivity-reference-*.tar > SHA256SUMS && du -ch grendel-sensitivity-reference-*.tar | tail -1)

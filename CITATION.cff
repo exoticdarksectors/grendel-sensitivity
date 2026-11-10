@@ -4,12 +4,12 @@ message: >-
   the paper (preferred-citation) and the analysis code it runs, grendel-sensitivity, whose CITATION.cff
   (src/grendel-sensitivity/CITATION.cff) names every tool the results rest on.
 type: software
-title: "grendel-repro: from-scratch reproduction of the sensitivity figures of the GRENDEL v2 paper"
+title: "grendel-sensitivity: the GRENDEL analysis code (v2.5.0) and the from-scratch reproduction of the sensitivity figures of the GRENDEL v2 paper"
 authors:
   - family-names: Redi
     given-names: Federico Leo
     affiliation: "Università degli Studi di Bergamo"
-repository-code: "https://github.com/exoticdarksectors/grendel-repro"
+repository-code: "https://github.com/exoticdarksectors/grendel-sensitivity"
 license: BSD-3-Clause
 keywords:
   - reproducibility
@@ -36,7 +36,7 @@ preferred-citation:
 references:
   - type: software
     title: "grendel-sensitivity: sensitivity of the GRENDEL detector to the PBC benchmark models"
-    notes: "the analysis code, v2.5.0 (8802f50), in src/grendel-sensitivity"
+    notes: "the analysis code, v2.5.0 (8802f50), in src/grendel-sensitivity of this repository"
     authors:
       - family-names: Citron
         given-names: Matthew
@@ -45,7 +45,6 @@ references:
       - family-names: Schmitz
         given-names: Ryan
     version: "2.5.0"
-    repository-code: "https://github.com/exoticdarksectors/grendel-sensitivity"
     license:
       - BSD-3-Clause
       - LGPL-3.0-or-later

@@ -76,8 +76,8 @@ The fine four-vectors: `run_all --flavor F --masses M --channels bottom bc baryo
   c621279 the way the fine campaign worked around them in `condor/compile_mg5.py`, `run_wz.py`) and documentation /
   geometry metadata; the HNL production, the scan, the geometry data and the template generator are unchanged.
 * `src/llpatcolliders-hnl-06e5a18` (step 02): `git archive 06e5a18 hnl` of llpatcolliders (public at
-  https://github.com/leoredi/llpatcolliders, branch `hnl-production-mesons-ew`; the export made from there is identical
-  to the checked-in one), the last HNL commit before the June production (the run directory has no commit record; the outputs below confirm it). Needed because its outputs are not reproduced by the current code:
+  https://github.com/exoticdarksectors/llpatcolliders through pull request #14, branch `hnl-production-mesons-ew`; the
+  export made from there is identical to the checked-in one), the last HNL commit before the June production (the run directory has no commit record; the outputs below confirm it). Needed because its outputs are not reproduced by the current code:
   HNLCalc e292cef9 has G_F = 1.166378e-5 (b1d36c6: 1.1663788e-5, weights x(1+1.37e-6), and the changed accept/reject
   boundary desynchronises the B-meson random stream from about 1.1 GeV on), and its SIGMA_BC_PB = 0.9e6 still feeds
   the B_c -> tau nu source of the induced-tau pool (62 vs 113 taus of 100k; the v2 B_c fix rescaled only the B_c
